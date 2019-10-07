@@ -1,4 +1,4 @@
-#v0.0.1
+version = str("v0.0.1")
 import sys
 import datetime
 current_time = str(datetime.datetime.now())
