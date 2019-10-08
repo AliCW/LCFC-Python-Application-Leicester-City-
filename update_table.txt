@@ -1,4 +1,0 @@
-fixture version = 0.0.1 (07/10/2019)
-
-player stat version = 0.0.1 (07/10/2019)
-
