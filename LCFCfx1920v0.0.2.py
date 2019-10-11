@@ -14,7 +14,6 @@ current_time = str(datetime.datetime.now())
 
 okay = str("f")
 next_fix = str("n")
-update = str("u")
 yes = str("y")
 no = str("n")
 
@@ -449,35 +448,6 @@ def initialstart():
     inistart = input("\nPress F for fixtures or U for updates\n\n").lower()
     if (inistart == okay):
         fixture_date_id.leiVsNew()
-    if (inistart == update):
-        update_page()
-
-def update_page():
-        print('Loading the internet')
-        options = Options()  # define browser options
-        options.headless = True  # set options to headless
-        browser = webdriver.Firefox(options=options)  # opens a headless firefox named "browser"
-        browser.get('https://raw.githubusercontent.com/AliCW/Test/master/update_table.txt')  # browser is sent to schmeichel's stats page
-        print('Internet loaded')
-        WebDriverWait(browser,10)  # .until(waitCondition.presence_of_element_located((By.id, '"player_update_version"')))
-        update_list = browser.page_source
-        escape_list = html.unescape(update_list)
-        fixture_soup = BeautifulSoup(escape_list, features='html.parser')
-        update_string = fixture_soup.main.string
-        print("Latest version: " + update_string)
-        if update_string > current_version:
-            print("Fixture list if out of date")
-
-
-        else: browser.close()
-
-def passed_close_page():
-        print("Fixture list is the latest version")
-        sys.exit()
-
-def failed_close_page():
-        print("Fixture list updated")
-        sys.exit()
 
 initialstart()
 
