@@ -10,7 +10,6 @@ import pickle
 import html
 import sys
 current_time = str(datetime.datetime.now())
-current_version = str("v0.0.1")
 #print(current_time)
 
 okay = str("f")
