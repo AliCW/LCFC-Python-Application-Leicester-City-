@@ -3,6 +3,8 @@
 	<body>
 		<main id="player_update_version">0.02</main>
 		
+		<h id="gk_update_version">0.02</h>
+		
 		<p id="fixture_update_version">0.02</p>
   	</body>
 </html>
