@@ -1,8 +1,8 @@
 import sys
-fixture_list_version = float(0.02)
+player_stats_version = float(0.02)
 
 def player_version():
-    print(fixture_list_version)
+    print(player_stats_version)
     sys.exit()
 
 player_version()
