@@ -1,23 +1,9 @@
 import sys
 import datetime
-from selenium import webdriver
-from selenium.webdriver.firefox.options import Options
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as waitCondition
-from bs4 import BeautifulSoup as BeautifulSoup
-import pickle
-import html
-import sys
 current_time = str(datetime.datetime.now())
-#print(current_time)
 
 okay = str("f")
 next_fix = str("n")
-yes = str("y")
-no = str("n")
-
-#we need to place a time restriction so it moves to the next game like 2 hours after kick off
 
 class fixture_date_id: #list of premier league fixtures only!!!
     def leiVsNew(): # starts at the newcastle game because of when the software is written
@@ -30,12 +16,8 @@ class fixture_date_id: #list of premier league fixtures only!!!
         else: fixture_info.iLivVsLei()
     def leiVsBur():
         if current_time > "2019-10-19 17:30:00.000000":
-            fixture_date_id.BtnVsLei()
-        else: fixture_info.iLeiVsBur()
-    def btnVsLei():
-        if current_time > "2019-10-29 22:15:00.000000":
             fixture_date_id.souVsLei()
-        else: fixture_info.iBtnVsLei()
+        else: fixture_info.iLeiVsBur()
     def souVsLei():
         if current_time > "2019-10-25 22:30:00.000000":
             fixture_date_id.cryVsLei()
@@ -149,8 +131,6 @@ class fixture_date_id: #list of premier league fixtures only!!!
             print("No more fixtures to list at this point in time.")
         else: fixture_info.iLeiVsMnu()
 
-
-
 class fixture_info:
     def iLeiVsNew(): #test code - def should never be printed - was written after the game was played
         print("Leicester City Vs Newcastle United")
@@ -172,15 +152,6 @@ class fixture_info:
         print("Kick-off: Saturday 19/10/2019 at 15:00")
         next_game_02 = input("\n\nPress N for the next game or any other key to exit\n").lower()
         if next_game_02 == next_fix:
-            fixture_info.iBtnVsLei()
-        else: sys.exit()
-
-    def iBtnVsLei(): #<---------------------------------------version 0.0.2 addition
-        print("Burton Albion Vs Leicester City")
-        print("Away")
-        print("Kick-off: Tuesday 29/10/2019 at 19:45")
-        next_game_1002 = input("\n\nPress N for the next game or any other key to exit\n").lower()
-        if next_game_1002 == next_fix:
             fixture_info.iSouVsLei()
         else: sys.exit()
 
@@ -443,13 +414,7 @@ class fixture_info:
         input("\n\nEnd of fixtures, press any key to exit")
         sys.exit()
 
-
-def initialstart():
-    inistart = input("\nPress F for fixtures or U for updates\n\n").lower()
-    if (inistart == okay):
-        fixture_date_id.leiVsNew()
-
-initialstart()
+fixture_date_id.leiVsNew()
 
 #at the startup, the program creates a string containing the current date -
     #uses this string to match to available fixture dates and show these accourdingly
