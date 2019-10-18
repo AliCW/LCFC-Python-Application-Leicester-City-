@@ -1,4 +1,4 @@
-#revision 0.02
+#revision 0.02 (current stats will be false/empty)
 import sys
 
 shut_down = str('exit')
@@ -160,7 +160,7 @@ jak_red_cards = str(0)
 jak_fouls = str(0)
 
 #DEFENCE<---------------------------------------------------------------------------------------------------------------
-# James Justin stats<------https://www.lcfc.com/players/13515/James-Justin/profile
+# James Justin stats<------https://www.lcfc.com/players/13515/James-Justin/profile?tabs=Statistics
 jus_appearances = str(0) #appearances
 jus_goals = str(0) #goals
 jus_tackles = str(0) #tackles made
@@ -175,7 +175,7 @@ jus_red_cards = str(0)
 jus_fouls = str(0)
 jus_offside = str(0)
 
-# Ben Chilwell stats<--------https://www.lcfc.com/players/13491/Ben-Chilwell/profile
+# Ben Chilwell stats<--------https://www.lcfc.com/players/13491/Ben-Chilwell/profile?tabs=Statistics
 chi_appearances = str(0) #appearances
 chi_goals = str(0) #goals
 chi_tackles = str(0) #tackles made
@@ -205,7 +205,7 @@ soy_red_cards = str(0)
 soy_fouls = str(0)
 soy_offside = str(0)
 
-#Wes Morgan stats<----------https://www.lcfc.com/players/8966/Wes-Morgan/profile
+#Wes Morgan stats<----------https://www.lcfc.com/players/8966/Wes-Morgan/profile?tabs=Statistics
 mor_appearances = str(0) #appearances
 mor_goals = str(0) #goals
 mor_tackles = str(0) #tackles made
@@ -220,7 +220,7 @@ mor_red_cards = str(0)
 mor_fouls = str(0)
 mor_offside = str(0)
 
-#Jonny Evans stats<---------https://www.lcfc.com/players/3156/Jonny-Evans/profile
+#Jonny Evans stats<---------https://www.lcfc.com/players/3156/Jonny-Evans/profile?tabs=Statistics
 eva_appearances = str(0) #appearances
 eva_goals = str(0) #goals
 eva_tackles = str(0) #tackles made
@@ -235,7 +235,7 @@ eva_red_cards = str(0)
 eva_fouls = str(0)
 eva_offside = str(0)
 
-#Filip Benkovic<---------https://www.lcfc.com/players/16671/Filip-Benkovic/profile
+#Filip Benkovic<---------https://www.lcfc.com/players/16671/Filip-Benkovic/profile?tabs=Statistics
 ben_appearances = str(0) #appearances
 ben_goals = str(0) #goals
 ben_tackles = str(0) #tackles made
@@ -250,7 +250,7 @@ ben_red_cards = str(0)
 ben_fouls = str(0)
 ben_offside = str(0)
 
-#Daniel Amartey<----------https://www.lcfc.com/players/12306/Daniel-Amartey/profile
+#Daniel Amartey<----------https://www.lcfc.com/players/12306/Daniel-Amartey/profile?tabs=Statistics
 ama_appearances = str(0) #appearances
 ama_goals = str(0) #goals
 ama_tackles = str(0) #tackles made
@@ -265,7 +265,7 @@ ama_red_cards = str(0)
 ama_fouls = str(0)
 ama_offside = str(0)
 
-#Ricardo Pereira<-----------https://www.lcfc.com/players/5343/Ricardo-Pereira/profile
+#Ricardo Pereira<-----------https://www.lcfc.com/players/5343/Ricardo-Pereira/profile?tabs=Statistics
 rper_appearances = str(0) #appearances
 rper_goals = str(0) #goals
 rper_tackles = str(0) #tackles made
@@ -280,7 +280,7 @@ rper_red_cards = str(0)
 rper_fouls = str(0)
 rper_offside = str(0)
 
-#Christian Fuchs<------------https://www.lcfc.com/players/5371/Christian-Fuchs/profile
+#Christian Fuchs<------------https://www.lcfc.com/players/5371/Christian-Fuchs/profile?tabs=Statistics
 fuc_appearances = str(0) #appearances
 fuc_goals = str(0) #goals
 fuc_tackles = str(0) #tackles made
