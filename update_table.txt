@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html>
 	<body>
-		<main id="player_update_version">0.02</main>
+		<main id="player_update_version">0.03</main>
 		
-		<h id="gk_update_version">0.02</h>
-		
-		<p id="fixture_update_version">0.02</p>
+		<p id="fixture_update_version">0.03</p>
   	</body>
 </html>
