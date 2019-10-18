@@ -1,4 +1,4 @@
-#revision 0.02 (current stats will be false/empty)
+#revision 0.03 (current stats will be false/empty)
 import sys
 
 shut_down = str('exit')
