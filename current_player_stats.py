@@ -1,6 +1,7 @@
-#revision 0.03 (current stats will be false/empty)
+#revision 0.04 (current stats will be false/empty)
 import sys
 
+lcfc_squad = ('squad')
 shut_down = str('exit')
 
 sch_name = str('kasper schmeichel')
@@ -491,6 +492,9 @@ per_offside = str(0)
 #User query switch<-------------------------------------------------------------------------------
 def start_player_stats_query(): #Code for the user query positioned on startup
     starter_user_query = input('\nType the name or initials of the player, or "squad" to see the team list or "exit" to close\n').lower()
+    if (starter_user_query == lcfc_squad):
+        list_squad()
+        start_player_stats_query()
     if (starter_user_query == shut_down):
         sys.exit()
     if (starter_user_query == sch_name) or (starter_user_query == sch_initials): #Schmeichel
@@ -599,6 +603,23 @@ def start_player_stats_query(): #Code for the user query positioned on startup
         per_discipline_stats()
         start_player_stats_query()
     else: start_player_stats_query()
+
+#Squad print definition<------------------------------------------------------------------------
+def list_squad():
+    print('\nGoalkeepers:')
+    print(sch_name + ' - ' + sch_initials + ' | ' + war_name + ' - ' + war_initials + ' | ' + jak_name + ' - ' + jak_initials)
+    print('\nDefense:')
+    print(jus_name + ' - ' + jus_initials + ' | ' + chi_name + ' - ' + chi_initials + ' | ' + soy_name + ' - ' + soy_initials)
+    print(mor_name + ' - ' + mor_initials + ' | ' + eva_name + ' - ' + eva_initials + ' | ' + ben_name + ' - ' + ben_initials)
+    print(ama_name + ' - ' + ama_initials + ' | ' + rper_name + ' - ' + rper_initials + ' | ' + fuc_name + ' - ' + fuc_initials)
+    print('\nMidfield:')
+    print(gra_name + ' - ' + gra_initials + ' | ' + tie_name + ' - ' + tie_initials + ' | ' + mad_name + ' - ' + mad_initials)
+    print(alb_name + ' - ' + alb_initials + ' | ' + bar_name + ' - ' + bar_initials + ' | ' + cho_name + ' - ' + cho_initials)
+    print(jam_name + ' - ' + jam_initials + ' | ' + men_name + ' - ' + men_initials + ' | ' + ndi_name + ' - ' + ndi_initials)
+    print(pra_name + ' - ' + pra_initials)
+    print('\nForwards')
+    print(var_name + ' - ' + var_initials + ' | ' + ihe_name + ' - ' + ihe_initials + ' | ' + per_name + ' - ' + per_initials)
+
 
 #Player print definitions
 #Kasper Schmeichel print defintions<-------------------------------------------------------------
