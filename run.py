@@ -128,10 +128,10 @@ def list_of_commands():
     if (command_list == rst1):
         startupquery00()
     if (command_list == fx_version):
-        print(fixture_list_current_version)
+        print(float(fixture_list_current_version))
         list_of_commands()
     if (command_list == pl_version):
-        print(player_stats_current_version)
+        print(float(player_stats_current_version))
         list_of_commands()
     else: list_of_commands_failed_syntax()
 
