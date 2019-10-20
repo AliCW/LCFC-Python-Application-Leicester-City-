@@ -1,4 +1,4 @@
-#revision 0.03
+#revision 0.04
 import sys
 import datetime
 current_time = str(datetime.datetime.now())
@@ -56,7 +56,7 @@ class fixture_date_id: #list of premier league fixtures only!!!
             fixture_date_id.leiVsLiv()
         else: fixture_info.iMncVsLei()
     def leiVsLiv():
-        if current_time > "2019-12-26 17:30:00.000000":
+        if current_time > "2019-12-26 22:30:00.000000":
             fixture_date_id.whuVsLei()
         else: fixture_info.iLeiVsLiv()
     def whuVsLei():
@@ -240,7 +240,7 @@ class fixture_info:
     def iLeiVsLiv():
         print("Leicester City Vs Liverpool FC")
         print("Home")
-        print("Kick-off: Thursday 26/12/2019 at 15:00")
+        print("Kick-off: Thursday 26/12/2019 at 20:00")
         next_game_12 = input("\n\nPress N for the next game or any other key to exit\n").lower()
         if next_game_12 == next_fix:
             fixture_info.iWhuVsLei()
