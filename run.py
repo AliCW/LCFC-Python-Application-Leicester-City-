@@ -104,7 +104,9 @@ def player_passed_close_page():
     print('Update tool has completed')
 
 def startupquery00():
-    startquery = input('\nType "stats" for player statistics.\nType "fixtures" for the fixture list.\nType "commands" for a list of other features or "exit" to close the program.\n').lower()
+    startquery = input('\nType "stats" for player statistics.\nType "fixtures" for the fixture list.'
+                       '\nType "commands" for a list of other features or "exit" to close the program.'
+                       '\nType "scores" for the list of results in this years season.\n').lower()
     if (startquery == command): #lists available commands
         list_of_commands()
         startupquery00()
@@ -113,6 +115,9 @@ def startupquery00():
         startupquery00()
     if (startquery == statistics):
         subprocess.call(['python', 'current_player_stats.py'])
+        startupquery00()
+    #if (startquery == results):
+        #subprocess.call(['python', 'latest_results.py'])
         startupquery00()
     if (startquery == shut_down):
         sys.exit()
