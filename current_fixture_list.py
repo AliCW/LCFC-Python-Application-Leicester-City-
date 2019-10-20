@@ -1,4 +1,4 @@
-#revision 0.04
+#revision 0.05
 import sys
 import datetime
 current_time = str(datetime.datetime.now())
@@ -134,7 +134,7 @@ class fixture_date_id: #list of premier league fixtures only!!!
 
 class fixture_info:
     def iLeiVsNew(): #test code - def should never be printed - was written after the game was played
-        print("Leicester City Vs Newcastle United")
+        print("Leicester City Vs Newcastle United") #fixture info from LCFC site
         print("Home")
         print("Kick-off: Sunday 29/09/2019 at 16:30")
 
@@ -160,6 +160,7 @@ class fixture_info:
         print("Southampton FC Vs Leicester City")
         print("Away")
         print("Kick-off: Friday 25/10/2019 at 20:00")
+        print("UK Broadcaster: Sky Sports") #Broadcast information from: https://www.premierleague.com/broadcast-schedules
         next_game_03 = input("\n\nPress N for the next game or any other key to exit\n").lower()
         if next_game_03 == next_fix:
             fixture_info.iCryVsLei()
@@ -169,6 +170,7 @@ class fixture_info:
         print("Crystal Palace Vs Leicester City")
         print("Away")
         print("Kick-off: Sunday 03/11/2019 at 14:00")
+        print("UK Broadcaster: Sky Sports")
         next_game_04 = input("\n\nPress N for the next game or any other key to exit\n").lower()
         if next_game_04 == next_fix:
             fixture_info.iLeiVsArs()
@@ -178,6 +180,7 @@ class fixture_info:
         print("Leicester City Vs Arsenal FC")
         print("Home")
         print("Kick-off: Saturday 09/11/2019 at 17:30")
+        print("UK Broadcaster: Sky Sports")
         next_game_05 = input("\n\nPress N for the next game or any other key to exit\n").lower()
         if next_game_05 == next_fix:
             fixture_info.iBhaVsLei()
@@ -187,6 +190,7 @@ class fixture_info:
         print("Brighton & Hove Albion Vs Leicester City")
         print("Away")
         print("Kick-off: Saturday 23/11/2019 at 15:00")
+        print("UK Broadcaster: None - N/A")
         next_game_06 = input("\n\nPress N for the next game or any other key to exit\n").lower()
         if next_game_06 == next_fix:
             fixture_info.iLeiVsEve()
@@ -196,6 +200,7 @@ class fixture_info:
         print("Leicester City Vs Everton FC")
         print("Home")
         print("Kick-off: Sunday 01/12/2019 at 16:30")
+        print("UK Broadcaster: Sky Sports")
         next_game_07 = input("\n\nPress N for the next game or any other key to exit\n").lower()
         if next_game_07 == next_fix:
             fixture_info.iLeiVsWat()
@@ -205,6 +210,7 @@ class fixture_info:
         print("Leicester City Vs Watford FC")
         print("Home")
         print("Kick-off: Tuesday 03/12/2019 at 19:45")
+        print("UK Broadcaster: Amazon Prime Video")
         next_game_08 = input("\n\nPress N for the next game or any other key to exit\n").lower()
         if next_game_08 == next_fix:
             fixture_info.iAstVsLei()
@@ -214,6 +220,7 @@ class fixture_info:
         print("Aston Villa Vs Leicester City")
         print("Away")
         print("Kick-off: Saturday 07/12/2019 at 15:00")
+        print("UK Broadcaster: Sky Sports")
         next_game_09 = input("\n\nPress N for the next game or any other key to exit\n").lower()
         if next_game_09 == next_fix:
             fixture_info.iLeiVsNor()
@@ -223,6 +230,7 @@ class fixture_info:
         print("Leicester City Vs Norwich City")
         print("Home")
         print("Kick-off: Saturday 14/12/2019 at 15:00")
+        print("UK Broadcaster: None - N/A")
         next_game_10 = input("\n\nPress N for the next game or any other key to exit\n").lower()
         if next_game_10 == next_fix:
             fixture_info.iMncVsLei()
@@ -232,6 +240,7 @@ class fixture_info:
         print("Manchester City Vs Leicester City")
         print("Away")
         print("Kick-off: Saturday 21/12/2019 at 15:00")
+        print("UK Broadcaster: Sky Sports")
         next_game_11 = input("\n\nPress N for the next game or any other key to exit\n").lower()
         if next_game_11 == next_fix:
             fixture_info.iLeiVsLiv()
@@ -241,6 +250,7 @@ class fixture_info:
         print("Leicester City Vs Liverpool FC")
         print("Home")
         print("Kick-off: Thursday 26/12/2019 at 20:00")
+        print("UK Broadcaster: Amazon Prime Video")
         next_game_12 = input("\n\nPress N for the next game or any other key to exit\n").lower()
         if next_game_12 == next_fix:
             fixture_info.iWhuVsLei()
@@ -250,6 +260,7 @@ class fixture_info:
         print("West Ham United Vs Leicester City")
         print("Away")
         print("Kick-off: Saturday 28/12/2019 at 15:00")
+        print("UK Broadcaster: None - N/A")
         next_game_13 = input("\n\nPress N for the next game or any other key to exit\n").lower()
         if next_game_13 == next_fix:
             fixture_info.iNewVsLei()
@@ -259,6 +270,7 @@ class fixture_info:
         print("Newcastle United Vs Leicester City")
         print("Away")
         print("Kick-off: Saturday 01/01/2020 at 15:00")
+        print("UK Broadcaster: BT Sports")
         next_game_14 = input("\n\nPress N for the next game or any other key to exit\n").lower()
         if next_game_14 == next_fix:
             fixture_info.iLeiVsSou()
@@ -268,6 +280,7 @@ class fixture_info:
         print("Leicester City Vs Southampton FC")
         print("Home")
         print("Kick-off: Saturday 11/01/2020 at 15:00")
+        print("UK Broadcaster: None - N/A")
         next_game_15 = input("\n\nPress N for the next game or any other key to exit\n").lower()
         if next_game_15 == next_fix:
             fixture_info.iBrnVsLei()
@@ -277,6 +290,7 @@ class fixture_info:
         print("Burnley FC Vs Leicester City")
         print("Away")
         print("Kick-off: Saturday 18/01/2019 at 15:00")
+        print("UK Broadcaster: Sky Sports")
         next_game_16 = input("\n\nPress N for the next game or any other key to exit\n").lower()
         if next_game_16 == next_fix:
             fixture_info.iLeiVsWhu()
@@ -286,6 +300,7 @@ class fixture_info:
         print("Leicester City Vs West Ham United")
         print("Home")
         print("Kick-off: Tuesday 21/01/2020 at 19:45")
+        print("UK Broadcaster: BT Sports")
         next_game_17 = input("\n\nPress N for the next game or any other key to exit\n").lower()
         if next_game_17 == next_fix:
             fixture_info.iLeiVsChe()
@@ -295,6 +310,7 @@ class fixture_info:
         print("Leicester City Vs Chelsea FC")
         print("Home")
         print("Kick-off: Saturday 01/02/2020 at 15:00")
+        print("UK Broadcaster: None - N/A")
         next_game_18 = input("\n\nPress N for the next game or any other key to exit\n").lower()
         if next_game_18 == next_fix:
             fixture_info.iWolVsLei()
@@ -304,6 +320,7 @@ class fixture_info:
         print("Wolverhampton Wanderers Vs Leicester City")
         print("Away")
         print("Kick-off: Saturday 08/02/2020 at 15:00")
+        print("UK Broadcaster: None - N/A")
         next_game_19 = input("\n\nPress N for the next game or any other key to exit\n").lower()
         if next_game_19 == next_fix:
             fixture_info.iLeiVsMnc()
@@ -313,6 +330,7 @@ class fixture_info:
         print("Leicester City Vs Manchester City")
         print("Home")
         print("Kick-off: Saturday 22/02/2020 at 15:00")
+        print("UK Broadcaster: None - N/A")
         next_game_20 = input("\n\nPress N for the next game or any other key to exit\n").lower()
         if next_game_20 == next_fix:
             fixture_info.iNorVsLei()
@@ -322,6 +340,7 @@ class fixture_info:
         print("Norwich City Vs Leicester City")
         print("Away")
         print("Kick-off: Saturday 29/02/2020 at 15:00")
+        print("UK Broadcaster: None - N/A")
         next_game_21 = input("\n\nPress N for the next game or any other key to exit\n").lower()
         if next_game_21 == next_fix:
             fixture_info.iLeiVsAst()
@@ -331,6 +350,7 @@ class fixture_info:
         print("Leicester City Vs Aston Villa")
         print("Home")
         print("Kick-off: Saturday 07/03/2020 at 15:00")
+        print("UK Broadcaster: None - N/A")
         next_game_22 = input("\n\nPress N for the next game or any other key to exit\n").lower()
         if next_game_22 == next_fix:
             fixture_info.iWatVsLei()
@@ -340,6 +360,7 @@ class fixture_info:
         print("Watford FC Vs Leicester City")
         print("Away")
         print("Kick-off: Saturday 14/03/2020 at 15:00")
+        print("UK Broadcaster: None - N/A")
         next_game_23 = input("\n\nPress N for the next game or any other key to exit\n").lower()
         if next_game_23 == next_fix:
             fixture_info.iLeiVsBha()
@@ -349,6 +370,7 @@ class fixture_info:
         print("Leicester City Vs Brighton & Hove Albion")
         print("Home")
         print("Kick-off: Saturday 21/03/2020 at 15:00")
+        print("UK Broadcaster: None - N/A")
         next_game_24 = input("\n\nPress N for the next game or any other key to exit\n").lower()
         if next_game_24 == next_fix:
             fixture_info.iEveVsLei()
@@ -358,6 +380,7 @@ class fixture_info:
         print("Everton FC Vs Leicester City")
         print("Away")
         print("Kick-off: Saturday 04/04/2020 at 15:00")
+        print("UK Broadcaster: None - N/A")
         next_game_25 = input("\n\nPress N for the next game or any other key to exit\n").lower()
         if next_game_25 == next_fix:
             fixture_info.iLeiVsCry()
@@ -367,6 +390,7 @@ class fixture_info:
         print("Leicester City Vs Crystal Palace")
         print("Home")
         print("Kick-off: Saturday 11/04/2020 at 15:00")
+        print("UK Broadcaster: None - N/A")
         next_game_26 = input("\n\nPress N for the next game or any other key to exit\n").lower()
         if next_game_26 == next_fix:
             fixture_info.iArsVsLei()
@@ -376,6 +400,7 @@ class fixture_info:
         print("Arsenal FC Vs Leicester City")
         print("Away")
         print("Kick-off: Saturday 18/04/2020 at 15:00")
+        print("UK Broadcaster: None - N/A")
         next_game_27 = input("\n\nPress N for the next game or any other key to exit\n").lower()
         if next_game_27 == next_fix:
             fixture_info.iBouVsLei()
@@ -385,6 +410,7 @@ class fixture_info:
         print("AFC Bournemouth Vs Leicester City")
         print("Away")
         print("Kick-off: Saturday 25/04/2020 at 15:00")
+        print("UK Broadcaster: None - N/A")
         next_game_28 = input("\n\nPress N for the next game or any other key to exit\n").lower()
         if next_game_28 == next_fix:
             fixture_info.iLeiVsShu()
@@ -394,6 +420,7 @@ class fixture_info:
         print("Leicester City Vs Sheffield United")
         print("Home")
         print("Kick-off: Saturday 02/05/2020 at 15:00")
+        print("UK Broadcaster: None - N/A")
         next_game_29 = input("\n\nPress N for the next game or any other key to exit\n").lower()
         if next_game_29 == next_fix:
             fixture_info.iTotVsLei()
@@ -403,6 +430,7 @@ class fixture_info:
         print("Tottenham Hotspur Vs Leicester City")
         print("Away")
         print("Kick-off: Saturday 09/05/2020 at 15:00")
+        print("UK Broadcaster: None - N/A")
         next_game_30 = input("\n\nPress N for the next game or any other key to exit\n").lower()
         if next_game_30 == next_fix:
             fixture_info.iLeiVsMnu()
@@ -412,6 +440,7 @@ class fixture_info:
         print("Leicester City Vs Manchester United")
         print("Home")
         print("Kick-off: Saturday 17/05/2020 at 15:00")
+        print("UK Broadcaster: None - N/A")
         input("\n\nEnd of fixtures, press any key to exit")
         sys.exit()
 
