@@ -1,4 +1,4 @@
-#revision 0.05
+#revision 0.06
 import sys
 import datetime
 current_time = str(datetime.datetime.now())
@@ -21,8 +21,12 @@ class fixture_date_id: #list of premier league fixtures only!!!
         else: fixture_info.iLeiVsBur()
     def souVsLei():
         if current_time > "2019-10-25 22:30:00.000000":
-            fixture_date_id.cryVsLei()
+            fixture_date_id.butVsLei()
         else: fixture_info.iSouVsLei()
+    def butVsLei():
+        if current_time > "2019-10-29 22:15:00.000000":
+            fixture_date_id.cryVsLei()
+        else: fixture_info.iButVsLei()
     def cryVsLei():
         if current_time > "2019-11-03 16:30:00.000000":
             fixture_date_id.leiVsArs()
@@ -69,12 +73,12 @@ class fixture_date_id: #list of premier league fixtures only!!!
         else: fixture_info.iNewVsLei()
     def leiVsSou():
         if current_time > "2020-01-11 17:30:00.000000":
-            fixture_date_id.brnVsLei()
+            fixture_date_id.burVsLei()
         else: fixture_info.iLeiVsSou()
-    def brnVsLei():
+    def burVsLei():
         if current_time > "2020-01-18 17:30:00.000000":
             fixture_date_id.leiVsWhu()
-        else: fixture_info.iBrnVsLei()
+        else: fixture_info.iBurVsLei()
     def leiVsWhu():
         if current_time > "2020-01-21 22:15:00.000000":
             fixture_date_id.leiVsChe()
@@ -132,7 +136,7 @@ class fixture_date_id: #list of premier league fixtures only!!!
             print("No more fixtures to list at this point in time.")
         else: fixture_info.iLeiVsMnu()
 
-class fixture_info:
+class fixture_info: #get international TV schedules from https://www.livesoccertv.com
     def iLeiVsNew(): #test code - def should never be printed - was written after the game was played
         print("Leicester City Vs Newcastle United") #fixture info from LCFC site
         print("Home")
@@ -163,9 +167,19 @@ class fixture_info:
         print("UK Broadcaster: Sky Sports") #Broadcast information from: https://www.premierleague.com/broadcast-schedules
         next_game_03 = input("\n\nPress N for the next game or any other key to exit\n").lower()
         if next_game_03 == next_fix:
-            fixture_info.iCryVsLei()
+            fixture_info.iButVsLei()
         else: sys.exit()
 
+    def iButVsLei():
+        print("Burton Albion Vs Leicester City")
+        print("Away")
+        print("Kick-off: Tuesday 29/10/2019 at 19:45")
+        print("UK Broadcaster: None - N/A")
+        next_game_cara1 = input("\n\nPress N for the next game or any other key to exit\n").lower()
+        if next_game_cara1 == next_fix:
+            fixture_info.iCryVsLei()
+        else: sys.exit()
+        
     def iCryVsLei():
         print("Crystal Palace Vs Leicester City")
         print("Away")
@@ -283,10 +297,10 @@ class fixture_info:
         print("UK Broadcaster: None - N/A")
         next_game_15 = input("\n\nPress N for the next game or any other key to exit\n").lower()
         if next_game_15 == next_fix:
-            fixture_info.iBrnVsLei()
+            fixture_info.iBurVsLei()
         else: sys.exit()
 
-    def iBrnVsLei():
+    def iBurVsLei():
         print("Burnley FC Vs Leicester City")
         print("Away")
         print("Kick-off: Saturday 18/01/2019 at 15:00")
