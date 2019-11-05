@@ -69,6 +69,8 @@ def startuppage():
             result_create.close()
         if results_list_update_query == no:
             print('Very Well...')
+    if float(results_update_string) <= float(results_list_current_version):
+        print('\nResults list is up to date!')
     if float(player_update_string) > float(player_stats_current_version): #compares internal file version with github file version
         print('\nPlayer statistics are out of date')
         player_stats_update_query = input('\nWould you like to update LCFC player statistics? Y / N\n')
