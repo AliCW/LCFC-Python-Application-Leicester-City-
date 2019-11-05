@@ -23,6 +23,7 @@ shut_down = str('exit')
 #<-----Current version number scripts
 player_stats_current_version = subprocess.check_output(['python', 'current_player_stats_version.py'])
 fixture_list_current_version = subprocess.check_output(['python', 'current_fixture_version.py']) #runs process on version file to gain the version number
+results_list_current_version = subprocess.check_output(['python', 'current_results_version.py'])
                                             #need to use check_output in order to float the value for comparison (what didnt work?)
 def startuppage():
     print('Started\n')
@@ -37,10 +38,37 @@ def startuppage():
     escape_list = html.unescape(update_list)
     player_soup = BeautifulSoup(escape_list, features='html.parser')
     fixture_soup = BeautifulSoup(escape_list, features='html.parser')
+    results_soup = BeautifulSoup(escape_list, features='html.parser')
     player_update_string = player_soup.main.string #takes the text out of the <main> section - IDed internally within the HTML page - PLAYER UPDATE SECTION
     fixture_update_string = fixture_soup.p.string #takes the version number from the <p> section
+    results_update_string = results_soup.h1.string
     print('Latest player version: ' + player_update_string)
     print('Latest fixture version: ' + fixture_update_string)
+    print('Latest Results Version: ' + results_update_string)
+    if float(results_update_string) > float(results_list_current_version):
+        print('\nResults list is out of date')
+        results_list_update_query = input('\nWould you like to update LCFC results? Y / N\n')
+        if results_list_update_query == yes:
+            os.replace('current_results_version.py', 'current_results_version.old.py')
+            browser.get('https://raw.githubusercontent.com/AliCW/Test/master/current_results_version.py')
+            latest_result_version_raw = browser.page_source
+            latest_result_version_parsed = html.unescape(latest_result_version_raw)
+            latest_result_version_soup = BeautifulSoup(latest_result_version_parsed, features='html.parser')
+            latest_result_version_final = latest_result_version_soup.pre.string
+            result_version_create = open('current_results_version.py', 'w+')
+            result_version_create.write(latest_result_version_final)
+            result_version_create.close()
+            os.replace('current_results.py', 'current_results.old.py')
+            browser.get('https://raw.githubusercontent.com/AliCW/Test/master/current_results.py')
+            latest_result_raw = browser.page_source
+            latest_result_parsed = html.unescape(latest_result_raw)
+            latest_result_soup = BeautifulSoup(latest_result_parsed, features='html.parser')
+            latest_result_final = latest_result_soup.pre.string
+            result_create = open('current_results.py', 'w+')
+            result_create.write(latest_result_final)
+            result_create.close()
+        if results_list_update_query == no:
+            print('Very Well...')
     if float(player_update_string) > float(player_stats_current_version): #compares internal file version with github file version
         print('\nPlayer statistics are out of date')
         player_stats_update_query = input('\nWould you like to update LCFC player statistics? Y / N\n')
@@ -116,8 +144,8 @@ def startupquery00():
     if (startquery == statistics):
         subprocess.call(['python', 'current_player_stats.py'])
         startupquery00()
-    #if (startquery == results):
-        #subprocess.call(['python', 'latest_results.py'])
+    if (startquery == results):
+        subprocess.call(['python', 'current_results.py'])
         startupquery00()
     if (startquery == shut_down):
         sys.exit()
@@ -129,6 +157,9 @@ def list_of_commands():
         list_of_commands()
     if (command_list == statistics):
         subprocess.call(['python', 'current_player_stats.py'])
+        list_of_commands()
+    if (command_list == results):
+        subprocess.call(['python', 'current_results.py'])
         list_of_commands()
     if (command_list == rst1):
         startupquery00()
