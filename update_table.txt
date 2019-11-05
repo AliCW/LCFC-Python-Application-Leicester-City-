@@ -3,7 +3,7 @@
 	<body>
 		<main id="player_update_version">0.04</main>
 		
-		<h id="results_update_version">0.01</h>
+		<h id="results_update_version">0.02</h>
 		
 		<p id="fixture_update_version">0.06</p>
   	</body>
