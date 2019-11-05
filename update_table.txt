@@ -2,9 +2,7 @@
 <html>
 	<body>
 		<main id="player_update_version">0.04</main>
-		
-		<h id="results_update_version">0.02</h>
-		
+		<h1 id="results_update_version">0.02</h1>		
 		<p id="fixture_update_version">0.06</p>
   	</body>
 </html>
