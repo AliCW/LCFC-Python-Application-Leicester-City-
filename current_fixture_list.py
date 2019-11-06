@@ -53,8 +53,12 @@ class fixture_date_id: #list of premier league fixtures only!!!
         else: fixture_info.iAstVsLei()
     def leiVsNor():
         if current_time > "2019-12-14 17:30:00.000000":
-            fixture_date_id.mncVsLei()
+            fixture_date_id.eveVsLei_Carab()
         else: fixture_info.iLeiVsNor()
+    def eveVsLei_Carab():
+        if current_time > "2019-12-18 22:15:00.000000":
+            fixture_date_id.mncVsLei()
+        else: fixture_info.iEveVsLei_Carab()
     def mncVsLei():
         if current_time > "2019-12-21 17:30:00.000000":
             fixture_date_id.leiVsLiv()
@@ -247,9 +251,20 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
         print("UK Broadcaster: None - N/A")
         next_game_10 = input("\n\nPress N for the next game or any other key to exit\n").lower()
         if next_game_10 == next_fix:
-            fixture_info.iMncVsLei()
+            fixture_info.iEveVsLei_Carab()
         else: sys.exit()
-
+            
+    def iEveVsLei_Carab():
+        print("Everton FC Vs Leicester City")
+        print("Away")
+        print("Kick-off: Wednesday 18/12/2019 at 19:45")
+        print("UK Broadcaster: None - N/A")
+        print("International Broadcaster(s): ESPN+")
+        next_game_001 = input("\n\nPress N for the next game or any other key to exit\n").lower()
+        if next_game_001 == next_fix:
+            fixture_info.iMncVsLei()
+        else: sys.exit() 
+            
     def iMncVsLei():
         print("Manchester City Vs Leicester City")
         print("Away")
