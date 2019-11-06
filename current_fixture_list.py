@@ -1,4 +1,4 @@
-#revision 0.06
+#revision 0.07
 import sys
 import datetime
 current_time = str(datetime.datetime.now())
