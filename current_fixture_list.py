@@ -1,4 +1,4 @@
-#revision 0.07
+#revision 0.08
 import sys
 import datetime
 current_time = str(datetime.datetime.now())
@@ -588,7 +588,7 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
             sys.exit()
 
 def fixture_start_query():
-    initial_query = input('\nType "all" to see all remaining fixtures, or "l" to see the next game\n')
+    initial_query = input('\nType "all" to see all remaining fixtures, or "l" to see the next game\n').lower()
     if initial_query == latest:
         remain_yes_off()
         fixture_date_id.leiVsNew()
