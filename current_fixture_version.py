@@ -1,5 +1,5 @@
 import sys
-fixture_list_version = float(0.07)
+fixture_list_version = float(0.08)
 
 def fixture_version():
     print(fixture_list_version)
