@@ -12,7 +12,7 @@ If the version number from update_table.txt is higher, the program will query th
 
   The update mechanism renames it's current related scripts (.old) then uses headless firefox & geckodriver to go to the embedded update link, copy the page source & parsing with BeautifulSoup then copying this into a new file. The process also performs the same function with version file scripts.
 
-User is presented with the main query listing functions & required input.
+User is presented with the main query listing functions & required input. Data is held on external script files (current_fixture_list.py, current_player_stats.py, current_results.py)
 
 There is also a command function added to help with testing the program.
 
@@ -22,8 +22,23 @@ A useless file from the user's end, only used as a reference for the update mech
 # current_xyz_version.py
 All version files have an almost identical syntax with all outputting the current version number of its associated file. These are implemented for the update mechanism to capture their output and compare to the version number hosted online at update_table.txt (IMP1).
 
+# current_fixture_list.py
+User is presented with a query asking to see the next fixture, or a list of all. More details are available if viewed one by one. If all associated data is all listed together, it becomes unreadable, therefore, the list of all fixtures only contains limited related information.
+
+No matter which query is selected, the next fixture to be played is always listed first and so on from there. It performs this by taking a timestamp value based on the current time and compares this to timings related to fixtures and outputs data accourdingly (IMP2).
+
+# current_results.py
+Works in a similar way to current_fixture_list.py using timestamps to identify the latest result and print accourdingly. Currently, there is no list all option (IMP3).
+
+# current_player_stats.py
+File is currently just a shell containing no correct data. Statistics can be viewed via typing the name or initials of the desired player at the initial user query. There is also a list squad option to view possible entries.
+
 # Improve <-------------------------
 IMP1: Possibly find a way of embedding this process into the date files themselves, would make the update process much more simple.
+
+IMP2: Add additional data that might be useful - e.g. international broadcast information.
+
+IMP3: Add a list all option for the current_results.py script
 
 # Issues <---------------------------
 Would be ideal to add a basic UI at some point - android, win, linux etc. Program lacks 'real-world' application and this would definitaly help.
