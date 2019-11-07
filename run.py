@@ -32,7 +32,7 @@ def startuppage():
     options = Options() #define browser options
     options.headless = True #set options to headless
     browser = webdriver.Firefox(options=options) #opens a headless firefox named "browser"
-    browser.get('https://raw.githubusercontent.com/AliCW/Test/master/update_table.txt') #browser is sent to overall table - this file must always contain the latest version number
+    browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/update_table.txt') #browser is sent to overall table - this file must always contain the latest version number
     print('Internet loaded')
     WebDriverWait(browser, 10)#.until(waitCondition.presence_of_element_located((By.id, '"player_update_version"')))
     update_list = browser.page_source
@@ -51,7 +51,7 @@ def startuppage():
         results_list_update_query = input('\nWould you like to update LCFC results? Y / N\n')
         if results_list_update_query == yes:
             os.replace('current_results_version.py', 'current_results_version.old.py')
-            browser.get('https://raw.githubusercontent.com/AliCW/Test/master/current_results_version.py')
+            browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/current_results_version.py')
             latest_result_version_raw = browser.page_source
             latest_result_version_parsed = html.unescape(latest_result_version_raw)
             latest_result_version_soup = BeautifulSoup(latest_result_version_parsed, features='html.parser')
@@ -60,7 +60,7 @@ def startuppage():
             result_version_create.write(latest_result_version_final)
             result_version_create.close()
             os.replace('current_results.py', 'current_results.old.py')
-            browser.get('https://raw.githubusercontent.com/AliCW/Test/master/current_results.py')
+            browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/current_results.py')
             latest_result_raw = browser.page_source
             latest_result_parsed = html.unescape(latest_result_raw)
             latest_result_soup = BeautifulSoup(latest_result_parsed, features='html.parser')
@@ -78,7 +78,7 @@ def startuppage():
         if player_stats_update_query == yes:
             print("Working...")
             os.replace('current_player_stats_version.py', 'current_player_stats_version.old.py') #Goalkeeper version code
-            browser.get('https://raw.githubusercontent.com/AliCW/Test/master/current_player_stats_version.py')
+            browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/current_player_stats_version.py')
             latest_player_stat_version_raw = browser.page_source
             latest_player_stat_version_parsed = html.unescape(latest_player_stat_version_raw)
             latest_player_stat_version_soup = BeautifulSoup(latest_player_stat_version_parsed, features='html.parser')
@@ -87,7 +87,7 @@ def startuppage():
             player_version_create.write(latest_player_stat_version_final)
             player_version_create.close()
             os.replace('current_player_stats.py', 'current_player_stats.old.py') #Goalkeeper statistic code
-            browser.get('https://raw.githubusercontent.com/AliCW/Test/master/current_player_stats.py')
+            browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/current_player_stats.py')
             latest_player_stats_raw = browser.page_source
             latest_player_stat_parsed = html.unescape(latest_player_stats_raw)
             latest_player_stat_soup = BeautifulSoup(latest_player_stat_parsed, features='html.parser')
@@ -104,7 +104,7 @@ def startuppage():
         fixture_update_query = input('Would you like to update LCFC fixtures? Y / N\n').lower()
         if fixture_update_query == yes:
             os.replace('current_fixture_version.py', 'current_fixture_version.old.py')
-            browser.get('https://raw.githubusercontent.com/AliCW/Test/master/current_fixture_version.py')
+            browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/current_fixture_version.py')
             latest_fixture_version_raw = browser.page_source
             latest_fixture_version_parsed = html.unescape(latest_fixture_version_raw)
             latest_fixture_version_soup = BeautifulSoup(latest_fixture_version_parsed, features='html.parser')
@@ -113,7 +113,7 @@ def startuppage():
             fixture_version_create.write(latest_fixture_version_final)
             fixture_version_create.close()
             os.replace('current_fixture_list.py', 'current_fixture_list.old.py') #changes current name to .old - delete the .old file maybe within another script / function - MAY NEED AN OVERRIDE FUNCTION FOR THIS
-            browser.get('https://raw.githubusercontent.com/AliCW/Test/master/current_fixture_list.py') #goes to the page with latest fixture file raw code
+            browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/current_fixture_list.py') #goes to the page with latest fixture file raw code
             latest_fixture_code_raw = browser.page_source #copies the raw code
             latest_fixture_code_parsed = html.unescape(latest_fixture_code_raw) #parses the code to retain symbolism
             latest_fixture_code_soup = BeautifulSoup(latest_fixture_code_parsed, features='html.parser')
