@@ -1,13 +1,15 @@
-#revision 0.02
+#revision 0.03
 import sys
 import datetime
 current_time = str(datetime.datetime.now())
 print(current_time)
-okay = str("f")
-previous_result = str("n")
+okay = str('f')
+previous_result = str('n')
+all = str('all')
 prem = str('- Premier League')
 carab = str('- Carabao Cup')
 fa = str('- F.A. Cup')
+remain_result_yes = 0
 
 away_vs_ars = str('Arsenal FC 0:0 Leicester City')#<-----------YET TO BE PLAYED
 away_vs_ast = str('Aston Villa 0:0 Leicester City')#<-----------YET TO BE PLAYED
@@ -18,6 +20,7 @@ away_vs_bur = str('Burnley FC 0:0 Leicester City')#<-----------YET TO BE PLAYED
 away_vs_che = str('Chelsea FC 1:1 Leicester City')
 away_vs_cry = str('Crystal Palace 0:2 Leicester City')
 away_vs_eve = str('Everton FC 0:0 Leicester City')#<-----------YET TO BE PLAYED
+away_vs_eve_carab = str('Everton FC 0:0 Leicester City')#<-----------YET TO BE PLAYED (carabao cup)
 away_vs_liv = str('Liverpool FC 2:1 Leicester City')
 away_vs_lut_carab = str('Luton Town 0:4 Leicester City') #carabao cup
 away_vs_mnc = str('Manchester City 0:0 Leicester City')#<-----------YET TO BE PLAYED
@@ -90,8 +93,12 @@ class latest_result_ident:
         else: result_info.fx_LeiVsWat()
     def leiVsNor():
         if current_time > '2019-12-14 17:30:00.000000':
-            latest_result_ident.mncVsLei()
+            latest_result_ident.eveVsLei_Carab()
         else: result_info.fx_AstVsLei()
+    def eveVsLei_Carab():
+        if current_time > '2019-12-18 22:15:00.000000':
+            latest_result_ident.mncVsLei()
+        else: result_info.fx_EveVsLei_Carab()
     def mncVsLei():
         if current_time > '2019-12-21 17:30:00.000000':
             latest_result_ident.leiVsLiv()
@@ -177,243 +184,430 @@ class latest_result_ident:
 
 class result_info:
     def fx_LeiVsWol():
-        print(home_vs_wol + prem)
-        input('\n\nEnd of results list, press any key to exit')
-        sys.exit()
+        if remain_result_yes == 0:
+            print(home_vs_wol + prem)
+            input('\nEnd of results list, press any key to exit')
+            sys.exit()
+        if remain_result_yes == 1:
+            print(home_vs_wol + prem)
+            sys.exit()
     def fx_CheVsLei():
-        print(away_vs_che + prem)
-        next_res_09 = input('\n\nPress N for the next game or any other key to exit\n').lower()
-        if next_res_09 == previous_result:
+        if remain_result_yes == 0:
+            print(away_vs_che + prem)
+            next_res_09 = input('\nPress N for the next game or any other key to exit\n').lower()
+            if next_res_09 == previous_result:
+                result_info.fx_LeiVsWol()
+            else: sys.exit()
+        if remain_result_yes == 1:
+            print(away_vs_che + prem)
             result_info.fx_LeiVsWol()
-        else: sys.exit()
     def fx_ShuVsLei():
-        print(away_vs_shu + prem)
-        next_res_08 = input('\n\nPress N for the next game or any other key to exit\n').lower()
-        if next_res_08 == previous_result:
+        if remain_result_yes == 0:
+            print(away_vs_shu + prem)
+            next_res_08 = input('\nPress N for the next game or any other key to exit\n').lower()
+            if next_res_08 == previous_result:
+                result_info.fx_CheVsLei()
+            else: sys.exit()
+        if remain_result_yes == 1:
+            print(away_vs_shu + prem)
             result_info.fx_CheVsLei()
-        else: sys.exit()
     def fx_NewVsLei_carab():
-        print(away_vs_new_carab + carab)
-        next_res_07 = input('\n\nPress N for the next game or any other key to exit\n').lower()
-        if next_res_07 == previous_result:
+        if remain_result_yes == 0:
+            print(away_vs_new_carab + carab)
+            next_res_07 = input('\nPress N for the next game or any other key to exit\n').lower()
+            if next_res_07 == previous_result:
+                result_info.fx_ShuVsLei()
+            else: sys.exit()
+        if remain_result_yes == 1:
+            print(away_vs_new_carab + carab)
             result_info.fx_ShuVsLei()
-        else: sys.exit()
     def fx_LeiVsBou():
-        print(home_vs_bou + prem)
-        next_res_06 = input('\n\nPress N for the next game or any other key to exit\n').lower()
-        if next_res_06 == previous_result:
+        if remain_result_yes == 0:
+            print(home_vs_bou + prem)
+            next_res_06 = input('\nPress N for the next game or any other key to exit\n').lower()
+            if next_res_06 == previous_result:
+                result_info.fx_NewVsLei_carab()
+            else: sys.exit()
+        if remain_result_yes == 1:
+            print(home_vs_bou + prem)
             result_info.fx_NewVsLei_carab()
-        else: sys.exit()
     def fx_MnuVsLei():
-        print(away_vs_mnu + prem)
-        next_res_05 = input('\n\nPress N for the next game or any other key to exit\n').lower()
-        if next_res_05 == previous_result:
+        if remain_result_yes == 0:
+            print(away_vs_mnu + prem)
+            next_res_05 = input('\nPress N for the next game or any other key to exit\n').lower()
+            if next_res_05 == previous_result:
+                result_info.fx_LeiVsBou()
+            else: sys.exit()
+        if remain_result_yes == 1:
+            print(away_vs_mnu + prem)
             result_info.fx_LeiVsBou()
-        else: sys.exit()
     def fx_LeiVsTot():
-        print(home_vs_tot + prem)
-        next_res_04 = input('\n\nPress N for the next game or any other key to exit\n').lower()
-        if next_res_04 == previous_result:
+        if remain_result_yes == 0:
+            print(home_vs_tot + prem)
+            next_res_04 = input('\nPress N for the next game or any other key to exit\n').lower()
+            if next_res_04 == previous_result:
+                result_info.fx_MnuVsLei()
+            else: sys.exit()
+        if remain_result_yes == 1:
+            print(home_vs_tot + prem)
             result_info.fx_MnuVsLei()
-        else: sys.exit()
     def fx_LutVsLei():
-        print(away_vs_lut_carab + carab)
-        next_res03 = input('\n\nPress N for the next game or any other key to exit\n').lower()
-        if next_res03 == previous_result:
+        if remain_result_yes == 0:
+            print(away_vs_lut_carab + carab)
+            next_res03 = input('\nPress N for the next game or any other key to exit\n').lower()
+            if next_res03 == previous_result:
+                result_info.fx_LeiVsTot()
+            else: sys.exit()
+        if remain_result_yes == 1:
+            print(away_vs_lut_carab + carab)
             result_info.fx_LeiVsTot()
-        else: sys.exit()
     def fx_LeiVsNew():
-        print(home_vs_new + prem)
-        next_res02 = input('\n\nPress N for the next game or any other key to exit\n').lower()
-        if next_res02 == previous_result:
+        if remain_result_yes == 0:
+            print(home_vs_new + prem)
+            next_res02 = input('\nPress N for the next game or any other key to exit\n').lower()
+            if next_res02 == previous_result:
+                result_info.fx_LutVsLei()
+            else: sys.exit()
+        if remain_result_yes == 1:
+            print(home_vs_new + prem)
             result_info.fx_LutVsLei()
-        else: sys.exit()
     def fx_LivVsLei():
-        print(away_vs_liv + prem)
-        next_res01 = input('\n\nPress N for the next game or any other key to exit\n').lower()
-        if next_res01 == previous_result:
+        if remain_result_yes == 0:
+            print(away_vs_liv + prem)
+            next_res01 = input('\nPress N for the next game or any other key to exit\n').lower()
+            if next_res01 == previous_result:
+                result_info.fx_LeiVsNew()
+            else: sys.exit()
+        if remain_result_yes == 1:
+            print(away_vs_liv + prem)
             result_info.fx_LeiVsNew()
-        else: sys.exit()
     def fx_LeiVsBur():
-        print(home_vs_bur + prem)
-        next_res00 = input('\n\nPress N for the next game or any other key to exit\n').lower()
-        if next_res00 == previous_result:
+        if remain_result_yes == 0:
+            print(home_vs_bur + prem)
+            next_res00 = input('\nPress N for the next game or any other key to exit\n').lower()
+            if next_res00 == previous_result:
+                result_info.fx_LivVsLei()
+            else: sys.exit()
+        if remain_result_yes == 1:
+            print(home_vs_bur + prem)
             result_info.fx_LivVsLei()
-        else: sys.exit()
     def fx_SouVsLei():
-        print(away_vs_sou + prem)
-        next_res10 = input('\n\nPress N for the next game or any other key to exit\n').lower()
-        if next_res10 == previous_result:
+        if remain_result_yes == 0:
+            print(away_vs_sou + prem)
+            next_res10 = input('\nPress N for the next game or any other key to exit\n').lower()
+            if next_res10 == previous_result:
+                result_info.fx_LeiVsBur()
+            else: sys.exit()
+        if remain_result_yes == 1:
+            print(away_vs_sou + prem)
             result_info.fx_LeiVsBur()
-        else: sys.exit()
     def fx_BtnVsLei():
-        print(away_vs_btn + carab)
-        next_res11 = input('\n\nPress N for the next game or any other key to exit\n').lower()
-        if next_res11 == previous_result:
+        if remain_result_yes == 0:
+            print(away_vs_btn + carab)
+            next_res11 = input('\nPress N for the next game or any other key to exit\n').lower()
+            if next_res11 == previous_result:
+                result_info.fx_SouVsLei()
+            else: sys.exit()
+        if remain_result_yes == 1:
+            print(away_vs_btn + carab)
             result_info.fx_SouVsLei()
-        else: sys.exit()
     def fx_CryVsLei():
-        print(away_vs_cry + prem)
-        next_res12 = input('\n\nPress N for the next game or any other key to exit\n').lower()
-        if next_res12 == previous_result:
+        if remain_result_yes == 0:
+            print(away_vs_cry + prem)
+            next_res12 = input('\nPress N for the next game or any other key to exit\n').lower()
+            if next_res12 == previous_result:
+                result_info.fx_BtnVsLei()
+            else: sys.exit()
+        if remain_result_yes == 1:
+            print(away_vs_cry + prem)
             result_info.fx_BtnVsLei()
-        else: sys.exit()
     def fx_LeiVsArs():
-        print(home_vs_ars + prem)
-        next_res13 = input('\n\nPress N for the next game or any other key to exit\n').lower()
-        if next_res13 == previous_result:
+        if remain_result_yes == 0:
+            print(home_vs_ars + prem)
+            next_res13 = input('\nPress N for the next game or any other key to exit\n').lower()
+            if next_res13 == previous_result:
+                result_info.fx_CryVsLei()
+            else: sys.exit()
+        if remain_result_yes == 1:
+            print(home_vs_ars + prem)
             result_info.fx_CryVsLei()
-        else: sys.exit()
     def fx_BhaVsLei():
-        print(away_vs_bha + prem)
-        next_res14 = input('\n\nPress N for the next game or any other key to exit\n').lower()
-        if next_res14 == previous_result:
+        if remain_result_yes == 0:
+            print(away_vs_bha + prem)
+            next_res14 = input('\nPress N for the next game or any other key to exit\n').lower()
+            if next_res14 == previous_result:
+                result_info.fx_LeiVsArs()
+            else: sys.exit()
+        if remain_result_yes == 1:
+            print(away_vs_bha + prem)
             result_info.fx_LeiVsArs()
-        else: sys.exit()
     def fx_LeiVsEve():
-        print(home_vs_eve + prem)
-        next_res15 = input('\n\nPress N for the next game or any other key to exit\n').lower()
-        if next_res15 == previous_result:
+        if remain_result_yes == 0:
+            print(home_vs_eve + prem)
+            next_res15 = input('\nPress N for the next game or any other key to exit\n').lower()
+            if next_res15 == previous_result:
+                result_info.fx_BhaVsLei()
+            else: sys.exit()
+        if remain_result_yes == 1:
+            print(home_vs_eve + prem)
             result_info.fx_BhaVsLei()
-        else: sys.exit()
     def fx_LeiVsWat():
-        print(home_vs_wat + prem)
-        next_res16 = input('\n\nPress N for the next game or any other key to exit\n').lower()
-        if next_res16 == previous_result:
+        if remain_result_yes == 0:
+            print(home_vs_wat + prem)
+            next_res16 = input('\nPress N for the next game or any other key to exit\n').lower()
+            if next_res16 == previous_result:
+                result_info.fx_LeiVsEve()
+            else: sys.exit()
+        if remain_result_yes == 1:
+            print(home_vs_wat + prem)
             result_info.fx_LeiVsEve()
-        else: sys.exit()
     def fx_AstVsLei():
-        print(home_vs_ast + prem)
-        next_res17 = input('\n\nPress N for the next game or any other key to exit\n').lower()
-        if next_res17 == previous_result:
+        if remain_result_yes == 0:
+            print(home_vs_ast + prem)
+            next_res17 = input('\nPress N for the next game or any other key to exit\n').lower()
+            if next_res17 == previous_result:
+                result_info.fx_LeiVsWat()
+            else: sys.exit()
+        if remain_result_yes == 1:
+            print(home_vs_ast + prem)
             result_info.fx_LeiVsWat()
-        else: sys.exit()
     def fx_LeiVsNor():
-        print(home_vs_nor + prem)
-        next_res18 = input('\n\nPress N for the next game or any other key to exit\n').lower()
-        if next_res18 == previous_result:
+        if remain_result_yes == 0:
+            print(home_vs_nor + prem)
+            next_res18 = input('\nPress N for the next game or any other key to exit\n').lower()
+            if next_res18 == previous_result:
+                result_info.fx_AstVsLei()
+            else: sys.exit()
+        if remain_result_yes == 1:
+            print(home_vs_nor + prem)
             result_info.fx_AstVsLei()
-        else: sys.exit()
-    def fx_MncVsLei():
-        print(away_vs_mnc + prem)
-        next_res19 = input('\n\nPress N for the next game or any other key to exit\n').lower()
-        if next_res19 == previous_result:
+    def fx_EveVsLei_Carab():
+        if remain_result_yes == 0:
+            print(away_vs_eve_carab + carab)
+            next_res001 = input('\nPress N for the next game or any other key to exit\n').lower()
+            if next_res001 == previous_result:
+                result_info.fx_LeiVsNor()
+            else: sys.exit()
+        if remain_result_yes == 1:
+            print(away_vs_eve_carab + carab)
             result_info.fx_LeiVsNor()
-        else: sys.exit()
+    def fx_MncVsLei():
+        if remain_result_yes == 0:
+            print(away_vs_mnc + prem)
+            next_res19 = input('\nPress N for the next game or any other key to exit\n').lower()
+            if next_res19 == previous_result:
+                result_info.fx_EveVsLei_Carab()
+            else: sys.exit()
+        if remain_result_yes == 1:
+            print(away_vs_mnc + prem)
+            result_info.fx_EveVsLei_Carab()
     def fx_LeiVsLiv():
-        print(home_vs_liv + prem)
-        next_res20 = input('\n\nPress N for the next game or any other key to exit\n').lower()
-        if next_res20 == previous_result:
+        if remain_result_yes == 0:
+            print(home_vs_liv + prem)
+            next_res20 = input('\nPress N for the next game or any other key to exit\n').lower()
+            if next_res20 == previous_result:
+                result_info.fx_MncVsLei()
+            else: sys.exit()
+        if remain_result_yes == 1:
+            print(home_vs_liv + prem)
             result_info.fx_MncVsLei()
-        else: sys.exit()
     def fx_WhuVsLei():
-        print(away_vs_whu + prem)
-        next_res21 = input('\n\nPress N for the next game or any other key to exit\n').lower()
-        if next_res21 == previous_result:
+        if remain_result_yes == 0:
+            print(away_vs_whu + prem)
+            next_res21 = input('\nPress N for the next game or any other key to exit\n').lower()
+            if next_res21 == previous_result:
+                result_info.fx_LeiVsLiv()
+            else: sys.exit()
+        if remain_result_yes == 1:
+            print(away_vs_whu + prem)
             result_info.fx_LeiVsLiv()
-        else: sys.exit()
     def fx_NewVsLei():
-        print(away_vs_new + prem)
-        next_res22 = input('\n\nPress N for the next game or any other key to exit\n').lower()
-        if next_res22 == previous_result:
+        if remain_result_yes == 0:
+            print(away_vs_new + prem)
+            next_res22 = input('\nPress N for the next game or any other key to exit\n').lower()
+            if next_res22 == previous_result:
+                result_info.fx_WhuVsLei()
+            else: sys.exit()
+        if remain_result_yes == 1:
+            print(away_vs_new + prem)
             result_info.fx_WhuVsLei()
-        else: sys.exit()
     def fx_LeiVsSou():
-        print(home_vs_sou + prem)
-        next_res23 = input('\n\nPress N for the next game or any other key to exit\n').lower()
-        if next_res23 == previous_result:
+        if remain_result_yes == 0:
+            print(home_vs_sou + prem)
+            next_res23 = input('\nPress N for the next game or any other key to exit\n').lower()
+            if next_res23 == previous_result:
+                result_info.fx_NewVsLei()
+            else: sys.exit()
+        if remain_result_yes == 1:
+            print(home_vs_sou + prem)
             result_info.fx_NewVsLei()
-        else: sys.exit()
     def fx_BurVsLei():
-        print(away_vs_bur + prem)
-        next_res24 = input('\n\nPress N for the next game or any other key to exit\n').lower()
-        if next_res24 == previous_result:
+        if remain_result_yes == 0:
+            print(away_vs_bur + prem)
+            next_res24 = input('\nPress N for the next game or any other key to exit\n').lower()
+            if next_res24 == previous_result:
+                result_info.fx_LeiVsSou()
+            else: sys.exit()
+        if remain_result_yes == 1:
+            print(away_vs_bur + prem)
             result_info.fx_LeiVsSou()
-        else: sys.exit()
     def fx_LeiVsWhu():
-        print(home_vs_whu + prem)
-        next_res25 = input('\n\nPress N for the next game or any other key to exit\n').lower()
-        if next_res25 == previous_result:
+        if remain_result_yes == 0:
+            print(home_vs_whu + prem)
+            next_res25 = input('\nPress N for the next game or any other key to exit\n').lower()
+            if next_res25 == previous_result:
+                result_info.fx_BurVsLei()
+            else: sys.exit()
+        if remain_result_yes == 1:
+            print(home_vs_whu + prem)
             result_info.fx_BurVsLei()
-        else: sys.exit()
     def fx_LeiVsChe():
-        print(home_vs_che + prem)
-        next_res26 = input('\n\nPress N for the next game or any other key to exit\n').lower()
-        if next_res26 == previous_result:
+        if remain_result_yes == 0:
+            print(home_vs_che + prem)
+            next_res26 = input('\nPress N for the next game or any other key to exit\n').lower()
+            if next_res26 == previous_result:
+                result_info.fx_LeiVsWhu()
+            else: sys.exit()
+        if remain_result_yes == 1:
+            print(home_vs_che + prem)
             result_info.fx_LeiVsWhu()
-        else: sys.exit()
     def fx_WolVsLei():
-        print(away_vs_wol + prem)
-        next_res27 = input('\n\nPress N for the next game or any other key to exit\n').lower()
-        if next_res27 == previous_result:
+        if remain_result_yes == 0:
+            print(away_vs_wol + prem)
+            next_res27 = input('\nPress N for the next game or any other key to exit\n').lower()
+            if next_res27 == previous_result:
+                result_info.fx_LeiVsChe()
+            else: sys.exit()
+        if remain_result_yes == 1:
+            print(away_vs_wol + prem)
             result_info.fx_LeiVsChe()
-        else: sys.exit()
     def fx_LeiVsMnc():
-        print(home_vs_mnc + prem)
-        next_res28 = input('\n\nPress N for the next game or any other key to exit\n').lower()
-        if next_res28 == previous_result:
+        if remain_result_yes == 0:
+            print(home_vs_mnc + prem)
+            next_res28 = input('\nPress N for the next game or any other key to exit\n').lower()
+            if next_res28 == previous_result:
+                result_info.fx_WolVsLei()
+            else: sys.exit()
+        if remain_result_yes == 1:
+            print(home_vs_mnc + prem)
             result_info.fx_WolVsLei()
-        else: sys.exit()
     def fx_NorVsLei():
-        print(away_vs_nor + prem)
-        next_res29 = input('\n\nPress N for the next game or any other key to exit\n').lower()
-        if next_res29 == previous_result:
+        if remain_result_yes == 0:
+            print(away_vs_nor + prem)
+            next_res29 = input('\nPress N for the next game or any other key to exit\n').lower()
+            if next_res29 == previous_result:
+                result_info.fx_LeiVsMnc()
+            else: sys.exit()
+        if remain_result_yes == 1:
+            print(away_vs_nor + prem)
             result_info.fx_LeiVsMnc()
-        else: sys.exit()
     def fx_LeiVsAst():
-        print(home_vs_ast + prem)
-        next_res30 = input('\n\nPress N for the next game or any other key to exit\n').lower()
-        if next_res30 == previous_result:
+        if remain_result_yes == 0:
+            print(home_vs_ast + prem)
+            next_res30 = input('\nPress N for the next game or any other key to exit\n').lower()
+            if next_res30 == previous_result:
+                result_info.fx_NorVsLei()
+            else: sys.exit()
+        if remain_result_yes == 1:
+            print(home_vs_ast + prem)
             result_info.fx_NorVsLei()
-        else: sys.exit()
     def fx_WatVsLei():
-        print(away_vs_wat + prem)
-        next_res31 = input('\n\nPress N for the next game or any other key to exit\n').lower()
-        if next_res31 == previous_result:
+        if remain_result_yes == 0:
+            print(away_vs_wat + prem)
+            next_res31 = input('\nPress N for the next game or any other key to exit\n').lower()
+            if next_res31 == previous_result:
+                result_info.fx_LeiVsAst()
+            else: sys.exit()
+        if remain_result_yes == 1:
+            print(away_vs_wat + prem)
             result_info.fx_LeiVsAst()
-        else: sys.exit()
     def fx_LeiVsBha():
-        print(home_vs_bha + prem)
-        next_res32 = input('\n\nPress N for the next game or any other key to exit\n').lower()
-        if next_res32 == previous_result:
+        if remain_result_yes == 0:
+            print(home_vs_bha + prem)
+            next_res32 = input('\nPress N for the next game or any other key to exit\n').lower()
+            if next_res32 == previous_result:
+                result_info.fx_WatVsLei()
+            else: sys.exit()
+        if remain_result_yes == 1:
+            print(home_vs_bha + prem)
             result_info.fx_WatVsLei()
-        else: sys.exit()
     def fx_EveVsLei():
-        print(away_vs_eve + prem)
-        next_res33 = input('\n\nPress N for the next game or any other key to exit\n').lower()
-        if next_res33 == previous_result:
+        if remain_result_yes == 0:
+            print(away_vs_eve + prem)
+            next_res33 = input('\nPress N for the next game or any other key to exit\n').lower()
+            if next_res33 == previous_result:
+                result_info.fx_LeiVsBha()
+            else: sys.exit()
+        if remain_result_yes == 1:
+            print(away_vs_eve + prem)
             result_info.fx_LeiVsBha()
-        else: sys.exit()
     def fx_LeiVsCry():
-        print(home_vs_cry + prem)
-        next_res34 = input('\n\nPress N for the next game or any other key to exit\n').lower()
-        if next_res34 == previous_result:
+        if remain_result_yes == 0:
+            print(home_vs_cry + prem)
+            next_res34 = input('\nPress N for the next game or any other key to exit\n').lower()
+            if next_res34 == previous_result:
+                result_info.fx_EveVsLei()
+            else: sys.exit()
+        if remain_result_yes == 1:
+            print(home_vs_cry + prem)
             result_info.fx_EveVsLei()
-        else: sys.exit()
     def fx_ArsVsLei():
-        print(away_vs_ars + prem)
-        next_res35 = input('\n\nPress N for the next game or any other key to exit\n').lower()
-        if next_res35 == previous_result:
+        if remain_result_yes == 0:
+            print(away_vs_ars + prem)
+            next_res35 = input('\nPress N for the next game or any other key to exit\n').lower()
+            if next_res35 == previous_result:
+                result_info.fx_LeiVsCry()
+            else: sys.exit()
+        if remain_result_yes == 1:
+            print(away_vs_ars + prem)
             result_info.fx_LeiVsCry()
-        else: sys.exit()
     def fx_LeiVsShu():
-        print(home_vs_shu + prem)
-        next_res36 = input('\n\nPress N for the next game or any other key to exit\n').lower()
-        if next_res36 == previous_result:
+        if remain_result_yes == 0:
+            print(home_vs_shu + prem)
+            next_res36 = input('\nPress N for the next game or any other key to exit\n').lower()
+            if next_res36 == previous_result:
+                result_info.fx_ArsVsLei()
+            else: sys.exit()
+        if remain_result_yes == 1:
+            print(home_vs_shu + prem)
             result_info.fx_ArsVsLei()
-        else: sys.exit()
     def fx_TotVsLei():
-        print(away_vs_tot + prem)
-        next_res37 = input('\n\nPress N for the next game or any other key to exit\n').lower()
-        if next_res37 == previous_result:
+        if remain_result_yes == 0:
+            print(away_vs_tot + prem)
+            next_res37 = input('\nPress N for the next game or any other key to exit\n').lower()
+            if next_res37 == previous_result:
+                result_info.fx_LeiVsShu()
+            else: sys.exit()
+        if remain_result_yes == 1:
+            print(away_vs_tot + prem)
             result_info.fx_LeiVsShu()
-        else: sys.exit()
     def fx_LeiVsMnu():
-        print(home_vs_mnu + prem)
-        next_res38 = input('\n\nPress N for the next game or any other key to exit\n').lower()
-        if next_res38 == previous_result:
+        if remain_result_yes == 0:
+            print(home_vs_mnu + prem)
+            next_res38 = input('\nPress N for the next game or any other key to exit\n').lower()
+            if next_res38 == previous_result:
+                result_info.fx_TotVsLei()
+            else: sys.exit()
+        if remain_result_yes == 1:
+            print(home_vs_mnu + prem)
             result_info.fx_TotVsLei()
-        else: sys.exit()
 
+def remain_result_yes_off():
+    global remain_result_yes
+    remain_result_yes = 0
 
-latest_result_ident.leiVsBur()
+def remain_result_yes_on():
+    global remain_result_yes
+    remain_result_yes = 1
+
+def results_start_query():
+    initial_query = input('\nType "all" to view all results or "n" to see the latest score\n').lower()
+    if initial_query == previous_result:
+        remain_result_yes_off()
+        latest_result_ident.leiVsBur()
+    if initial_query == all:
+        remain_result_yes_on()
+        latest_result_ident.leiVsArs()
+
+results_start_query()
+
