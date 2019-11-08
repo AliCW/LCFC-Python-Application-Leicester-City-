@@ -28,17 +28,17 @@ User is presented with a query asking to see the next fixture, or a list of all.
 No matter which query is selected, the next fixture to be played is always listed first and so on from there. It performs this by taking a timestamp value based on the current time and compares this to timings related to fixtures and outputs data accourdingly (IMP2).
 
 # current_results.py
-Works in a similar way to current_fixture_list.py using timestamps to identify the latest result and print accourdingly. Currently, there is no list all option (IMP3).
+Works in a similar way to current_fixture_list.py using timestamps to identify the latest result and print accourdingly.
 
 # current_player_stats.py
-File is currently just a shell containing no correct data. Statistics can be viewed via typing the name or initials of the desired player at the initial user query. There is also a list squad option to view possible entries.
+File is currently just a shell containing no correct data (IMP3). Statistics can be viewed via typing the name or initials of the desired player at the initial user query. There is also a list squad option to view possible entries.
 
 # Improve <-------------------------
 IMP1: Possibly find a way of embedding this process into the date files themselves, would make the update process much more simple.
 
 IMP2: Add additional data that might be useful - e.g. international broadcast information.
 
-IMP3: Add a list all option for the current_results.py script
+IMP3: Need to add the data and work on refining applicable information for this file!
 
 # Issues <---------------------------
 Would be ideal to add a basic UI at some point - android, win, linux etc. Program lacks 'real-world' application and this would definitaly help.
@@ -46,4 +46,4 @@ Would be ideal to add a basic UI at some point - android, win, linux etc. Progra
 IS1: Problem with links and testing them - because they are hosted on the 'master' branch, you come into issues when testing.
 Might be useful to find an alternative method of hosting or testing new methods & scripts.
   
-IS2: Should maybe find a method in which the user doesnt download the update_table.txt file as it has no purpose when downloaded. Maybe find an alternative place to host the file?
+IS2: Should maybe find a method in which the user doesnt download the update_table.txt file as it has no purpose when downloaded. Maybe find an alternative place to host the file? Possibly a way to make these dynamic?
