@@ -154,7 +154,7 @@ def startupquery00():
         sys.exit()
 
 def list_of_commands():
-    command_list = input('\nfixtures / stats / update player/or/fixture version\n\nType "reset" to go back to the beginning\n').lower()
+    command_list = input('\nfixtures / stats / player/or/fixture version\n\nType "reset" to go back to the beginning\n').lower()
     if (command_list == fixtures):
         subprocess.call(['python', 'current_fixture_list.py']) #downloads the new fixture list
         list_of_commands()
