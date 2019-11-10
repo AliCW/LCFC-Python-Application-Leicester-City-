@@ -17,6 +17,7 @@ results = str('scores')
 rst1 = str('reset')
 fx_version = str('fixture version') #version for fixture
 pl_version = str('player version') #version for player stats
+rs_version = str('results version') #version for results
 yes = str('y')
 no = str('n')
 shut_down = str('exit')
@@ -159,7 +160,7 @@ def startupquery00():
     else: startupquery00fail()
 
 def list_of_commands():
-    command_list = input('\nfixtures / stats / player/or/fixture version\n\nType "reset" to go back to the beginning\n').lower()
+    command_list = input('\nfixtures / stats / player/or/fixture/or/results version\n\nType "reset" to go back to the beginning\n').lower()
     if (command_list == fixtures):
         subprocess.call(['python', 'current_fixture_list.py']) #downloads the new fixture list
         list_of_commands()
@@ -176,6 +177,9 @@ def list_of_commands():
         list_of_commands()
     if (command_list == pl_version):
         print(float(player_stats_current_version))
+        list_of_commands()
+    if (command_list == rs_version):
+        print(float(results_list_current_version))
         list_of_commands()
     else: list_of_commands_failed_syntax()
 
