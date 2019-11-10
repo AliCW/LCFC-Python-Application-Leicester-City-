@@ -134,6 +134,10 @@ def startuppage():
 def player_passed_close_page():
     print('Update tool has completed')
 
+def startupquery00fail():
+    print('Incorrect syntax, please try once more.')
+    startupquery00()
+
 def startupquery00():
     startquery = input('\nType "stats" for player statistics.\nType "fixtures" for the fixture list.'
                        '\nType "commands" for a list of other features or "exit" to close the program.'
@@ -152,6 +156,7 @@ def startupquery00():
         startupquery00()
     if (startquery == shut_down):
         sys.exit()
+    else: startupquery00fail()
 
 def list_of_commands():
     command_list = input('\nfixtures / stats / player/or/fixture version\n\nType "reset" to go back to the beginning\n').lower()
