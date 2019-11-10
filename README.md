@@ -36,7 +36,7 @@ Works in a similar way to current_fixture_list.py using timestamps to identify t
 File is currently just a shell containing no correct data (IMP3). Statistics can be viewed via typing the name or initials of the desired player at the initial user query. There is also a list squad option to view possible entries.
 
 # Improve <-------------------------
-IMP1: Possibly find a way of embedding this process into the date files themselves, would make the update process much more simple.
+IMP1: Possibly find a way of embedding this process into the data files themselves, would make the update process much more simple.
 
 IMP2: Add additional data that might be useful - e.g. international broadcast information.
 
