@@ -1,4 +1,4 @@
-#revision 0.03
+#revision 0.04
 import sys
 import datetime
 current_time = str(datetime.datetime.now())
@@ -34,7 +34,7 @@ away_vs_tot = str('Tottenham Hotspur 0:0 Leicester City')#<-----------YET TO BE 
 away_vs_wat = str('Watford FC 0:0 Leicester City')#<-----------YET TO BE PLAYED
 away_vs_whu = str('West Ham United 0:0 Leicester City')#<-----------YET TO BE PLAYED
 away_vs_wol = str('Wolverhampton Wanderers 0:0 Leicester City')#<-----------YET TO BE PLAYED
-home_vs_ars = str('Leicester City 0:0 Arsenal FC') #<-----------YET TO BE PLAYED
+home_vs_ars = str('Leicester City 2:0 Arsenal FC')
 home_vs_ast = str('Leicester City 0:0 Aston Villa')#<-----------YET TO BE PLAYED
 home_vs_bha = str('Leicester City 0:0 Brighton Hove Albion')#<-----------YET TO BE PLAYED
 home_vs_bou = str('Leicester City 3:1 AFC Bournemouth')
