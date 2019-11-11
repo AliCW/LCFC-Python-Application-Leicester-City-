@@ -576,7 +576,11 @@ def start_player_stats_query(): #Code for the user query positioned on startup
         per_key_stats()
         per_discipline_stats()
         start_player_stats_query()
-    else: start_player_stats_query()
+    else: player_syntax_fail()
+        
+def player_syntax_fail():
+    print('\nUnknown player / initials, try again or use "squad" for a full list\n')
+    start_player_stats_query()
 
 #Squad print definition<------------------------------------------------------------------------
 def list_squad():
