@@ -33,7 +33,7 @@ No matter which query is selected, the next fixture to be played is always liste
 Works in a similar way to current_fixture_list.py using timestamps to identify the latest result and print accourdingly.
 
 # current_player_stats.py
-File is currently just a shell containing no correct data (IMP3). Statistics can be viewed via typing the name or initials of the desired player at the initial user query. There is also a list squad option to view possible entries.
+Statistics can be viewed via typing the name or initials of the desired player at the initial user query. There is also a list squad option to view possible entries. Currently, this only contains statistics for the premier league only! (IMP3)
 
 # Improve <-------------------------
 Would be ideal to add a basic UI at some point - android, win, linux etc. Program lacks 'real-world' application and this would definitaly help.
@@ -42,4 +42,4 @@ IMP1: Possibly find a way of embedding this process into the data files themselv
 
 IMP2: Add additional data that might be useful - e.g. international broadcast information.
 
-IMP3: Need to add the data and work on refining applicable information for this file!
+IMP3: Add a method of refining results to include both national cup tournaments (F.A. & Carabao)
