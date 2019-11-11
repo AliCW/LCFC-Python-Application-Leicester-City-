@@ -1,5 +1,5 @@
 import sys
-player_stats_version = float(0.04)
+player_stats_version = float(0.05)
 
 def player_version():
     print(player_stats_version)
