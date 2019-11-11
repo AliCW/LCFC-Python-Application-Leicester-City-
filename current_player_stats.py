@@ -491,7 +491,8 @@ per_offside = str(1)
 
 #User query switch<-------------------------------------------------------------------------------
 def start_player_stats_query(): #Code for the user query positioned on startup
-    starter_user_query = input('\nType the name or initials of the player, or "squad" to see the team list or "exit" to close\n').lower()
+    starter_user_query = input('\nType the name or initials of the player, or "squad" to see the team list'
+                               'or "exit" to close\n[All player statistics are in relation to the premier league]').lower()
     if (starter_user_query == lcfc_squad):
         list_squad()
         start_player_stats_query()
