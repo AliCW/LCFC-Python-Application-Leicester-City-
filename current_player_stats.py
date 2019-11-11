@@ -690,9 +690,6 @@ def jus_key_stats():
     print('Tackles:             ' + jus_tackles)
     print('Interceptions:       ' + jus_intercept)
     print('Clean Sheets:        ' + jus_clean_sheets)
-    print('Shots:               ' + jus_shots)
-    print('Shots on target:     ' + jus_shots_tar)
-    print('Assists:             ' + jus_assists)
 def jus_discipline_stats():
     print('Offsides:            ' + jus_yellow_cards)
     print('Fouls:               ' + jus_fouls)
@@ -707,9 +704,6 @@ def chi_key_stats():
     print('Tackles:             ' + chi_tackles)
     print('Interceptions:       ' + chi_intercept)
     print('Clean Sheets:        ' + chi_clean_sheets)
-    print('Shots:               ' + chi_shots)
-    print('Shots on target:     ' + chi_shots_tar)
-    print('Assists:             ' + chi_assists)
 def chi_discipline_stats():
     print('Offsides:            ' + chi_yellow_cards)
     print('Fouls:               ' + chi_fouls)
@@ -724,9 +718,6 @@ def soy_key_stats():
     print('Tackles:             ' + soy_tackles)
     print('Interceptions:       ' + soy_intercept)
     print('Clean Sheets:        ' + soy_clean_sheets)
-    print('Shots:               ' + soy_shots)
-    print('Shots on target:     ' + soy_shots_tar)
-    print('Assists:             ' + soy_assists)
 def soy_discipline_stats():
     print('Offsides:            ' + soy_yellow_cards)
     print('Fouls:               ' + soy_fouls)
@@ -741,9 +732,6 @@ def mor_key_stats():
     print('Tackles:             ' + mor_tackles)
     print('Interceptions:       ' + mor_intercept)
     print('Clean Sheets:        ' + mor_clean_sheets)
-    print('Shots:               ' + mor_shots)
-    print('Shots on target:     ' + mor_shots_tar)
-    print('Assists:             ' + mor_assists)
 def mor_discipline_stats():
     print('Offsides:            ' + mor_yellow_cards)
     print('Fouls:               ' + mor_fouls)
@@ -758,9 +746,6 @@ def eva_key_stats():
     print('Tackles:             ' + eva_tackles)
     print('Interceptions:       ' + eva_intercept)
     print('Clean Sheets:        ' + eva_clean_sheets)
-    print('Shots:               ' + eva_shots)
-    print('Shots on target:     ' + eva_shots_tar)
-    print('Assists:             ' + eva_assists)
 def eva_discipline_stats():
     print('Offsides:            ' + eva_yellow_cards)
     print('Fouls:               ' + eva_fouls)
@@ -775,9 +760,6 @@ def ben_key_stats():
     print('Tackles:             ' + ben_tackles)
     print('Interceptions:       ' + ben_intercept)
     print('Clean Sheets:        ' + ben_clean_sheets)
-    print('Shots:               ' + ben_shots)
-    print('Shots on target:     ' + ben_shots_tar)
-    print('Assists:             ' + ben_assists)
 def ben_discipline_stats():
     print('Offsides:            ' + ben_yellow_cards)
     print('Fouls:               ' + ben_fouls)
@@ -792,9 +774,6 @@ def ama_key_stats():
     print('Tackles:             ' + ama_tackles)
     print('Interceptions:       ' + ama_intercept)
     print('Clean Sheets:        ' + ama_clean_sheets)
-    print('Shots:               ' + ama_shots)
-    print('Shots on target:     ' + ama_shots_tar)
-    print('Assists:             ' + ama_assists)
 def ama_discipline_stats():
     print('Offsides:            ' + ama_yellow_cards)
     print('Fouls:               ' + ama_fouls)
@@ -809,9 +788,6 @@ def rper_key_stats():
     print('Tackles:             ' + rper_tackles)
     print('Interceptions:       ' + rper_intercept)
     print('Clean Sheets:        ' + rper_clean_sheets)
-    print('Shots:               ' + rper_shots)
-    print('Shots on target:     ' + rper_shots_tar)
-    print('Assists:             ' + rper_assists)
 def rper_discipline_stats():
     print('Offsides:            ' + rper_yellow_cards)
     print('Fouls:               ' + rper_fouls)
@@ -826,9 +802,6 @@ def fuc_key_stats():
     print('Tackles:             ' + fuc_tackles)
     print('Interceptions:       ' + fuc_intercept)
     print('Clean Sheets:        ' + fuc_clean_sheets)
-    print('Shots:               ' + fuc_shots)
-    print('Shots on target:     ' + fuc_shots_tar)
-    print('Assists:             ' + fuc_assists)
 def fuc_discipline_stats():
     print('Offsides:            ' + fuc_yellow_cards)
     print('Fouls:               ' + fuc_fouls)
