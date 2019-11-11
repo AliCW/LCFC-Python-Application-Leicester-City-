@@ -167,9 +167,6 @@ jus_goals = str(0) #goals
 jus_tackles = str(0) #tackles made
 jus_intercept = str(0) #interceptions made
 jus_clean_sheets = str(0)#clean sheets
-#jus_shots = str(0) #shots
-#jus_shots_tar = str(0) #shots on target
-#jus_assists = str(0) #
 
 jus_yellow_cards = str(0)
 jus_red_cards = str(0)
@@ -182,9 +179,6 @@ chi_goals = str(1) #goals
 chi_tackles = str(12) #tackles made
 chi_intercept = str(10) #interceptions made
 chi_clean_sheets = str(5)#clean sheets
-#chi_shots = str(0) #shots
-#chi_shots_tar = str(0) #shots on target
-#chi_assists = str(0) #
 
 chi_yellow_cards = str(1)
 chi_red_cards = str(0)
@@ -197,9 +191,6 @@ soy_goals = str(1) #goals
 soy_tackles = str(27) #tackles made
 soy_intercept = str(18) #interceptions made
 soy_clean_sheets = str(5)#clean sheets
-#soy_shots = str(0) #shots
-#soy_shots_tar = str(0) #shots on target
-#soy_assists = str(0) #
 
 soy_yellow_cards = str(2)
 soy_red_cards = str(0)
@@ -212,9 +203,6 @@ mor_goals = str(0) #goals
 mor_tackles = str(0) #tackles made
 mor_intercept = str(0) #interceptions made
 mor_clean_sheets = str(0)#clean sheets
-#mor_shots = str(0) #shots
-#mor_shots_tar = str(0) #shots on target
-#mor_assists = str(0) #
 
 mor_yellow_cards = str(0)
 mor_red_cards = str(0)
@@ -227,9 +215,6 @@ eva_goals = str(0) #goals
 eva_tackles = str(16) #tackles made
 eva_intercept = str(14) #interceptions made
 eva_clean_sheets = str(5)#clean sheets
-#eva_shots = str(0) #shots
-#eva_shots_tar = str(0) #shots on target
-#eva_assists = str(0) #
 
 eva_yellow_cards = str(3)
 eva_red_cards = str(0)
@@ -242,9 +227,6 @@ ben_goals = str(0) #goals
 ben_tackles = str(0) #tackles made
 ben_intercept = str(0) #interceptions made
 ben_clean_sheets = str(0)#clean sheets
-#ben_shots = str(0) #shots
-#ben_shots_tar = str(0) #shots on target
-#ben_assists = str(0) #
 
 ben_yellow_cards = str(0)
 ben_red_cards = str(0)
@@ -257,9 +239,6 @@ ama_goals = str(0) #goals
 ama_tackles = str(0) #tackles made
 ama_intercept = str(0) #interceptions made
 ama_clean_sheets = str(0)#clean sheets
-#ama_shots = str(0) #shots
-#ama_shots_tar = str(0) #shots on target
-#ama_assists = str(0) #
 
 ama_yellow_cards = str(0)
 ama_red_cards = str(0)
@@ -272,9 +251,6 @@ rper_goals = str(2) #goals
 rper_tackles = str(54) #tackles made
 rper_intercept = str(20) #interceptions made
 rper_clean_sheets = str(5)#clean sheets
-#rper_shots = str(0) #shots
-#rper_shots_tar = str(0) #shots on target
-#rper_assists = str(0) #
 
 rper_yellow_cards = str(0)
 rper_red_cards = str(0)
@@ -287,9 +263,6 @@ fuc_goals = str(0) #goals
 fuc_tackles = str(6) #tackles made
 fuc_intercept = str(0) #interceptions made
 fuc_clean_sheets = str(0)#clean sheets
-#fuc_shots = str(0) #shots
-#fuc_shots_tar = str(0) #shots on target
-#fuc_assists = str(0) #
 
 fuc_yellow_cards = str(0)
 fuc_red_cards = str(0)
