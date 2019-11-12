@@ -30,7 +30,7 @@ User is presented with a query asking to see the next fixture, or a list of all.
 No matter which query is selected, the next fixture to be played is always listed first and so on from there. It performs this by taking a timestamp value based on the current time and compares this to timings related to fixtures and outputs data accordingly (IMP2).
 
 # current_results.py
-Works in a similar way to current_fixture_list.py using timestamps to identify the latest result and print accourdingly.
+Works in a similar way to current_fixture_list.py using timestamps to identify the latest result and print accordingly.
 
 # current_player_stats.py
 Statistics can be viewed via typing the name or initials of the desired player at the initial user query. There is also a list squad option to view possible entries. Currently, this only contains statistics for the premier league only! (IMP3)
