@@ -13,7 +13,8 @@ from bs4 import BeautifulSoup as BeautifulSoup
 statistics = str('stats')
 command = str('commands')
 fixtures = str('fixtures')
-update = str('update')
+update_data = str('update data')
+update_run_file = str('update launcher')
 results = str('scores')
 rst1 = str('reset')
 fx_version = str('fixture version') #version for fixture
@@ -272,9 +273,14 @@ def startupquery00():
     else: startupquery00fail()
 
 def list_of_commands():
-    command_list = input('\nupdate / fixtures / stats / player/or/fixture/or/results version\n\nType "reset" to go back to the beginning\n').lower()
-    if (command_list == update):
+    command_list = input('\nfixtures / stats / player/or/fixture/or/results version\n'
+                         'update data/or/launcher\n'
+                         '\nType "reset" to go back to the beginning\n').lower()
+    if (command_list == update_data):
         update_tool()
+    if (command_list == update_run_file):
+        subprocess.call(['python', 'run_update.py'])
+        list_of_commands()
     if (command_list == fixtures):
         subprocess.call(['python', 'current_fixture_list.py']) #downloads the new fixture list
         list_of_commands()
@@ -300,8 +306,5 @@ def list_of_commands():
 def list_of_commands_failed_syntax():
     print('\nUnknown command syntax\n')
     list_of_commands()
-
-def fixture_update_loop():
-    subprocess.call([])
 
 startupquery00()
