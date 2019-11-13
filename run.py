@@ -152,8 +152,8 @@ def update_tool():
     player_soup = BeautifulSoup(escape_list, features='html.parser')
     fixture_soup = BeautifulSoup(escape_list, features='html.parser')
     results_soup = BeautifulSoup(escape_list, features='html.parser')
-    player_update_string = player_soup.main.string #takes the text out of the <main> section - IDed internally within the HTML page - PLAYER UPDATE SECTION
-    fixture_update_string = fixture_soup.p.string #takes the version number from the <p> section
+    player_update_string = player_soup.main.string #takes the text out of the "main" section - IDed internally within the HTML page - PLAYER UPDATE SECTION
+    fixture_update_string = fixture_soup.p.string #takes the version number from the "p" section
     results_update_string = results_soup.h1.string
     print('Latest player version: ' + player_update_string)
     print('Latest fixture version: ' + fixture_update_string)
