@@ -1,6 +1,8 @@
-#revision 0.08
+#revision 0.09
 import sys
 import datetime
+from itertools import zip_longest
+from tabulate import tabulate
 current_time = str(datetime.datetime.now())
 
 okay = str('f')
@@ -8,6 +10,7 @@ next_fix = str('n')
 all = str('all')
 latest = str('l')
 remain_yes = 0
+fix_reverse_list = []
 
 class fixture_date_id: #list of premier league fixtures only!!!
     def leiVsNew(): # starts at the newcastle game because of when the software is written
@@ -221,7 +224,9 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
                 fixture_info.iLeiVsEve()
             else: sys.exit()
         if remain_yes == 1:
-            print('Brighton & Hove Albion Vs Leicester City')
+            global fix_reverse_list
+            fix_reverse_list += ['Brighton & Hove Albion Vs Leicester City']
+            #print('Brighton & Hove Albion Vs Leicester City')
             fixture_info.iLeiVsEve()
 
     def iLeiVsEve():
@@ -235,7 +240,9 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
                 fixture_info.iLeiVsWat()
             else: sys.exit()
         if remain_yes == 1:
-            print('Leicester City Vs Everton FC')
+            global fix_reverse_list
+            fix_reverse_list += ['Leicester City Vs Everton FC']
+            #print('Leicester City Vs Everton FC')
             fixture_info.iLeiVsWat()
 
     def iLeiVsWat():
@@ -249,7 +256,9 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
                 fixture_info.iAstVsLei()
             else: sys.exit()
         if remain_yes == 1:
-            print('Leicester City Vs Watford FC')
+            global fix_reverse_list
+            fix_reverse_list += ['Leicester City Vs Watford FC']
+            #print('Leicester City Vs Watford FC')
             fixture_info.iAstVsLei()
 
     def iAstVsLei():
@@ -263,7 +272,9 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
                 fixture_info.iLeiVsNor()
             else: sys.exit()
         if remain_yes == 1:
-            print('Aston Villa Vs Leicester City')
+            global fix_reverse_list
+            fix_reverse_list += ['Aston Villa Vs Leicester City']
+            #print('Aston Villa Vs Leicester City')
             fixture_info.iLeiVsNor()
 
     def iLeiVsNor():
@@ -277,7 +288,9 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
                 fixture_info.iEveVsLei_Carab()
             else: sys.exit()
         if remain_yes == 1:
-            print('Leicester City Vs Norwich City')
+            global fix_reverse_list
+            fix_reverse_list += ['Leicester City Vs Norwich City']
+            #print('Leicester City Vs Norwich City')
             fixture_info.iEveVsLei_Carab()
             
     def iEveVsLei_Carab():
@@ -292,7 +305,9 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
                 fixture_info.iMncVsLei()
             else: sys.exit()
         if remain_yes == 1:
-            print('Everton FC Vs Leicester City')
+            global fix_reverse_list
+            fix_reverse_list += ['Everton FC Vs Leicester City']
+            #print('Everton FC Vs Leicester City')
             fixture_info.iMncVsLei()
             
     def iMncVsLei():
@@ -306,7 +321,9 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
                 fixture_info.iLeiVsLiv()
             else: sys.exit()
         if remain_yes == 1:
-            print('Manchester City Vs Leicester City')
+            global fix_reverse_list
+            fix_reverse_list += ['Manchester City Vs Leicester City']
+            #print('Manchester City Vs Leicester City')
             fixture_info.iLeiVsLiv()
 
     def iLeiVsLiv():
@@ -320,7 +337,9 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
                 fixture_info.iWhuVsLei()
             else: sys.exit()
         if remain_yes == 1:
-            print('Leicester City Vs Liverpool FC')
+            global fix_reverse_list
+            fix_reverse_list += ['Leicester City Vs Liverpool FC']
+            #print('Leicester City Vs Liverpool FC')
             fixture_info.iWhuVsLei()
 
     def iWhuVsLei():
@@ -334,7 +353,9 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
                 fixture_info.iNewVsLei()
             else: sys.exit()
         if remain_yes == 1:
-            print('West Ham United Vs Leicester City')
+            global fix_reverse_list
+            fix_reverse_list += ['West Ham United Vs Leicester City']
+            #print('West Ham United Vs Leicester City')
             fixture_info.iNewVsLei()
 
     def iNewVsLei():
@@ -348,7 +369,9 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
                 fixture_info.iLeiVsSou()
             else: sys.exit()
         if remain_yes == 1:
-            print('Newcastle United Vs Leicester City')
+            global fix_reverse_list
+            fix_reverse_list += ['Newcastle United Vs Leicester City']
+            #print('Newcastle United Vs Leicester City')
             fixture_info.iLeiVsSou()
 
     def iLeiVsSou():
@@ -362,7 +385,9 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
                 fixture_info.iBurVsLei()
             else: sys.exit()
         if remain_yes == 1:
-            print('Leicester City Vs Southampton FC')
+            global fix_reverse_list
+            fix_reverse_list += ['Leicester City Vs Southampton FC']
+            #print('Leicester City Vs Southampton FC')
             fixture_info.iBurVsLei()
 
     def iBurVsLei():
@@ -376,7 +401,9 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
                 fixture_info.iLeiVsWhu()
             else: sys.exit()
         if remain_yes == 1:
-            print('Burnley FC Vs Leicester City')
+            global fix_reverse_list
+            fix_reverse_list += ['Burnley FC Vs Leicester City']
+            #print('Burnley FC Vs Leicester City')
             fixture_info.iLeiVsWhu()
 
     def iLeiVsWhu():
@@ -390,7 +417,9 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
                 fixture_info.iLeiVsChe()
             else: sys.exit()
         if remain_yes == 1:
-            print('Leicester City Vs West Ham United')
+            global fix_reverse_list
+            fix_reverse_list += ['Leicester City Vs West Ham United']
+            #print('Leicester City Vs West Ham United')
             fixture_info.iLeiVsChe()
 
     def iLeiVsChe():
@@ -404,7 +433,9 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
                 fixture_info.iWolVsLei()
             else: sys.exit()
         if remain_yes == 1:
-            print('Leicester City Vs Chelsea FC')
+            global fix_reverse_list
+            fix_reverse_list += ['Leicester City Vs Chelsea FC']
+            #print('Leicester City Vs Chelsea FC')
             fixture_info.iWolVsLei()
 
     def iWolVsLei():
@@ -418,7 +449,9 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
                 fixture_info.iLeiVsMnc()
             else: sys.exit()
         if remain_yes == 1:
-            print('Wolverhampton Wanderers Vs Leicester City')
+            global fix_reverse_list
+            fix_reverse_list += ['Wolverhampton Wanderers Vs Leicester City']
+            #print('Wolverhampton Wanderers Vs Leicester City')
             fixture_info.iLeiVsMnc()
 
     def iLeiVsMnc():
@@ -432,7 +465,9 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
                 fixture_info.iNorVsLei()
             else: sys.exit()
         if remain_yes == 1:
-            print('Leicester City Vs Manchester City')
+            global fix_reverse_list
+            fix_reverse_list += ['Leicester City Vs Manchester City']
+            #print('Leicester City Vs Manchester City')
             fixture_info.iNorVsLei()
 
     def iNorVsLei():
@@ -446,7 +481,9 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
                 fixture_info.iLeiVsAst()
             else: sys.exit()
         if remain_yes == 1:
-            print('Norwich City Vs Leicester City')
+            global fix_reverse_list
+            fix_reverse_list += ['Norwich City Vs Leicester City']
+            #print('Norwich City Vs Leicester City')
             fixture_info.iLeiVsAst()
 
     def iLeiVsAst():
@@ -460,7 +497,9 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
                 fixture_info.iWatVsLei()
             else: sys.exit()
         if remain_yes == 1:
-            print('Leicester City Vs Aston Villa')
+            global fix_reverse_list
+            fix_reverse_list += ['Leicester City Vs Aston Villa']
+            #print('Leicester City Vs Aston Villa')
             fixture_info.iWatVsLei()
 
     def iWatVsLei():
@@ -474,7 +513,9 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
                 fixture_info.iLeiVsBha()
             else: sys.exit()
         if remain_yes == 1:
-            print('Watford FC Vs Leicester City')
+            global fix_reverse_list
+            fix_reverse_list += ['Watford FC Vs Leicester City']
+            #print('Watford FC Vs Leicester City')
             fixture_info.iLeiVsBha()
 
     def iLeiVsBha():
@@ -488,7 +529,9 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
                 fixture_info.iEveVsLei()
             else: sys.exit()
         if remain_yes == 1:
-            print('Leicester City Vs Brighton & Hove Albion')
+            global fix_reverse_list
+            fix_reverse_list += ['Leicester City Vs Brighton & Hove Albion']
+            #print('Leicester City Vs Brighton & Hove Albion')
             fixture_info.iEveVsLei()
 
     def iEveVsLei():
@@ -502,7 +545,9 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
                 fixture_info.iLeiVsCry()
             else: sys.exit()
         if remain_yes == 1:
-            print('Everton FC Vs Leicester City')
+            global fix_reverse_list
+            fix_reverse_list += ['Everton FC Vs Leicester City']
+            #print('Everton FC Vs Leicester City')
             fixture_info.iLeiVsCry()
 
     def iLeiVsCry():
@@ -516,7 +561,9 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
                 fixture_info.iArsVsLei()
             else: sys.exit()
         if remain_yes == 1:
-            print('Leicester City Vs Crystal Palace')
+            global fix_reverse_list
+            fix_reverse_list += ['Leicester City Vs Crystal Palace']
+            #print('Leicester City Vs Crystal Palace')
             fixture_info.iArsVsLei()
 
     def iArsVsLei():
@@ -530,7 +577,9 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
                 fixture_info.iBouVsLei()
             else: sys.exit()
         if remain_yes == 1:
-            print('Arsenal FC Vs Leicester City')
+            global fix_reverse_list
+            fix_reverse_list += ['Arsenal FC Vs Leicester City']
+            #print('Arsenal FC Vs Leicester City')
             fixture_info.iBouVsLei()
 
     def iBouVsLei():
@@ -544,7 +593,9 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
                 fixture_info.iLeiVsShu()
             else: sys.exit()
         if remain_yes == 1:
-            print('AFC Bournemouth Vs Leicester City')
+            global fix_reverse_list
+            fix_reverse_list += ['AFC Bournemouth Vs Leicester City']
+            #print('AFC Bournemouth Vs Leicester City')
             fixture_info.iLeiVsShu()
 
     def iLeiVsShu():
@@ -558,7 +609,9 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
                 fixture_info.iTotVsLei()
             else: sys.exit()
         if remain_yes == 1:
-            print('Leicester City Vs Sheffield United')
+            global fix_reverse_list
+            fix_reverse_list += ['Leicester City Vs Sheffield United']
+            #print('Leicester City Vs Sheffield United')
             fixture_info.iTotVsLei()
 
     def iTotVsLei():
@@ -572,7 +625,9 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
                 fixture_info.iLeiVsMnu()
             else: sys.exit()
         if remain_yes == 1:
-            print('Tottenham Hotspur Vs Leicester City')
+            global fix_reverse_list
+            fix_reverse_list += ['Tottenham Hotspur Vs Leicester City']
+            #print('Tottenham Hotspur Vs Leicester City')
             fixture_info.iLeiVsMnu()
 
     def iLeiVsMnu():
@@ -584,7 +639,11 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
             input('\n\nEnd of fixtures, press any key to exit')
             sys.exit()
         if remain_yes == 1:
-            print('Leicester City Vs Manchester United\n')
+            global fix_reverse_list
+            fix_reverse_list += ['Leicester City Vs Manchester United']
+            fix_reverse_list.reverse()
+            print(tabulate(zip_longest(fix_reverse_list)))
+            #print('Leicester City Vs Manchester United\n')
             sys.exit()
 
 def fixture_start_query():
@@ -603,7 +662,6 @@ def remain_yes_off():
 def remain_yes_on():
     global remain_yes
     remain_yes = 1
-
 
 fixture_start_query()
 #at the startup, the program creates a string containing the current date -

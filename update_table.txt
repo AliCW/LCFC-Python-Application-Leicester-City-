@@ -7,6 +7,6 @@
 		
 		<h2 id="run_update_version">0.02</h2>
 		
-		<p id="fixture_update_version">0.08</p>
+		<p id="fixture_update_version">0.09</p>
   	</body>
 </html>
