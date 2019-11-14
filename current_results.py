@@ -1,6 +1,8 @@
-#revision 0.04
+#revision 0.05
 import sys
 import datetime
+from itertools import zip_longest
+from tabulate import tabulate
 current_time = str(datetime.datetime.now())
 print(current_time)
 okay = str('f')
@@ -10,6 +12,7 @@ prem = str('- Premier League')
 carab = str('- Carabao Cup')
 fa = str('- F.A. Cup')
 remain_result_yes = 0
+reverse_list = []
 
 away_vs_ars = str('Arsenal FC 0:0 Leicester City')#<-----------YET TO BE PLAYED
 away_vs_ast = str('Aston Villa 0:0 Leicester City')#<-----------YET TO BE PLAYED
@@ -182,6 +185,7 @@ class latest_result_ident:
 
 
 
+
 class result_info:
     def fx_LeiVsWol():
         if remain_result_yes == 0:
@@ -189,7 +193,10 @@ class result_info:
             input('\nEnd of results list, press any key to exit')
             sys.exit()
         if remain_result_yes == 1:
-            print(home_vs_wol + prem)
+            global reverse_list
+            reverse_list += [home_vs_wol]
+            reverse_list.reverse()
+            print(tabulate(zip_longest(reverse_list)))
             sys.exit()
     def fx_CheVsLei():
         if remain_result_yes == 0:
@@ -199,7 +206,9 @@ class result_info:
                 result_info.fx_LeiVsWol()
             else: sys.exit()
         if remain_result_yes == 1:
-            print(away_vs_che + prem)
+            global reverse_list
+            reverse_list += [away_vs_che]
+            #print(away_vs_che + prem)
             result_info.fx_LeiVsWol()
     def fx_ShuVsLei():
         if remain_result_yes == 0:
@@ -209,7 +218,9 @@ class result_info:
                 result_info.fx_CheVsLei()
             else: sys.exit()
         if remain_result_yes == 1:
-            print(away_vs_shu + prem)
+            global reverse_list
+            reverse_list += [away_vs_shu]
+            #print(away_vs_shu + prem)
             result_info.fx_CheVsLei()
     def fx_NewVsLei_carab():
         if remain_result_yes == 0:
@@ -219,7 +230,9 @@ class result_info:
                 result_info.fx_ShuVsLei()
             else: sys.exit()
         if remain_result_yes == 1:
-            print(away_vs_new_carab + carab)
+            global reverse_list
+            reverse_list += [away_vs_new_carab]
+            #print(away_vs_new_carab + carab)
             result_info.fx_ShuVsLei()
     def fx_LeiVsBou():
         if remain_result_yes == 0:
@@ -229,7 +242,9 @@ class result_info:
                 result_info.fx_NewVsLei_carab()
             else: sys.exit()
         if remain_result_yes == 1:
-            print(home_vs_bou + prem)
+            global reverse_list
+            reverse_list += [home_vs_bou]
+            #print(home_vs_bou + prem)
             result_info.fx_NewVsLei_carab()
     def fx_MnuVsLei():
         if remain_result_yes == 0:
@@ -239,7 +254,9 @@ class result_info:
                 result_info.fx_LeiVsBou()
             else: sys.exit()
         if remain_result_yes == 1:
-            print(away_vs_mnu + prem)
+            global reverse_list
+            reverse_list += [away_vs_mnu]
+            #print(away_vs_mnu + prem)
             result_info.fx_LeiVsBou()
     def fx_LeiVsTot():
         if remain_result_yes == 0:
@@ -249,7 +266,9 @@ class result_info:
                 result_info.fx_MnuVsLei()
             else: sys.exit()
         if remain_result_yes == 1:
-            print(home_vs_tot + prem)
+            global reverse_list
+            reverse_list += [home_vs_tot]
+            #print(home_vs_tot + prem)
             result_info.fx_MnuVsLei()
     def fx_LutVsLei():
         if remain_result_yes == 0:
@@ -259,7 +278,9 @@ class result_info:
                 result_info.fx_LeiVsTot()
             else: sys.exit()
         if remain_result_yes == 1:
-            print(away_vs_lut_carab + carab)
+            global reverse_list
+            reverse_list += [away_vs_lut_carab]
+            #print(away_vs_lut_carab + carab)
             result_info.fx_LeiVsTot()
     def fx_LeiVsNew():
         if remain_result_yes == 0:
@@ -269,7 +290,9 @@ class result_info:
                 result_info.fx_LutVsLei()
             else: sys.exit()
         if remain_result_yes == 1:
-            print(home_vs_new + prem)
+            global reverse_list
+            reverse_list += [home_vs_new]
+            #print(home_vs_new + prem)
             result_info.fx_LutVsLei()
     def fx_LivVsLei():
         if remain_result_yes == 0:
@@ -279,7 +302,9 @@ class result_info:
                 result_info.fx_LeiVsNew()
             else: sys.exit()
         if remain_result_yes == 1:
-            print(away_vs_liv + prem)
+            global reverse_list
+            reverse_list += [away_vs_liv]
+            #print(away_vs_liv + prem)
             result_info.fx_LeiVsNew()
     def fx_LeiVsBur():
         if remain_result_yes == 0:
@@ -289,7 +314,9 @@ class result_info:
                 result_info.fx_LivVsLei()
             else: sys.exit()
         if remain_result_yes == 1:
-            print(home_vs_bur + prem)
+            global reverse_list
+            reverse_list += [home_vs_bur]
+            #print(home_vs_bur + prem)
             result_info.fx_LivVsLei()
     def fx_SouVsLei():
         if remain_result_yes == 0:
@@ -299,7 +326,9 @@ class result_info:
                 result_info.fx_LeiVsBur()
             else: sys.exit()
         if remain_result_yes == 1:
-            print(away_vs_sou + prem)
+            global reverse_list
+            reverse_list += [away_vs_sou]
+            #print(away_vs_sou + prem)
             result_info.fx_LeiVsBur()
     def fx_BtnVsLei():
         if remain_result_yes == 0:
@@ -309,7 +338,9 @@ class result_info:
                 result_info.fx_SouVsLei()
             else: sys.exit()
         if remain_result_yes == 1:
-            print(away_vs_btn + carab)
+            global reverse_list
+            reverse_list += [away_vs_btn]
+            #print(away_vs_btn + carab)
             result_info.fx_SouVsLei()
     def fx_CryVsLei():
         if remain_result_yes == 0:
@@ -319,7 +350,9 @@ class result_info:
                 result_info.fx_BtnVsLei()
             else: sys.exit()
         if remain_result_yes == 1:
-            print(away_vs_cry + prem)
+            global reverse_list
+            reverse_list += [away_vs_cry]
+            #print(away_vs_cry + prem)
             result_info.fx_BtnVsLei()
     def fx_LeiVsArs():
         if remain_result_yes == 0:
@@ -329,7 +362,9 @@ class result_info:
                 result_info.fx_CryVsLei()
             else: sys.exit()
         if remain_result_yes == 1:
-            print(home_vs_ars + prem)
+            global reverse_list
+            reverse_list += [home_vs_ars]
+            #print(home_vs_ars + prem)
             result_info.fx_CryVsLei()
     def fx_BhaVsLei():
         if remain_result_yes == 0:
@@ -339,7 +374,9 @@ class result_info:
                 result_info.fx_LeiVsArs()
             else: sys.exit()
         if remain_result_yes == 1:
-            print(away_vs_bha + prem)
+            global reverse_list
+            reverse_list += [away_vs_bha]
+            #print(away_vs_bha + prem)
             result_info.fx_LeiVsArs()
     def fx_LeiVsEve():
         if remain_result_yes == 0:
@@ -349,7 +386,9 @@ class result_info:
                 result_info.fx_BhaVsLei()
             else: sys.exit()
         if remain_result_yes == 1:
-            print(home_vs_eve + prem)
+            global reverse_list
+            reverse_list += [home_vs_eve]
+            #print(home_vs_eve + prem)
             result_info.fx_BhaVsLei()
     def fx_LeiVsWat():
         if remain_result_yes == 0:
@@ -359,7 +398,9 @@ class result_info:
                 result_info.fx_LeiVsEve()
             else: sys.exit()
         if remain_result_yes == 1:
-            print(home_vs_wat + prem)
+            global reverse_list
+            reverse_list += [home_vs_wat]
+            #print(home_vs_wat + prem)
             result_info.fx_LeiVsEve()
     def fx_AstVsLei():
         if remain_result_yes == 0:
@@ -369,7 +410,9 @@ class result_info:
                 result_info.fx_LeiVsWat()
             else: sys.exit()
         if remain_result_yes == 1:
-            print(home_vs_ast + prem)
+            global reverse_list
+            reverse_list += [home_vs_ast]
+            #print(home_vs_ast + prem)
             result_info.fx_LeiVsWat()
     def fx_LeiVsNor():
         if remain_result_yes == 0:
@@ -379,7 +422,9 @@ class result_info:
                 result_info.fx_AstVsLei()
             else: sys.exit()
         if remain_result_yes == 1:
-            print(home_vs_nor + prem)
+            global reverse_list
+            reverse_list += [home_vs_nor]
+            #print(home_vs_nor + prem)
             result_info.fx_AstVsLei()
     def fx_EveVsLei_Carab():
         if remain_result_yes == 0:
@@ -389,7 +434,9 @@ class result_info:
                 result_info.fx_LeiVsNor()
             else: sys.exit()
         if remain_result_yes == 1:
-            print(away_vs_eve_carab + carab)
+            global reverse_list
+            reverse_list += [away_vs_eve]
+            #print(away_vs_eve_carab + carab)
             result_info.fx_LeiVsNor()
     def fx_MncVsLei():
         if remain_result_yes == 0:
@@ -399,7 +446,9 @@ class result_info:
                 result_info.fx_EveVsLei_Carab()
             else: sys.exit()
         if remain_result_yes == 1:
-            print(away_vs_mnc + prem)
+            global reverse_list
+            reverse_list += [away_vs_mnc]
+            #print(away_vs_mnc + prem)
             result_info.fx_EveVsLei_Carab()
     def fx_LeiVsLiv():
         if remain_result_yes == 0:
@@ -409,7 +458,9 @@ class result_info:
                 result_info.fx_MncVsLei()
             else: sys.exit()
         if remain_result_yes == 1:
-            print(home_vs_liv + prem)
+            global reverse_list
+            reverse_list += [home_vs_liv]
+            #print(home_vs_liv + prem)
             result_info.fx_MncVsLei()
     def fx_WhuVsLei():
         if remain_result_yes == 0:
@@ -419,7 +470,9 @@ class result_info:
                 result_info.fx_LeiVsLiv()
             else: sys.exit()
         if remain_result_yes == 1:
-            print(away_vs_whu + prem)
+            global reverse_list
+            reverse_list += [away_vs_whu]
+            #print(away_vs_whu + prem)
             result_info.fx_LeiVsLiv()
     def fx_NewVsLei():
         if remain_result_yes == 0:
@@ -429,7 +482,9 @@ class result_info:
                 result_info.fx_WhuVsLei()
             else: sys.exit()
         if remain_result_yes == 1:
-            print(away_vs_new + prem)
+            global reverse_list
+            reverse_list += [away_vs_new]
+            #print(away_vs_new + prem)
             result_info.fx_WhuVsLei()
     def fx_LeiVsSou():
         if remain_result_yes == 0:
@@ -439,7 +494,9 @@ class result_info:
                 result_info.fx_NewVsLei()
             else: sys.exit()
         if remain_result_yes == 1:
-            print(home_vs_sou + prem)
+            global reverse_list
+            reverse_list += [home_vs_sou]
+            #print(home_vs_sou + prem)
             result_info.fx_NewVsLei()
     def fx_BurVsLei():
         if remain_result_yes == 0:
@@ -449,7 +506,9 @@ class result_info:
                 result_info.fx_LeiVsSou()
             else: sys.exit()
         if remain_result_yes == 1:
-            print(away_vs_bur + prem)
+            global reverse_list
+            reverse_list += [away_vs_bur]
+            #print(away_vs_bur + prem)
             result_info.fx_LeiVsSou()
     def fx_LeiVsWhu():
         if remain_result_yes == 0:
@@ -459,7 +518,9 @@ class result_info:
                 result_info.fx_BurVsLei()
             else: sys.exit()
         if remain_result_yes == 1:
-            print(home_vs_whu + prem)
+            global reverse_list
+            reverse_list += [home_vs_whu]
+            #print(home_vs_whu + prem)
             result_info.fx_BurVsLei()
     def fx_LeiVsChe():
         if remain_result_yes == 0:
@@ -469,7 +530,9 @@ class result_info:
                 result_info.fx_LeiVsWhu()
             else: sys.exit()
         if remain_result_yes == 1:
-            print(home_vs_che + prem)
+            global reverse_list
+            reverse_list += [home_vs_che]
+            #print(home_vs_che + prem)
             result_info.fx_LeiVsWhu()
     def fx_WolVsLei():
         if remain_result_yes == 0:
@@ -479,7 +542,9 @@ class result_info:
                 result_info.fx_LeiVsChe()
             else: sys.exit()
         if remain_result_yes == 1:
-            print(away_vs_wol + prem)
+            global reverse_list
+            reverse_list += [away_vs_wol]
+            #print(away_vs_wol + prem)
             result_info.fx_LeiVsChe()
     def fx_LeiVsMnc():
         if remain_result_yes == 0:
@@ -489,7 +554,9 @@ class result_info:
                 result_info.fx_WolVsLei()
             else: sys.exit()
         if remain_result_yes == 1:
-            print(home_vs_mnc + prem)
+            global reverse_list
+            reverse_list += [home_vs_mnc]
+            #print(home_vs_mnc + prem)
             result_info.fx_WolVsLei()
     def fx_NorVsLei():
         if remain_result_yes == 0:
@@ -499,7 +566,9 @@ class result_info:
                 result_info.fx_LeiVsMnc()
             else: sys.exit()
         if remain_result_yes == 1:
-            print(away_vs_nor + prem)
+            global reverse_list
+            reverse_list += [away_vs_nor]
+            #print(away_vs_nor + prem)
             result_info.fx_LeiVsMnc()
     def fx_LeiVsAst():
         if remain_result_yes == 0:
@@ -509,7 +578,9 @@ class result_info:
                 result_info.fx_NorVsLei()
             else: sys.exit()
         if remain_result_yes == 1:
-            print(home_vs_ast + prem)
+            global reverse_list
+            reverse_list += [home_vs_ast]
+            #print(home_vs_ast + prem)
             result_info.fx_NorVsLei()
     def fx_WatVsLei():
         if remain_result_yes == 0:
@@ -519,7 +590,9 @@ class result_info:
                 result_info.fx_LeiVsAst()
             else: sys.exit()
         if remain_result_yes == 1:
-            print(away_vs_wat + prem)
+            global reverse_list
+            reverse_list += [away_vs_wat]
+            #print(away_vs_wat + prem)
             result_info.fx_LeiVsAst()
     def fx_LeiVsBha():
         if remain_result_yes == 0:
@@ -529,7 +602,9 @@ class result_info:
                 result_info.fx_WatVsLei()
             else: sys.exit()
         if remain_result_yes == 1:
-            print(home_vs_bha + prem)
+            global reverse_list
+            reverse_list += [home_vs_bha]
+            #print(home_vs_bha + prem)
             result_info.fx_WatVsLei()
     def fx_EveVsLei():
         if remain_result_yes == 0:
@@ -539,7 +614,9 @@ class result_info:
                 result_info.fx_LeiVsBha()
             else: sys.exit()
         if remain_result_yes == 1:
-            print(away_vs_eve + prem)
+            global reverse_list
+            reverse_list += [away_vs_eve]
+            #print(away_vs_eve + prem)
             result_info.fx_LeiVsBha()
     def fx_LeiVsCry():
         if remain_result_yes == 0:
@@ -549,7 +626,9 @@ class result_info:
                 result_info.fx_EveVsLei()
             else: sys.exit()
         if remain_result_yes == 1:
-            print(home_vs_cry + prem)
+            global reverse_list
+            reverse_list += [home_vs_cry]
+            #print(home_vs_cry + prem)
             result_info.fx_EveVsLei()
     def fx_ArsVsLei():
         if remain_result_yes == 0:
@@ -559,7 +638,9 @@ class result_info:
                 result_info.fx_LeiVsCry()
             else: sys.exit()
         if remain_result_yes == 1:
-            print(away_vs_ars + prem)
+            global reverse_list
+            reverse_list += [away_vs_ars]
+            #print(away_vs_ars + prem)
             result_info.fx_LeiVsCry()
     def fx_LeiVsShu():
         if remain_result_yes == 0:
@@ -569,7 +650,9 @@ class result_info:
                 result_info.fx_ArsVsLei()
             else: sys.exit()
         if remain_result_yes == 1:
-            print(home_vs_shu + prem)
+            global reverse_list
+            reverse_list += [home_vs_shu]
+            #print(home_vs_shu + prem)
             result_info.fx_ArsVsLei()
     def fx_TotVsLei():
         if remain_result_yes == 0:
@@ -579,7 +662,9 @@ class result_info:
                 result_info.fx_LeiVsShu()
             else: sys.exit()
         if remain_result_yes == 1:
-            print(away_vs_tot + prem)
+            global reverse_list
+            reverse_list += [home_vs_mnu]
+            #print(away_vs_tot + prem)
             result_info.fx_LeiVsShu()
     def fx_LeiVsMnu():
         if remain_result_yes == 0:
@@ -589,7 +674,9 @@ class result_info:
                 result_info.fx_TotVsLei()
             else: sys.exit()
         if remain_result_yes == 1:
-            print(home_vs_mnu + prem)
+            global reverse_list
+            reverse_list += [home_vs_mnu]
+            #print(home_vs_mnu + prem)
             result_info.fx_TotVsLei()
 
 def remain_result_yes_off():
@@ -610,4 +697,3 @@ def results_start_query():
         latest_result_ident.leiVsArs()
 
 results_start_query()
-
