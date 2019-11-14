@@ -3,7 +3,7 @@
 	<body>
 		<main id="player_update_version">0.05</main>
 		
-		<h1 id="results_update_version">0.04</h1>
+		<h1 id="results_update_version">0.05</h1>
 		
 		<h2 id="run_update_version">0.02</h2>
 		
