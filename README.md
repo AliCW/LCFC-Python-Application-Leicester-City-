@@ -18,10 +18,16 @@ User is presented with the main query listing functions & required input. Data i
 
 There is also a command function added to help with testing the program.
 
+# run_update.py
+The script automatically checks for the existance of a version file for run.py, obtaining one if it cannot be found and copying the verion number to compare with that on the update_table. The update for run.py itself is then performed if a higher version number is found online, the process is performed using a similar syntax as the update function on run.py.
+
+# run_restart.py
+Called upon by run.py and calling run.py itself, this file acts as a restart function accessible via the "commands" section. This is sometimes needed to access updated files, might need to make the program perform this automatically after the update has been performed, I need to test more on this.
+
 # update_table.txt
 A useless file from the user's end, only used as a reference for the update mechanism (current link: https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/update_table.txt ) (IS2).
 
-# current_xyz_version.py
+# current_xyz_version.py / run_version.py
 All version files have an almost identical syntax with all outputting the current version number of its associated file. These are implemented for the update mechanism to capture their output and compare to the version number hosted online at update_table.txt (IMP1).
 
 # current_fixture_list.py
