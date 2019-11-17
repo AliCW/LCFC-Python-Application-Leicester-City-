@@ -1,4 +1,4 @@
-#v0.02
+#v0.03
 import subprocess
 import html
 import os
@@ -17,14 +17,24 @@ update_data = str('update data')
 update_run_file = str('update launcher')
 results = str('scores')
 rst1 = str('reset')
+clean = str('clean')
+restart = str('restart')
 fx_version = str('fixture version') #version for fixture
 pl_version = str('player version') #version for player stats
 rs_version = str('results version') #version for results
+run_version = str('run version') #version for run.py
 yes = str('y')
 no = str('n')
 shut_down = str('exit')
 
-#<-----Current version number scripts
+try:
+    open_run_version = open('run_version.py')
+    open_run_version.close()
+    current_run_version = subprocess.check_output(['python', 'run_version.py'])
+except IOError:
+    print('No version file found for run.py, running the update process...')
+    subprocess.call(['python', 'run_update.py'])#<----Runs the external update script
+    current_run_version = subprocess.check_output(['python', 'run_version.py'])
 try: #<-------------Player Statistic Version File
     open_player_stats_version = open('current_player_stats_version.py') #<--Checks the presence of the file
     open_player_stats_version.close() #if it finds it, the program checks the version output
@@ -157,13 +167,14 @@ def update_tool():
     player_update_string = player_soup.main.string #takes the text out of the "main" section - IDed internally within the HTML page - PLAYER UPDATE SECTION
     fixture_update_string = fixture_soup.p.string #takes the version number from the "p" section
     results_update_string = results_soup.h1.string
-    print('Latest player version: ' + player_update_string)
-    print('Latest fixture version: ' + fixture_update_string)
+    print('Latest Player Version: ' + player_update_string)
+    print('Latest Fixture Version: ' + fixture_update_string)
     print('Latest Results Version: ' + results_update_string)
     if float(results_update_string) > float(results_list_current_version):
         print('\nResults list is out of date')
         results_list_update_query = input('\nWould you like to update LCFC results? Y / N\n')
         if results_list_update_query == yes:
+            print('Working...')
             os.replace('current_results_version.py', 'current_results_version.old.py')
             browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/current_results_version.py')
             latest_result_version_raw = browser.page_source
@@ -190,7 +201,7 @@ def update_tool():
         print('\nPlayer statistics are out of date')
         player_stats_update_query = input('\nWould you like to update LCFC player statistics? Y / N\n')
         if player_stats_update_query == yes:
-            print("Working...")
+            print('Working...')
             os.replace('current_player_stats_version.py', 'current_player_stats_version.old.py') #Goalkeeper version code
             browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/current_player_stats_version.py')
             latest_player_stat_version_raw = browser.page_source
@@ -210,13 +221,14 @@ def update_tool():
             player_stats_create.write(latest_player_stat_final)
             player_stats_create.close()
         if player_stats_update_query == no:
-            print("Very well...")
+            print('Very well...')
     if float(player_update_string) <= float(player_stats_current_version):
         print('\nPlayer statistic files are up to date!')
     if float(fixture_update_string) > float(fixture_list_current_version):
         print('Fixture list if out of date\n')
         fixture_update_query = input('Would you like to update LCFC fixtures? Y / N\n').lower()
         if fixture_update_query == yes:
+            print('Working...')
             os.replace('current_fixture_version.py', 'current_fixture_version.old.py')
             browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/current_fixture_version.py')
             latest_fixture_version_raw = browser.page_source
@@ -237,7 +249,7 @@ def update_tool():
             fixture_page_create.close() #closes the new fixture page
             browser.close()
         if fixture_update_query == no:
-            print("Very well...")
+            print('Very well...')
             browser.close()
     if float(fixture_update_string) <= float(fixture_list_current_version):
         print('\nFixture list files are up to date!')
@@ -248,8 +260,66 @@ def update_tool():
 def player_passed_close_page():
     print('Update tool has completed')
 
+def clean_old_files():
+    print('Checking for .old files...')
+    from os import path
+    try:
+        run_version_file = os.path.join('run_version.old.py')
+        path.exists(run_version_file)
+        os.remove(run_version_file)
+        print('Run version file deleted')
+    except IOError:
+        print('No .old run version file found')
+    try:
+        run_file = os.path.join('run.py')
+        path.exists(run_file)
+        os.remove(run_file)
+    except IOError:
+        print('No .old run file found')
+    try:
+        fixture_version_file = os.path.join('current_fixture_version.old.py')
+        path.exists(fixture_version_file)
+        os.remove(fixture_version_file)
+        print('Fixture version file deleted')
+    except IOError:
+        print('No .old fixture version files found') #<---Remove these statements??
+    try:
+        fixture_data_file = os.path.join('current_fixture_list.old.py')
+        path.exists(fixture_data_file)
+        os.remove(fixture_data_file)
+        print('Fixture data file deleted')
+    except IOError:
+        print('No .old fixture data file found')
+    try:
+        player_version_file = os.path.join('current_player_stats_version.old.py')
+        path.exists(player_version_file)
+        os.remove(player_version_file)
+        print('Player statistic version file deleted')
+    except IOError:
+        print('No .old player statistic version file found')
+    try:
+        player_data_file = os.path.join('current_player_stats.old.py')
+        path.exists(player_data_file)
+        os.remove(player_data_file)
+        print('Player statistics data file deleted')
+    except IOError:
+        print('No .old player statistic data file found')
+    try:
+        results_version_file = os.path.join('current_results_version.old.py')
+        path.exists(results_version_file)
+        os.remove(results_version_file)
+        print('.old results file deleted')
+    except IOError:
+        print('No .old results version file found')
+    try:
+        results_data_file = os.path.join('current_results.old.py')
+        path.exists(results_data_file)
+        os.remove(results_data_file)
+    except IOError:
+        print('No .old results data file found')
+
 def startupquery00fail():
-    print('Incorrect syntax, please try once more.')
+    print('Incorrect syntax, please try once more\n')
     startupquery00()
 
 def startupquery00():
@@ -273,11 +343,17 @@ def startupquery00():
     else: startupquery00fail()
 
 def list_of_commands():
-    command_list = input('\nfixtures / stats / player/or/fixture/or/results version\n'
+    command_list = input('\nfixtures / stats / clean / restart\n'
+                         'player/or/fixture/or/results/or/run version\n'
                          'update data/or/launcher\n'
                          '\nType "reset" to go back to the beginning\n').lower()
     if (command_list == update_data):
         update_tool()
+    if (command_list == restart):
+        subprocess.call(['python', 'run_restart.py'])
+    if (command_list == clean):
+        clean_old_files()
+        list_of_commands()
     if (command_list == update_run_file):
         subprocess.call(['python', 'run_update.py'])
         list_of_commands()
@@ -300,6 +376,9 @@ def list_of_commands():
         list_of_commands()
     if (command_list == rs_version):
         print(float(results_list_current_version))
+        list_of_commands()
+    if (command_list == run_version):
+        print(float(current_run_version))
         list_of_commands()
     else: list_of_commands_failed_syntax()
 
