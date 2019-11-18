@@ -34,7 +34,6 @@ except IOError:
     browser.close()
     run_file_version = subprocess.check_output(['python', 'run_version.py'])
 
-
 def update_run_file():
     print('Checking for latest run.py file.')
     options = Options()
