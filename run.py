@@ -289,7 +289,7 @@ def clean_old_files():
     except IOError:
         print('No .old run version file found')
     try:
-        run_file = os.path.join('run.py')
+        run_file = os.path.join('run.old.py')
         path.exists(run_file)
         os.remove(run_file)
     except IOError:
