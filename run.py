@@ -1,4 +1,4 @@
-#v0.03
+#v0.04
 import subprocess
 import html
 import os
@@ -35,6 +35,24 @@ except IOError:
     print('No version file found for run.py, running the update process...')
     subprocess.call(['python', 'run_update.py'])#<----Runs the external update script
     current_run_version = subprocess.check_output(['python', 'run_version.py'])
+try:
+    open_run_update = open('run_update.py')
+    open_run_update.close()
+except IOError:
+    print('No run_update.py file found, obtaining one.')
+    options = Options()
+    options.headless = True
+    browser = webdriver.Firefox(options=options)
+    browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/run_update.py')
+    WebDriverWait(browser, 10)
+    run_update_raw = browser.page_source
+    run_update_parsed = html.unescape(run_update_raw)
+    run_update_soup = BeautifulSoup(run_update_parsed, features='html.parser')
+    run_update_final = run_update_soup.pre.string
+    run_update_create = open('run_update.py', 'w+')
+    run_update_create.write(run_update_final)
+    run_update_create.close()
+    browser.close()
 try: #<-------------Player Statistic Version File
     open_player_stats_version = open('current_player_stats_version.py') #<--Checks the presence of the file
     open_player_stats_version.close() #if it finds it, the program checks the version output
