@@ -5,7 +5,7 @@
 		
 		<h1 id="results_update_version">0.05</h1>
 		
-		<h2 id="run_update_version">0.03</h2>
+		<h2 id="run_version">0.04</h2>
 		
 		<p id="fixture_update_version">0.09</p>
   	</body>
