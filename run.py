@@ -32,6 +32,7 @@ data_path = str('\\data\\')
 version_path = str('\\version\\')
 update_path = str('\\update\\')
 old_path = str('\\old\\')
+double_dash = str('\\')
 
 try:
     open_run_version = open(base_path + version_path + 'run_version.py')
