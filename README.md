@@ -18,7 +18,7 @@ User is presented with the main query listing functions & required input. Data i
 
 There is also a command function added to help with testing the program.
 
-# run_update.py
+# /update/run_update.py
 The script automatically checks for the existance of a version file for run.py, obtaining one if it cannot be found and copying the verion number to compare with that on the update_table. The update for run.py itself is then performed if a higher version number is found online, the process is performed using a similar syntax as the update function on run.py.
 
 # run_restart.py
@@ -26,21 +26,21 @@ Called upon by run.py and calling run.py itself, this file acts as a restart fun
 
 Not working as intended, see issues (#18)
 
-# update_table.txt
+# /update/update_table.txt
 A useless file from the user's end, only used as a reference for the update mechanism (current link: https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/update_table.txt ) (IS2).
 
-# current_xyz_version.py / run_version.py
+# /version/current_xyz_version.py & run_version.py
 All version files have an almost identical syntax with all outputting the current version number of its associated file. These are implemented for the update mechanism to capture their output and compare to the version number hosted online at update_table.txt (IMP1).
 
-# current_fixture_list.py
+# /data/current_fixture_list.py
 User is presented with a query asking to see the next fixture, or a list of all. More details are available if viewed one by one. If all associated data is all listed together, it becomes unreadable, therefore, the list of all fixtures only contains limited related information.
 
 No matter which query is selected, the next fixture to be played is always listed first and so on from there. It performs this by taking a timestamp value based on the current time and compares this to timings related to fixtures and outputs data accordingly (IMP2).
 
-# current_results.py
+# /data/current_results.py
 Works in a similar way to current_fixture_list.py using timestamps to identify the latest result and print accordingly.
 
-# current_player_stats.py
+# /data/current_player_stats.py
 Statistics can be viewed via typing the name or initials of the desired player at the initial user query. There is also a list squad option to view possible entries. Currently, this only contains statistics for the premier league only! (IMP3)
 
 # Improve <-------------------------

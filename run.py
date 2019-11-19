@@ -1,4 +1,4 @@
-#v0.04
+#v0.05
 import subprocess
 import html
 import os
@@ -27,143 +27,149 @@ yes = str('y')
 no = str('n')
 shut_down = str('exit')
 
+base_path = os.environ['IDEA_INITIAL_DIRECTORY']
+data_path = str('\\data\\')
+version_path = str('\\version\\')
+update_path = str('\\update\\')
+old_path = str('\\old\\')
+
 try:
-    open_run_version = open('run_version.py')
+    open_run_version = open(base_path + version_path + 'run_version.py')
     open_run_version.close()
-    current_run_version = subprocess.check_output(['python', 'run_version.py'])
+    current_run_version = subprocess.check_output(['python', base_path + version_path + 'run_version.py'])
 except IOError:
     print('No version file found for run.py, running the update process...')
-    subprocess.call(['python', 'run_update.py'])#<----Runs the external update script
-    current_run_version = subprocess.check_output(['python', 'run_version.py'])
+    subprocess.call(['python', base_path + update_path + 'run_update.py'])#<----Runs the external update script
+    current_run_version = subprocess.check_output(['python', base_path + version_path + 'run_version.py'])
 try:
-    open_run_update = open('run_update.py')
+    open_run_update = open(base_path + update_path + 'run_update.py')
     open_run_update.close()
 except IOError:
     print('No run_update.py file found, obtaining one.')
     options = Options()
     options.headless = True
     browser = webdriver.Firefox(options=options)
-    browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/run_update.py')
+    browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/update/run_update.py')
     WebDriverWait(browser, 10)
     run_update_raw = browser.page_source
     run_update_parsed = html.unescape(run_update_raw)
     run_update_soup = BeautifulSoup(run_update_parsed, features='html.parser')
     run_update_final = run_update_soup.pre.string
-    run_update_create = open('run_update.py', 'w+')
+    run_update_create = open(base_path + update_path + 'run_update.py', 'w+')
     run_update_create.write(run_update_final)
     run_update_create.close()
     browser.close()
 try: #<-------------Player Statistic Version File
-    open_player_stats_version = open('current_player_stats_version.py') #<--Checks the presence of the file
+    open_player_stats_version = open(base_path + version_path + 'current_player_stats_version.py') #<--Checks the presence of the file
     open_player_stats_version.close() #if it finds it, the program checks the version output
-    player_stats_current_version = subprocess.check_output(['python', 'current_player_stats_version.py'])
+    player_stats_current_version = subprocess.check_output(['python', base_path + version_path + 'current_player_stats_version.py'])
 except IOError: #<--Run this update process if no file is found - functions the same as the update mechanism
     print('No version file found for player statistics, creating a new one.')
     options = Options()
     options.headless = True
     browser = webdriver.Firefox(options=options)
-    browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/current_player_stats_version.py')
+    browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/version/current_player_stats_version.py')
     WebDriverWait(browser, 10)#<-----------------------------------improve this to speed up the process!!!
     new_player_version_raw = browser.page_source
     new_player_version_parsed = html.unescape(new_player_version_raw)
     new_player_version_soup = BeautifulSoup(new_player_version_parsed, features='html.parser')
     new_player_version_final = new_player_version_soup.pre.string
-    player_version_create = open('current_player_stats_version.py', 'w+')
+    player_version_create = open(base_path + version_path + 'current_player_stats_version.py', 'w+')
     player_version_create.write(new_player_version_final)
     player_version_create.close()
     browser.close()
-    player_stats_current_version = subprocess.check_output(['python', 'current_player_stats_version.py'])
+    player_stats_current_version = subprocess.check_output(['python', base_path + version_path + 'current_player_stats_version.py'])
 try: #<-------------Player Statistic Data File
-    open_player_stat = open('current_player_stats.py')
+    open_player_stat = open(base_path + data_path + 'current_player_stats.py')
     open_player_stat.close()
 except IOError:
     print('No player statistic file found, creating a new one.')
     options = Options()
     options.headless = True
     browser = webdriver.Firefox(options=options)
-    browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/current_player_stats.py')
+    browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/data/current_player_stats.py')
     WebDriverWait(browser, 10)
     new_player_stats_raw = browser.page_source
     new_player_stats_parsed = html.unescape(new_player_stats_raw)
     new_player_stats_soup = BeautifulSoup(new_player_stats_parsed, features='html.parser')
     new_player_stats_final = new_player_stats_soup.pre.string
-    player_stats_create = open('current_player_stats.py', 'w+')
+    player_stats_create = open(base_path + data_path + 'current_player_stats.py', 'w+')
     player_stats_create.write(new_player_stats_final)
     player_stats_create.close()
     browser.close()
 try: #<-------------Fixture Version File
-    open_fixture_list_version = open('current_fixture_version.py')
+    open_fixture_list_version = open(base_path + version_path + 'current_fixture_version.py')
     open_fixture_list_version.close()
-    fixture_list_current_version = subprocess.check_output(['python', 'current_fixture_version.py'])
+    fixture_list_current_version = subprocess.check_output(['python', base_path + version_path + 'current_fixture_version.py'])
 except IOError:
     print('No version file found for fixture listings, creating a new one.')
     options = Options()
     options.headless = True
     browser = webdriver.Firefox(options=options)
-    browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/current_fixture_version.py')
+    browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/version/current_fixture_version.py')
     WebDriverWait(browser, 10)
     new_fixture_version_raw = browser.page_source
     new_fixture_version_parsed = html.unescape(new_fixture_version_raw)
     new_fixture_version_soup = BeautifulSoup(new_fixture_version_parsed, features='html.parser')
     new_fixture_version_final = new_fixture_version_soup.pre.string
-    fixture_version_create = open('current_fixture_version.py', 'w+')
+    fixture_version_create = open(base_path + version_path + 'current_fixture_version.py', 'w+')
     fixture_version_create.write(new_fixture_version_final)
     fixture_version_create.close()
     browser.close()
-    fixture_list_current_version = subprocess.check_output(['python', 'current_fixture_version.py'])
+    fixture_list_current_version = subprocess.check_output(['python', base_path + version_path + 'current_fixture_version.py'])
 try: #<-------------Fixture Data File
-    open_fixture_list = open('current_fixture_list.py')
+    open_fixture_list = open(base_path + data_path + 'current_fixture_list.py')
     open_fixture_list.close()
 except IOError:
     print('No fixture listing file found, creating a new one.')
     options = Options()
     options.headless = True
     browser = webdriver.Firefox(options=options)
-    browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/current_fixture_list.py')
+    browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/data/current_fixture_list.py')
     WebDriverWait(browser, 10)
     new_fixture_list_raw = browser.page_source
     new_fixture_list_parsed = html.unescape(new_fixture_list_raw)
     new_fixture_list_soup = BeautifulSoup(new_fixture_list_parsed, features='html.parser')
     new_fixture_list_final = new_fixture_list_soup.pre.string
-    fixture_list_create = open('current_fixture_list.py', 'w+')
+    fixture_list_create = open(base_path + data_path + 'current_fixture_list.py', 'w+')
     fixture_list_create.write(new_fixture_list_final)
     fixture_list_create.close()
     browser.close()
 try: #<-------------Results Version File
-    open_results_version = open('current_results_version.py')
+    open_results_version = open(base_path + version_path + 'current_results_version.py')
     open_results_version.close()
-    results_list_current_version = subprocess.check_output(['python', 'current_results_version.py'])
+    results_list_current_version = subprocess.check_output(['python', base_path + version_path + 'current_results_version.py'])
 except IOError:
     print('No version file found for latest results, creating a new one.')
     options = Options()
     options.headless = True
     browser = webdriver.Firefox(options=options)
-    browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/current_results_version.py')
+    browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/version/current_results_version.py')
     WebDriverWait(browser, 10)
     new_results_version_raw = browser.page_source
     new_results_version_parsed = html.unescape(new_results_version_raw)
     new_results_version_soup = BeautifulSoup(new_results_version_parsed, features='html.parser')
     new_results_version_final = new_results_version_soup.pre.string
-    results_version_create = open('current_results_version.py', 'w+')
+    results_version_create = open(base_path + version_path + 'current_results_version.py', 'w+')
     results_version_create.write(new_results_version_final)
     results_version_create.close()
     browser.close()
     results_list_current_version = subprocess.check_output(['python', 'current_results_version.py'])
 try: #<-------------Results Data File
-    open_results_list = open('current_results.py')
+    open_results_list = open(base_path + data_path + 'current_results.py')
     open_results_list.close()
 except IOError:
     print('No results file found, creating one now.')
     options = Options()
     options.headless = True
     browser = webdriver.Firefox(options=options)
-    browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/current_results.py')
+    browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/data/current_results.py')
     WebDriverWait(browser, 10)
     new_results_list_raw = browser.page_source
     new_results_list_parsed = html.unescape(new_results_list_raw)
     new_results_list_soup = BeautifulSoup(new_results_list_parsed, features='html.parser')
     new_results_list_final = new_results_list_soup.pre.string
-    results_list_create = open('current_results.py', 'w+')
+    results_list_create = open(base_path + data_path +'current_results.py', 'w+')
     results_list_create.write(new_results_list_final)
     results_list_create.close()
     browser.close()
@@ -171,10 +177,14 @@ except IOError:
 def update_tool():
     print('Started\n')
     print('Checking for the latest statistic files')
+    try:
+        os.path.old(base_path + double_dash)
+    except:
+        os.mkdir(base_path + double_dash + 'old')
     options = Options() #define browser options
     options.headless = True #set options to headless
     browser = webdriver.Firefox(options=options) #opens a headless firefox named "browser"
-    browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/update_table.txt') #browser is sent to overall table - this file must always contain the latest version number
+    browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/update/update_table.txt') #browser is sent to overall table - this file must always contain the latest version number
     print('Internet loaded')
     WebDriverWait(browser, 10)#.until(waitCondition.presence_of_element_located((By.id, '"player_update_version"')))
     update_list = browser.page_source
@@ -193,22 +203,22 @@ def update_tool():
         results_list_update_query = input('\nWould you like to update LCFC results? Y / N\n')
         if results_list_update_query == yes:
             print('Working...')
-            os.replace('current_results_version.py', 'current_results_version.old.py')
-            browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/current_results_version.py')
+            os.replace(base_path + version_path + 'current_results_version.py', base_path + old_path + 'current_results_version.old.py')
+            browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/version/current_results_version.py')
             latest_result_version_raw = browser.page_source
             latest_result_version_parsed = html.unescape(latest_result_version_raw)
             latest_result_version_soup = BeautifulSoup(latest_result_version_parsed, features='html.parser')
             latest_result_version_final = latest_result_version_soup.pre.string
-            result_version_create = open('current_results_version.py', 'w+')
+            result_version_create = open(base_path + version_path + 'current_results_version.py', 'w+')
             result_version_create.write(latest_result_version_final)
             result_version_create.close()
-            os.replace('current_results.py', 'current_results.old.py')
-            browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/current_results.py')
+            os.replace(base_path + data_path + 'current_results.py', base_path + old_path + 'current_results.old.py')
+            browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/data/current_results.py')
             latest_result_raw = browser.page_source
             latest_result_parsed = html.unescape(latest_result_raw)
             latest_result_soup = BeautifulSoup(latest_result_parsed, features='html.parser')
             latest_result_final = latest_result_soup.pre.string
-            result_create = open('current_results.py', 'w+')
+            result_create = open(base_path + data_path + 'current_results.py', 'w+')
             result_create.write(latest_result_final)
             result_create.close()
         if results_list_update_query == no:
@@ -220,22 +230,22 @@ def update_tool():
         player_stats_update_query = input('\nWould you like to update LCFC player statistics? Y / N\n')
         if player_stats_update_query == yes:
             print('Working...')
-            os.replace('current_player_stats_version.py', 'current_player_stats_version.old.py') #Goalkeeper version code
-            browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/current_player_stats_version.py')
+            os.replace(base_path + version_path + 'current_player_stats_version.py', base_path + old_path + 'current_player_stats_version.old.py') #Goalkeeper version code
+            browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/version/current_player_stats_version.py')
             latest_player_stat_version_raw = browser.page_source
             latest_player_stat_version_parsed = html.unescape(latest_player_stat_version_raw)
             latest_player_stat_version_soup = BeautifulSoup(latest_player_stat_version_parsed, features='html.parser')
             latest_player_stat_version_final = latest_player_stat_version_soup.pre.string
-            player_version_create = open('current_player_stats_version.py', 'w+')
+            player_version_create = open(base_path + version_path + 'current_player_stats_version.py', 'w+')
             player_version_create.write(latest_player_stat_version_final)
             player_version_create.close()
-            os.replace('current_player_stats.py', 'current_player_stats.old.py') #Goalkeeper statistic code
-            browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/current_player_stats.py')
+            os.replace(base_path + data_path + 'current_player_stats.py', base_path + old_path + 'current_player_stats.old.py') #Goalkeeper statistic code
+            browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/data/current_player_stats.py')
             latest_player_stats_raw = browser.page_source
             latest_player_stat_parsed = html.unescape(latest_player_stats_raw)
             latest_player_stat_soup = BeautifulSoup(latest_player_stat_parsed, features='html.parser')
             latest_player_stat_final = latest_player_stat_soup.pre.string
-            player_stats_create = open('current_player_stats.py', 'w+')
+            player_stats_create = open(base_path + data_path + 'current_player_stats.py', 'w+')
             player_stats_create.write(latest_player_stat_final)
             player_stats_create.close()
         if player_stats_update_query == no:
@@ -247,22 +257,22 @@ def update_tool():
         fixture_update_query = input('Would you like to update LCFC fixtures? Y / N\n').lower()
         if fixture_update_query == yes:
             print('Working...')
-            os.replace('current_fixture_version.py', 'current_fixture_version.old.py')
-            browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/current_fixture_version.py')
+            os.replace(base_path + version_path + 'current_fixture_version.py', base_path + old_path + 'current_fixture_version.old.py')
+            browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/version/current_fixture_version.py')
             latest_fixture_version_raw = browser.page_source
             latest_fixture_version_parsed = html.unescape(latest_fixture_version_raw)
             latest_fixture_version_soup = BeautifulSoup(latest_fixture_version_parsed, features='html.parser')
             latest_fixture_version_final = latest_fixture_version_soup.pre.string
-            fixture_version_create = open('current_fixture_version.py', 'w+')
+            fixture_version_create = open(base_path + version_path + 'current_fixture_version.py', 'w+')
             fixture_version_create.write(latest_fixture_version_final)
             fixture_version_create.close()
-            os.replace('current_fixture_list.py', 'current_fixture_list.old.py') #changes current name to .old - delete the .old file maybe within another script / function - MAY NEED AN OVERRIDE FUNCTION FOR THIS
-            browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/current_fixture_list.py') #goes to the page with latest fixture file raw code
+            os.replace(base_path + data_path + 'current_fixture_list.py', base_path + old_path + 'current_fixture_list.old.py') #changes current name to .old - delete the .old file maybe within another script / function - MAY NEED AN OVERRIDE FUNCTION FOR THIS
+            browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/data/current_fixture_list.py') #goes to the page with latest fixture file raw code
             latest_fixture_code_raw = browser.page_source #copies the raw code
             latest_fixture_code_parsed = html.unescape(latest_fixture_code_raw) #parses the code to retain symbolism
             latest_fixture_code_soup = BeautifulSoup(latest_fixture_code_parsed, features='html.parser')
             latest_fixture_code_final = latest_fixture_code_soup.pre.string
-            fixture_page_create = open('current_fixture_list.py', 'w+') #creates the new fixture page
+            fixture_page_create = open(base_path + data_path + 'current_fixture_list.py', 'w+') #creates the new fixture page
             fixture_page_create.write(latest_fixture_code_final) #writes the code to the new fixture page
             fixture_page_create.close() #closes the new fixture page
             browser.close()
@@ -282,57 +292,62 @@ def clean_old_files():
     print('Checking for .old files...')
     from os import path
     try:
-        run_version_file = os.path.join('run_version.old.py')
+        os.path.old(base_path + double_dash)
+    except:
+        os.mkdir(base_path + double_dash + 'old')
+    try:
+        run_version_file = os.path.join(base_path + old_path + 'run_version.old.py')
         path.exists(run_version_file)
         os.remove(run_version_file)
         print('Run version file deleted')
     except IOError:
         print('No .old run version file found')
     try:
-        run_file = os.path.join('run.old.py')
+        run_file = os.path.join(base_path + old_path + 'run.old.py')
         path.exists(run_file)
         os.remove(run_file)
     except IOError:
         print('No .old run file found')
     try:
-        fixture_version_file = os.path.join('current_fixture_version.old.py')
+        fixture_version_file = os.path.join(base_path + old_path + 'current_fixture_version.old.py')
         path.exists(fixture_version_file)
         os.remove(fixture_version_file)
         print('Fixture version file deleted')
     except IOError:
         print('No .old fixture version files found') #<---Remove these statements??
     try:
-        fixture_data_file = os.path.join('current_fixture_list.old.py')
+        fixture_data_file = os.path.join(base_path + old_path + 'current_fixture_list.old.py')
         path.exists(fixture_data_file)
         os.remove(fixture_data_file)
         print('Fixture data file deleted')
     except IOError:
         print('No .old fixture data file found')
     try:
-        player_version_file = os.path.join('current_player_stats_version.old.py')
+        player_version_file = os.path.join(base_path + old_path + 'current_player_stats_version.old.py')
         path.exists(player_version_file)
         os.remove(player_version_file)
         print('Player statistic version file deleted')
     except IOError:
         print('No .old player statistic version file found')
     try:
-        player_data_file = os.path.join('current_player_stats.old.py')
+        player_data_file = os.path.join(base_path + old_path + 'current_player_stats.old.py')
         path.exists(player_data_file)
         os.remove(player_data_file)
         print('Player statistics data file deleted')
     except IOError:
         print('No .old player statistic data file found')
     try:
-        results_version_file = os.path.join('current_results_version.old.py')
+        results_version_file = os.path.join(base_path + old_path + 'current_results_version.old.py')
         path.exists(results_version_file)
         os.remove(results_version_file)
-        print('.old results file deleted')
+        print('Results version file deleted')
     except IOError:
         print('No .old results version file found')
     try:
-        results_data_file = os.path.join('current_results.old.py')
+        results_data_file = os.path.join(base_path + old_path + 'current_results.old.py')
         path.exists(results_data_file)
         os.remove(results_data_file)
+        print('Results data file deleted')
     except IOError:
         print('No .old results data file found')
 
@@ -348,13 +363,13 @@ def startupquery00():
         list_of_commands()
         startupquery00()
     if (startquery == fixtures):
-        subprocess.call(['python', 'current_fixture_list.py'])
+        subprocess.call(['python', base_path + data_path + 'current_fixture_list.py'])
         startupquery00()
     if (startquery == statistics):
-        subprocess.call(['python', 'current_player_stats.py'])
+        subprocess.call(['python', base_path + data_path + 'current_player_stats.py'])
         startupquery00()
     if (startquery == results):
-        subprocess.call(['python', 'current_results.py'])
+        subprocess.call(['python', base_path + data_path + 'current_results.py'])
         startupquery00()
     if (startquery == shut_down):
         sys.exit()
@@ -368,21 +383,21 @@ def list_of_commands():
     if (command_list == update_data):
         update_tool()
     if (command_list == restart):
-        subprocess.call(['python', 'run_restart.py'])
+        subprocess.call(['python', 'run_restart.py'])#<-----restart function doest work yet
     if (command_list == clean):
         clean_old_files()
         list_of_commands()
     if (command_list == update_run_file):
-        subprocess.call(['python', 'run_update.py'])
+        subprocess.call(['python', base_path + update_path + 'run_update.py'])
         list_of_commands()
     if (command_list == fixtures):
-        subprocess.call(['python', 'current_fixture_list.py']) #downloads the new fixture list
+        subprocess.call(['python', base_path + data_path + 'current_fixture_list.py']) #downloads the new fixture list
         list_of_commands()
     if (command_list == statistics):
-        subprocess.call(['python', 'current_player_stats.py'])
+        subprocess.call(['python', base_path + data_path + 'current_player_stats.py'])
         list_of_commands()
     if (command_list == results):
-        subprocess.call(['python', 'current_results.py'])
+        subprocess.call(['python', base_path + data_path + 'current_results.py'])
         list_of_commands()
     if (command_list == rst1):
         startupquery00()
@@ -398,6 +413,8 @@ def list_of_commands():
     if (command_list == run_version):
         print(float(current_run_version))
         list_of_commands()
+    if (command_list == shut_down):
+        sys.exit()
     else: list_of_commands_failed_syntax()
 
 def list_of_commands_failed_syntax():
