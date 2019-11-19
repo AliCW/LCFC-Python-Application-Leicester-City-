@@ -27,7 +27,7 @@ except IOError:
     options = Options()
     options.headless = True
     browser = webdriver.Firefox(options=options)
-    browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/run_version.py')
+    browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/version/run_version.py')
     WebDriverWait(browser, 10)
     new_run_version_raw = browser.page_source
     new_run_version_parsed = html.unescape(new_run_version_raw)
@@ -44,7 +44,7 @@ def update_run_file():
     options = Options()
     options.headless = True
     browser = webdriver.Firefox(options=options)
-    browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/update_table.txt')
+    browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/update/update_table.txt')
     WebDriverWait(browser, 10)
     update_list = browser.page_source
     escape_list = html.unescape(update_list)
@@ -55,7 +55,7 @@ def update_run_file():
         run_update_query = input('\nThe run.py file is out of date.\nWould you like to update? Y / N\n').lower()
         if run_update_query == yes:
             os.replace(base_path + version_path + 'run_version.py', base_path + old_path + 'run_version.old.py')
-            browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/run_version.py')
+            browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/version/run_version.py')
             WebDriverWait(browser, 10)
             latest_run_version_raw = browser.page_source
             latest_run_version_parsed = html.unescape(latest_run_version_raw)
