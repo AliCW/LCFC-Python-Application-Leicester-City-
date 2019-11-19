@@ -177,11 +177,12 @@ except IOError:
 
 def update_tool():
     print('Started\n')
+    if os.path.exists(base_path + old_path):
+        print('Existing .old folder found')
+    if not os.path.exists(base_path + old_path):
+        print('Creating .old folder...')
+        os.makedirs(base_path + old_path)
     print('Checking for the latest statistic files')
-    try:
-        os.path.old(base_path + double_dash)
-    except:
-        os.mkdir(base_path + double_dash + 'old')
     options = Options() #define browser options
     options.headless = True #set options to headless
     browser = webdriver.Firefox(options=options) #opens a headless firefox named "browser"
@@ -292,10 +293,11 @@ def player_passed_close_page():
 def clean_old_files():
     print('Checking for .old files...')
     from os import path
-    try:
-        os.path.old(base_path + double_dash)
-    except:
-        os.mkdir(base_path + double_dash + 'old')
+    if os.path.exists(base_path + old_path):
+        print('Existing .old folder found')
+    if not os.path.exists(base_path + old_path):
+        print('Creating .old folder...')
+        os.makedirs(base_path + old_path)
     try:
         run_version_file = os.path.join(base_path + old_path + 'run_version.old.py')
         path.exists(run_version_file)
