@@ -1,4 +1,4 @@
-#revision 0.05 (current stats will be false/empty)
+#revision 0.06 (stats are only related to the premier league - for now)
 import sys
 
 lcfc_squad = ('squad')
@@ -81,6 +81,7 @@ per_initials = str('ap')
 
 #GOALKEEPER<-------------------------------------------------------------------------------------------------------
 #Kasper Schmeichel<-------------https://www.lcfc.com/players/2508/Kasper-Schmeichel/profile?tabs=Statistics
+sch_nation = str('Danish')
 sch_saves = str(31)
 sch_punches = str(1)#basic_stats
 sch_high_claims = str(8)
@@ -107,6 +108,7 @@ sch_yellow_cards = str(0)#discipline_stats
 sch_red_cards = str(0)
 sch_fouls = str(0)
 #Danny Ward<--------------- https://www.lcfc.com/players/4522/Danny-Ward/profile?tabs=Statistics
+war_nation = str('Welsh')
 war_saves = str(0)
 war_punches = str(0)#basic_stats
 war_high_claims = str(0)
@@ -134,6 +136,7 @@ war_red_cards = str(0)
 war_fouls = str(0)
 
 #Eldin Jakupovic<--------------https://www.lcfc.com/players/4786/Eldin-Jakupovic/profile?tabs=Statistics
+jak_nation = str('Swiss')
 jak_saves = str(0)
 jak_punches = str(0)#basic_stats
 jak_high_claims = str(0)
@@ -162,6 +165,7 @@ jak_fouls = str(0)
 
 #DEFENCE<---------------------------------------------------------------------------------------------------------------
 # James Justin stats<------https://www.lcfc.com/players/13515/James-Justin/profile?tabs=Statistics
+jus_nation = str('English')
 jus_appearances = str(0) #appearances
 jus_goals = str(0) #goals
 jus_tackles = str(0) #tackles made
@@ -174,6 +178,7 @@ jus_fouls = str(0)
 jus_offside = str(0)
 
 # Ben Chilwell stats<--------https://www.lcfc.com/players/13491/Ben-Chilwell/profile?tabs=Statistics
+chi_nation = str('English')
 chi_appearances = str(10) #appearances
 chi_goals = str(1) #goals
 chi_tackles = str(12) #tackles made
@@ -186,6 +191,7 @@ chi_fouls = str(9)
 chi_offside = str(0)
 
 #Caglar Soyuncu stats<---------https://www.lcfc.com/players/26216/%C3%87aglar-S%C3%B6y%C3%BCnc%C3%BC/profile?tabs=Statistics
+soy_nation = str('Turkish')
 soy_appearances = str(12) #appearances
 soy_goals = str(1) #goals
 soy_tackles = str(27) #tackles made
@@ -198,6 +204,7 @@ soy_fouls = str(12)
 soy_offside = str(1)
 
 #Wes Morgan stats<----------https://www.lcfc.com/players/8966/Wes-Morgan/profile?tabs=Statistics
+mor_nation = str('Jamaican')
 mor_appearances = str(3) #appearances
 mor_goals = str(0) #goals
 mor_tackles = str(0) #tackles made
@@ -210,6 +217,7 @@ mor_fouls = str(1)
 mor_offside = str(0)
 
 #Jonny Evans stats<---------https://www.lcfc.com/players/3156/Jonny-Evans/profile?tabs=Statistics
+eva_nation = str('Northern Irish')
 eva_appearances = str(12) #appearances
 eva_goals = str(0) #goals
 eva_tackles = str(16) #tackles made
@@ -222,6 +230,7 @@ eva_fouls = str(4)
 eva_offside = str(0)
 
 #Filip Benkovic<---------https://www.lcfc.com/players/16671/Filip-Benkovic/profile?tabs=Statistics
+ben_nation = str('Croatian')
 ben_appearances = str(0) #appearances
 ben_goals = str(0) #goals
 ben_tackles = str(0) #tackles made
@@ -234,6 +243,7 @@ ben_fouls = str(0)
 ben_offside = str(0)
 
 #Daniel Amartey<----------https://www.lcfc.com/players/12306/Daniel-Amartey/profile?tabs=Statistics
+ama_nation = str('Ghanaian')
 ama_appearances = str(0) #appearances
 ama_goals = str(0) #goals
 ama_tackles = str(0) #tackles made
@@ -246,6 +256,7 @@ ama_fouls = str(0)
 ama_offside = str(0)
 
 #Ricardo Pereira<-----------https://www.lcfc.com/players/5343/Ricardo-Pereira/profile?tabs=Statistics
+rper_nation = str('Portuguese')
 rper_appearances = str(12) #appearances
 rper_goals = str(2) #goals
 rper_tackles = str(54) #tackles made
@@ -258,6 +269,7 @@ rper_fouls = str(16)
 rper_offside = str(0)
 
 #Christian Fuchs<------------https://www.lcfc.com/players/5371/Christian-Fuchs/profile?tabs=Statistics
+fuc_nation = str('Austria')
 fuc_appearances = str(3) #appearances
 fuc_goals = str(0) #goals
 fuc_tackles = str(6) #tackles made
@@ -271,6 +283,7 @@ fuc_offside = str(0)
 
 #MIDFIELD<--------------------------------------------------------------------------------
 #Demarai Gray https://www.lcfc.com/players/7946/Demarai-Gray/profile?tabs=Statistics
+gra_nation = str('English')
 gra_appearances = str(8) #appearances
 gra_goals = str(0) #goals
 gra_passes = str(89)#passes
@@ -285,6 +298,7 @@ gra_fouls = str(1)
 gra_offside = str(2)
 
 #Youri Tielemans  https://www.lcfc.com/players/5865/Youri-Tielemans/profile?tabs=Statistics
+tie_nation = str('Belgian')
 tie_appearances = str(12) #appearances
 tie_goals = str(3) #goals
 tie_passes = str(661)#passes
@@ -299,6 +313,7 @@ tie_fouls = str(10)
 tie_offside = str(1)
 
 #James Maddison   https://www.lcfc.com/players/8456/James-Maddison/profile?tabs=Statistics
+mad_nation = str('English')
 mad_appearances = str(11) #appearances
 mad_goals = str(4) #goals
 mad_passes = str(533)#passes
@@ -313,6 +328,7 @@ mad_fouls = str(17)
 mad_offside = str(2)
 
 #Marc Albighton https://www.lcfc.com/players/3564/Marc-Albrighton/profile?tabs=Statistics
+alb_nation = str('English')
 alb_appearances = str(6) #appearances
 alb_goals = str(0) #goals
 alb_passes = str(117)#passes
@@ -327,6 +343,7 @@ alb_fouls = str(4)
 alb_offside = str(1)
 
 #Harvey Barnes https://www.lcfc.com/players/14716/Harvey-Barnes/profile?tabs=Statistics
+bar_nation = str('English')
 bar_appearances = str(11) #appearances
 bar_goals = str(1) #goals
 bar_passes = str(222)#passes
@@ -341,6 +358,7 @@ bar_fouls = str(10)
 bar_offside = str(0)
 
 #Hamza Choudhury https://www.lcfc.com/players/13248/Hamza-Choudhury/profile?tabs=Statistics
+cho_nation = str('English')
 cho_appearances = str(8) #appearances
 cho_goals = str(0) #goals
 cho_passes = str(181)#passes
@@ -355,6 +373,7 @@ cho_fouls = str(3)
 cho_offside = str(0)
 
 #Matty James https://www.lcfc.com/players/3669/Matty-James/profile?tabs=Statistics
+jam_nation = str('English')
 jam_appearances = str(0) #appearances
 jam_goals = str(0) #goals
 jam_passes = str(0)#passes
@@ -369,6 +388,7 @@ jam_fouls = str(0)
 jam_offside = str(0)
 
 #Nampalys Mendy https://www.lcfc.com/players/19617/Nampalys-Mendy/profile?tabs=Statistics
+men_nation = str('French')
 men_appearances = str(1) #appearances
 men_goals = str(0) #goals
 men_passes = str(3)#passes
@@ -383,6 +403,7 @@ men_fouls = str(1)
 men_offside = str(0)
 
 #Wilfred Ndidi https://www.lcfc.com/players/20479/Wilfred-Ndidi/profile?tabs=Statistics
+ndi_nation = str('Nigerian')
 ndi_appearances = str(11) #appearances
 ndi_goals = str(2) #goals
 ndi_passes = str(539)#passes
@@ -397,6 +418,7 @@ ndi_fouls = str(18)
 ndi_offside = str(1)
 
 #Dennis Praet https://www.lcfc.com/players/5860/Dennis-Praet/profile?tabs=Statistics
+pra_nation = str('Belgian')
 pra_appearances = str(8) #appearances
 pra_goals = str(0) #goals
 pra_passes = str(146)#passes
@@ -412,6 +434,7 @@ pra_offside = str(0)
 
 #FORWARD<-------------------------------------------------------------------------------------------
 #key stats https://www.lcfc.com/players/8979/Jamie-Vardy/profile?tabs=Statistics
+var_nation = str('English')
 var_appearances = str(12) #appearances
 var_goals = str(11) #goals
 var_left = str(4)#goals with left foot
@@ -429,6 +452,7 @@ var_fouls = str(10)
 var_offside = str(12)
 
 #key stats https://www.lcfc.com/players/13554/Kelechi-Iheanacho/profile?tabs=Statistics
+ihe_nation = str('Nigerian')
 ihe_appearances = str(0) #appearances
 ihe_goals = str(0) #goals
 ihe_left = str(0)#goals with left foot
@@ -446,6 +470,7 @@ ihe_fouls = str(0)
 ihe_offside = str(0)
 
 #key stats https://www.lcfc.com/players/10487/Ayoze-P%C3%A9rez/profile?tabs=Statistics
+per_nation = str('Spanish')
 per_appearances = str(11) #appearances
 per_goals = str(3) #goals
 per_left = str(1)#goals with left foot
@@ -603,6 +628,7 @@ def list_squad():
 #Kasper Schmeichel print defintions<-------------------------------------------------------------
 def sch_basic_stats():
     print('Kasper Schmeichel')
+    print('Nationality:     ' + sch_nation)
     print('Saves:           ' + sch_saves)
     print('Punches:         ' + sch_punches)
     print('High Claims:     ' + sch_high_claims)
@@ -631,6 +657,7 @@ def sch_discipline_stats():
 #Danny Ward print definition<-------------------------------------------------------------
 def war_basic_stats():
     print('Danny Ward')
+    print('Nationality:     ' + war_nation)
     print('Saves:           ' + war_saves)
     print('Punches:         ' + war_punches)
     print('High Claims:     ' + war_high_claims)
@@ -660,6 +687,7 @@ def war_discipline_stats():
 #Eldin Jakupovic print definitions<-------------------------------------------------------------
 def jak_basic_stats():
     print('Eldin Jakupovic')
+    print('Nationality:     ' + jak_nation)
     print('Saves:           ' + jak_saves)
     print('Punches:         ' + jak_punches)
     print('High Claims:     ' + jak_high_claims)
@@ -689,6 +717,7 @@ def jak_discipline_stats():
 # James Justin <-------------------------------------------------------
 def jus_key_stats():
     print('James Justin')
+    print('Nationality:         ' + jus_nation)
     print('Appearances:         ' + jus_appearances)
     print('Goals:               ' + jus_goals)
     print('Tackles:             ' + jus_tackles)
@@ -703,6 +732,7 @@ def jus_discipline_stats():
 # Ben Chilwell <-------------------------------------------------------
 def chi_key_stats():
     print('Ben Chilwell')
+    print('Nationality:         ' + chi_nation)
     print('Appearances:         ' + chi_appearances)
     print('Goals:               ' + chi_goals)
     print('Tackles:             ' + chi_tackles)
@@ -717,6 +747,7 @@ def chi_discipline_stats():
 # Caglar Soyuncu stats<------------------------------------------------
 def soy_key_stats():
     print('Caglar Soyuncu')
+    print('Nationality:         ' + soy_nation)
     print('Appearances:         ' + soy_appearances)
     print('Goals:               ' + soy_goals)
     print('Tackles:             ' + soy_tackles)
@@ -731,6 +762,7 @@ def soy_discipline_stats():
 # Wes Morgan stats<------------------------------------------------------
 def mor_key_stats():
     print('Wes Morgan')
+    print('Nationality:         ' + mor_nation)
     print('Appearances:         ' + mor_appearances)
     print('Goals:               ' + mor_goals)
     print('Tackles:             ' + mor_tackles)
@@ -745,6 +777,7 @@ def mor_discipline_stats():
 # Jonny Evans stats<-------------------------------------------------------
 def eva_key_stats():
     print('Jonny Evans')
+    print('Nationality:         ' + eva_nation)
     print('Appearances:         ' + eva_appearances)
     print('Goals:               ' + eva_goals)
     print('Tackles:             ' + eva_tackles)
@@ -759,6 +792,7 @@ def eva_discipline_stats():
 # Filip Benkovic<--------------------------------------------------------
 def ben_key_stats():
     print('Filip Benkovic')
+    print('Nationality:         ' + ben_nation)
     print('Appearances:         ' + ben_appearances)
     print('Goals:               ' + ben_goals)
     print('Tackles:             ' + ben_tackles)
@@ -773,6 +807,7 @@ def ben_discipline_stats():
 # Daniel Amartey<----------------------------------------------------------
 def ama_key_stats():
     print('Daniel Amartey')
+    print('Nationality:         ' + ama_nation)
     print('Appearances:         ' + ama_appearances)
     print('Goals:               ' + ama_goals)
     print('Tackles:             ' + ama_tackles)
@@ -787,6 +822,7 @@ def ama_discipline_stats():
 # Ricardo Pereira<--------------------------------------------------------
 def rper_key_stats():
     print('Ricardo Pereira')
+    print('Nationality:         ' + rper_nation)
     print('Appearances:         ' + rper_appearances)
     print('Goals:               ' + rper_goals)
     print('Tackles:             ' + rper_tackles)
@@ -801,6 +837,7 @@ def rper_discipline_stats():
 # Christian Fuchs<----------------------------------------------------------
 def fuc_key_stats():
     print('Christian Fuchs')
+    print('Nationality:         ' + fuc_nation)
     print('Appearances:         ' + fuc_appearances)
     print('Goals:               ' + fuc_goals)
     print('Tackles:             ' + fuc_tackles)
@@ -816,6 +853,7 @@ def fuc_discipline_stats():
 #Demarai Gray print defintions<-------------------------------------------------------------
 def gra_key_stats():
     print('Demarai Gray')
+    print('Nationality:         ' + gra_nation)
     print('Appearances:         ' + gra_appearances)
     print('Goals:               ' + gra_goals)
     print('Passes:              ' + gra_passes)
@@ -832,6 +870,7 @@ def gra_discipline_stats():
 #Youri Tielemans print defintions<-------------------------------------------------------------
 def tie_key_stats():
     print('Youri Tielemans')
+    print('Nationality:         ' + tie_nation)
     print('Appearances:         ' + tie_appearances)
     print('Goals:               ' + tie_goals)
     print('Passes:              ' + tie_passes)
@@ -848,6 +887,7 @@ def tie_discipline_stats():
 #James Maddison print defintions<-------------------------------------------------------------
 def mad_key_stats():
     print('James Maddison')
+    print('Nationality:         ' + mad_nation)
     print('Appearances:         ' + mad_appearances)
     print('Goals:               ' + mad_goals)
     print('Passes:              ' + mad_passes)
@@ -864,6 +904,7 @@ def mad_discipline_stats():
 #Marc Albrighton print defintions<-------------------------------------------------------------
 def alb_key_stats():
     print('Marc Albrighton')
+    print('Nationality:         ' + alb_nation)
     print('Appearances:         ' + alb_appearances)
     print('Goals:               ' + alb_goals)
     print('Passes:              ' + alb_passes)
@@ -880,6 +921,7 @@ def alb_discipline_stats():
 #Harvey Barnes print defintions<-------------------------------------------------------------
 def bar_key_stats():
     print('Harvey Barnes')
+    print('Nationality:         ' + bar_nation)
     print('Appearances:         ' + bar_appearances)
     print('Goals:               ' + bar_goals)
     print('Passes:              ' + bar_passes)
@@ -896,6 +938,7 @@ def bar_discipline_stats():
 #Hamza Choudhury print defintions<-------------------------------------------------------------
 def cho_key_stats():
     print('Hamza Choudhury')
+    print('Nationality:         ' + cho_nation)
     print('Appearances:         ' + cho_appearances)
     print('Goals:               ' + cho_goals)
     print('Passes:              ' + cho_passes)
@@ -912,6 +955,7 @@ def cho_discipline_stats():
 #Matty James print defintions<-------------------------------------------------------------
 def jam_key_stats():
     print('Matty James')
+    print('Nationality:         ' + jam_nation)
     print('Appearances:         ' + jam_appearances)
     print('Goals:               ' + jam_goals)
     print('Passes:              ' + jam_passes)
@@ -928,6 +972,7 @@ def jam_discipline_stats():
 #Nampalys Mendy print defintions<-------------------------------------------------------------
 def men_key_stats():
     print('Nampalys Mendy')
+    print('Nationality:         ' + men_nation)
     print('Appearances:         ' + men_appearances)
     print('Goals:               ' + men_goals)
     print('Passes:              ' + men_passes)
@@ -944,6 +989,7 @@ def men_discipline_stats():
 #Wilfred Ndidi print defintions<-------------------------------------------------------------
 def ndi_key_stats():
     print('Wilfred Ndidi')
+    print('Nationality:         ' + ndi_nation)
     print('Appearances:         ' + ndi_appearances)
     print('Goals:               ' + ndi_goals)
     print('Passes:              ' + ndi_passes)
@@ -960,6 +1006,7 @@ def ndi_discipline_stats():
 #Dennis Praet print defintions<-------------------------------------------------------------
 def pra_key_stats():
     print('Dennis Praet')
+    print('Nationality:         ' + pra_nation)
     print('Appearances:         ' + pra_appearances)
     print('Goals:               ' + pra_goals)
     print('Passes:              ' + pra_passes)
@@ -977,6 +1024,7 @@ def pra_discipline_stats():
 # Jamie Vardy print defintions<-------------------------------------------------------------
 def var_key_stats():
     print('Jamie Vardy')
+    print('Nationality:         ' + var_nation)
     print('Appearances:         ' + var_appearances)
     print('Goals:               ' + var_goals)
     print('Goals w/ left foot:  ' + var_left)
@@ -996,6 +1044,7 @@ def var_discipline_stats():
 # Kelechi Iheanacho print defintions<-------------------------------------------------------------
 def ihe_key_stats():
     print('Kelechi Iheanacho')
+    print('Nationality:         ' + ihe_nation)
     print('Appearances:         ' + ihe_appearances)
     print('Goals:               ' + ihe_goals)
     print('Goals w/ left foot:  ' + ihe_left)
@@ -1015,6 +1064,7 @@ def ihe_discipline_stats():
 # Ayoze Perez print defintions<-------------------------------------------------------------
 def per_key_stats():
     print('Ayoze Perez')
+    print('Nationality:         ' + per_nation)
     print('Appearances:         ' + per_appearances)
     print('Goals:               ' + per_goals)
     print('Goals w/ left foot:  ' + per_left)
