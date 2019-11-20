@@ -3,6 +3,8 @@ import subprocess
 import html
 import os
 import sys
+from os import path
+from pathlib import Path
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.common.by import By
@@ -27,7 +29,7 @@ yes = str('y')
 no = str('n')
 shut_down = str('exit')
 
-base_path = os.environ['IDEA_INITIAL_DIRECTORY']
+base_path = str(Path(__file__).resolve().parent)
 data_path = str('\\data\\')
 version_path = str('\\version\\')
 update_path = str('\\update\\')
