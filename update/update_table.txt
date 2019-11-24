@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<body>
-		<main id="player_update_version">0.06</main>
+		<main id="player_update_version">0.07</main>
 		
 		<h1 id="results_update_version">0.06</h1>
 		
