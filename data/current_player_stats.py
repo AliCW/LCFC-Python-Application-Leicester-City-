@@ -1,4 +1,4 @@
-#revision 0.06 (stats are only related to the premier league - for now)
+#revision 0.07 (stats are only related to the premier league - for now)
 import sys
 
 lcfc_squad = ('squad')
