@@ -1,8 +1,11 @@
+#v0.02
 import subprocess
 import html
 import os
 import sys
-import bs4
+from signal import SIGTERM
+from os import path
+from pathlib import Path
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.common.by import By
@@ -12,7 +15,7 @@ from bs4 import BeautifulSoup as BeautifulSoup
 
 yes = ('y')
 no = ('n')
-base_path = os.environ['IDEA_INITIAL_DIRECTORY']
+base_path = str(Path(__file__).resolve().parent)
 data_path = str('\\data\\')
 version_path = str('\\version\\')
 old_path = str('\\old\\')
@@ -38,6 +41,21 @@ except IOError:
     run_version_create.close()
     browser.close()
     run_file_version = subprocess.check_output(['python', base_path + version_path + 'run_version.py'])
+
+def check_gecko():
+    obtain_gecko_path = subprocess.check_output(['python', 'get_gecko_path.py']).strip() #outputs into bytes
+    string_gecko_path = obtain_gecko_path.decode('utf-8') #decode bytes into string
+    obtain_gecko_pid = subprocess.check_output(['python', 'get_gecko_pid.py']) #outputs into bytes
+    string_gecko_pid = obtain_gecko_pid.decode('utf-8') #decode bytes into string
+    int_gecko_pid = int(string_gecko_pid) #convert string to integer - couldnt figure out a way to decode into an integer yet!
+    if not int_gecko_pid: #if this string is empty, print statement &  move on
+        print('No PID found for geckodriver')
+    if not string_gecko_path:  #if this string is empty, print statement &  move on
+        print('No path found for geckodriver') #because of the placement of this definition, these statements should never arise
+    if string_gecko_path == base_path:
+        os.kill(int_gecko_pid, SIGTERM)
+        print('Update process is over.')
+    else: print('Error in check_gecko, geckodriver.exe may still be running.')
 
 def update_run_file():
     print('Checking for latest run.py file.')
@@ -75,13 +93,16 @@ def update_run_file():
             run_create.write(latest_run_final)
             run_create.close()
             browser.close()
+            check_gecko()
             print('run.py has been updated.')
         if run_update_query == no:
             print('Very Well...')
             browser.close()
+            check_gecko()
     if float(run_update_string) <= float(run_file_version):
-        print('run.py is up to date.')
         browser.close()
+        check_gecko()
+        print('run.py is up to date.')
         sys.exit()
 
 update_run_file()

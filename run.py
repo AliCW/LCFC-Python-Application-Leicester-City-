@@ -1,8 +1,9 @@
-#v0.05
+#v0.06
 import subprocess
 import html
 import os
 import sys
+from signal import SIGTERM
 from os import path
 from pathlib import Path
 from selenium import webdriver
@@ -25,6 +26,7 @@ fx_version = str('fixture version') #version for fixture
 pl_version = str('player version') #version for player stats
 rs_version = str('results version') #version for results
 run_version = str('run version') #version for run.py
+run_update_version = str('run_update version')
 yes = str('y')
 no = str('n')
 shut_down = str('exit')
@@ -36,18 +38,24 @@ update_path = str('\\update\\')
 old_path = str('\\old\\')
 double_dash = str('\\')
 
-try:
+try: #<------------------------------------------------------------------------------------run version file
     open_run_version = open(base_path + version_path + 'run_version.py')
     open_run_version.close()
     current_run_version = subprocess.check_output(['python', base_path + version_path + 'run_version.py'])
-except IOError:
+except IOError: #<---------------------------------------------------------------------Cant find version file
     print('No version file found for run.py, running the update process...')
-    subprocess.call(['python', base_path + update_path + 'run_update.py'])#<----Runs the external update script
-    current_run_version = subprocess.check_output(['python', base_path + version_path + 'run_version.py'])
-try:
-    open_run_update = open(base_path + update_path + 'run_update.py')
-    open_run_update.close()
+    subprocess.call(['python', base_path + 'run_update.py'])#<----Runs the external update script
+    current_run_version = subprocess.check_output(['python', base_path + 'run_version.py'])
+try: #<------------------------------------------------------------------------------------run_update_version file
+    open_run_update_version = open(base_path + version_path + 'run_update_version.py')
+    open_run_update_version.close()
+    current_run_update_version = subprocess.check_output(['python', base_path + version_path + 'run_update_version.py'])
 except IOError:
+    print('No version file found - Obtain process has been left out as I plan to remove / alter it soon.')
+try: #<------------------------------------------------------------------------------------run_update file
+    open_run_update = open(base_path + 'run_update.py')
+    open_run_update.close()
+except IOError: #<---------------------------------------------------------------------Cant find run update file
     print('No run_update.py file found, obtaining one.')
     options = Options()
     options.headless = True
@@ -58,11 +66,11 @@ except IOError:
     run_update_parsed = html.unescape(run_update_raw)
     run_update_soup = BeautifulSoup(run_update_parsed, features='html.parser')
     run_update_final = run_update_soup.pre.string
-    run_update_create = open(base_path + update_path + 'run_update.py', 'w+')
+    run_update_create = open(base_path + 'run_update.py', 'w+')
     run_update_create.write(run_update_final)
     run_update_create.close()
     browser.close()
-try: #<-------------Player Statistic Version File
+try: #<------------------------------------------------------------------------------------Player Statistic Version File
     open_player_stats_version = open(base_path + version_path + 'current_player_stats_version.py') #<--Checks the presence of the file
     open_player_stats_version.close() #if it finds it, the program checks the version output
     player_stats_current_version = subprocess.check_output(['python', base_path + version_path + 'current_player_stats_version.py'])
@@ -82,7 +90,7 @@ except IOError: #<--Run this update process if no file is found - functions the 
     player_version_create.close()
     browser.close()
     player_stats_current_version = subprocess.check_output(['python', base_path + version_path + 'current_player_stats_version.py'])
-try: #<-------------Player Statistic Data File
+try: #<------------------------------------------------------------------------------------Player Statistic Data File
     open_player_stat = open(base_path + data_path + 'current_player_stats.py')
     open_player_stat.close()
 except IOError:
@@ -100,7 +108,7 @@ except IOError:
     player_stats_create.write(new_player_stats_final)
     player_stats_create.close()
     browser.close()
-try: #<-------------Fixture Version File
+try: #<------------------------------------------------------------------------------------Fixture Version File
     open_fixture_list_version = open(base_path + version_path + 'current_fixture_version.py')
     open_fixture_list_version.close()
     fixture_list_current_version = subprocess.check_output(['python', base_path + version_path + 'current_fixture_version.py'])
@@ -120,7 +128,7 @@ except IOError:
     fixture_version_create.close()
     browser.close()
     fixture_list_current_version = subprocess.check_output(['python', base_path + version_path + 'current_fixture_version.py'])
-try: #<-------------Fixture Data File
+try: #<-------------------------------------------------------------------------------------Fixture Data File
     open_fixture_list = open(base_path + data_path + 'current_fixture_list.py')
     open_fixture_list.close()
 except IOError:
@@ -177,13 +185,28 @@ except IOError:
     results_list_create.close()
     browser.close()
 
+def check_gecko():
+    obtain_gecko_path = subprocess.check_output(['python', 'get_gecko_path.py']).strip() #outputs into bytes
+    string_gecko_path = obtain_gecko_path.decode('utf-8') #decode bytes into string
+    obtain_gecko_pid = subprocess.check_output(['python', 'get_gecko_pid.py']) #outputs into bytes
+    string_gecko_pid = obtain_gecko_pid.decode('utf-8') #decode bytes into string
+    int_gecko_pid = int(string_gecko_pid) #convert string to integer - couldnt figure out a way to decode into an integer yet!
+    if not int_gecko_pid: #if this string is empty, print statement &  move on
+        print('No PID found for geckodriver')
+    if not string_gecko_path:  #if this string is empty, print statement &  move on
+        print('No path found for geckodriver') #because of the placement of this definition, these statements should never arise
+    if string_gecko_path == base_path:
+        os.kill(int_gecko_pid, SIGTERM)
+        print('Update process is over.')
+    else: print('Error in check_gecko, geckodriver.exe may still be running.')
+
 def update_tool():
     print('Started\n')
-    if os.path.exists(base_path + old_path):
+    if os.path.exists(base_path + old_path): #checks of the old folder exists - blank folder not hosted on github
         print('Existing .old folder found')
-    if not os.path.exists(base_path + old_path):
+    if not os.path.exists(base_path + old_path): #creates old folder for .old files to be moved
         print('Creating .old folder...')
-        os.makedirs(base_path + old_path)
+        os.makedirs(base_path + old_path) #specifies the full directory path
     print('Checking for the latest statistic files')
     options = Options() #define browser options
     options.headless = True #set options to headless
@@ -228,10 +251,10 @@ def update_tool():
         if results_list_update_query == no:
             print('Very Well...')
     if float(results_update_string) <= float(results_list_current_version):
-        print('\nResults list is up to date!')
+        print('Results list is up to date!')
     if float(player_update_string) > float(player_stats_current_version): #compares internal file version with github file version
-        print('\nPlayer statistics are out of date')
-        player_stats_update_query = input('\nWould you like to update LCFC player statistics? Y / N\n')
+        print('Player statistics are out of date\n')
+        player_stats_update_query = input('Would you like to update LCFC player statistics? Y / N\n')
         if player_stats_update_query == yes:
             print('Working...')
             os.replace(base_path + version_path + 'current_player_stats_version.py', base_path + old_path + 'current_player_stats_version.old.py') #Goalkeeper version code
@@ -255,7 +278,7 @@ def update_tool():
         if player_stats_update_query == no:
             print('Very well...')
     if float(player_update_string) <= float(player_stats_current_version):
-        print('\nPlayer statistic files are up to date!')
+        print('Player statistic files are up to date!')
     if float(fixture_update_string) > float(fixture_list_current_version):
         print('Fixture list if out of date\n')
         fixture_update_query = input('Would you like to update LCFC fixtures? Y / N\n').lower()
@@ -280,17 +303,20 @@ def update_tool():
             fixture_page_create.write(latest_fixture_code_final) #writes the code to the new fixture page
             fixture_page_create.close() #closes the new fixture page
             browser.close()
+            check_gecko()
         if fixture_update_query == no:
             print('Very well...')
             browser.close()
+            check_gecko()
     if float(fixture_update_string) <= float(fixture_list_current_version):
-        print('\nFixture list files are up to date!')
+        print('Fixture list files are up to date!')
         browser.close()
+        check_gecko()
     else: player_passed_close_page()
-    startupquery00()
+
 
 def player_passed_close_page():
-    print('Update tool has completed')
+    print('Failed to complete update tool')
 
 def clean_old_files():
     print('Checking for .old files...')
@@ -382,18 +408,19 @@ def startupquery00():
 
 def list_of_commands():
     command_list = input('\nfixtures / stats / clean / restart\n'
-                         'player/or/fixture/or/results/or/run version\n'
+                         'player/or/fixture/or/results/or/run/or/run_update version\n'
                          'update data/or/launcher\n'
                          '\nType "reset" to go back to the beginning\n').lower()
     if (command_list == update_data):
         update_tool()
+        list_of_commands()
     if (command_list == restart):
         subprocess.call(['python', 'run_restart.py'])#<-----restart function doest work yet
     if (command_list == clean):
         clean_old_files()
         list_of_commands()
     if (command_list == update_run_file):
-        subprocess.call(['python', base_path + update_path + 'run_update.py'])
+        subprocess.call(['python', base_path + double_dash + 'run_update.py'])
         list_of_commands()
     if (command_list == fixtures):
         subprocess.call(['python', base_path + data_path + 'current_fixture_list.py']) #downloads the new fixture list
@@ -417,6 +444,9 @@ def list_of_commands():
         list_of_commands()
     if (command_list == run_version):
         print(float(current_run_version))
+        list_of_commands()
+    if (command_list == run_update_version):
+        print(float(current_run_update_version))
         list_of_commands()
     if (command_list == shut_down):
         sys.exit()
