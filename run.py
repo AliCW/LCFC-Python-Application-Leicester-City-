@@ -53,7 +53,7 @@ try: #<-------------------------------------------------------------------------
 except IOError:
     print('No version file found - Obtain process has been left out as I plan to remove / alter it soon.')
 try: #<------------------------------------------------------------------------------------run_update file
-    open_run_update = open(base_path + 'run_update.py')
+    open_run_update = open(base_path + double_dash + 'run_update.py')
     open_run_update.close()
 except IOError: #<---------------------------------------------------------------------Cant find run update file
     print('No run_update.py file found, obtaining one.')
