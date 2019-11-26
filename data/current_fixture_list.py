@@ -1,4 +1,4 @@
-#revision 0.09
+#v0.09
 import sys
 import datetime
 from itertools import zip_longest
