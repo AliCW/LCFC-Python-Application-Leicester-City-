@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 	<body>
-		<main id="player_update_version">0.07</main>
+		<main id="current_player_stats">0.07</main>
 		
-		<h1 id="results_update_version">0.06</h1>
+		<h1 id="current_results">0.06</h1>
 		
-		<h2 id="run_version">0.06</h2>
+		<h2 id="run">0.07</h2>
 		
-		<h3 id="run_update_version">0.02</h3>
+		<h3 id="run_update">0.03</h3>
 		
-		<p id="fixture_update_version">0.09</p>
+		<p id="current_fixture_list">0.09</p>
   	</body>
 </html>
