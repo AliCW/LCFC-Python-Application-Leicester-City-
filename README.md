@@ -18,7 +18,7 @@ User is presented with the main query listing functions & required input. Data i
 
 There is also a command function added to help with testing the program.
 
-# /update/run_update.py
+# run_update.py
 The script automatically checks for the existance of a version file for run.py, obtaining one if it cannot be found and copying the verion number to compare with that on the update_table. The update for run.py itself is then performed if a higher version number is found online, the process is performed using a similar syntax as the update function on run.py.
 
 # run_restart.py
@@ -29,8 +29,10 @@ Not working as intended, see issues (#18)
 # /update/update_table.txt
 A useless file from the user's end, only used as a reference for the update mechanism (current link: https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/update_table.txt ) (IS2).
 
-# /version/current_xyz_version.py & run_version.py
-All version files have an almost identical syntax with all outputting the current version number of its associated file. These are implemented for the update mechanism to capture their output and compare to the version number hosted online at update_table.txt (IMP1).
+# read_version_xyz.py
+All version files have an almost identical syntax with all outputting the current version number of its associated file. This is performed via reading the top line of the corresponding data file & converting the output to float for comparison.
+
+However, files are still compared to the version number hosted online at update_table.txt (#15).
 
 # /data/current_fixture_list.py
 User is presented with a query asking to see the next fixture, or a list of all. More details are available if viewed one by one. If all associated data is all listed together, it becomes unreadable, therefore, the list of all fixtures only contains limited related information.
@@ -45,8 +47,6 @@ Statistics can be viewed via typing the name or initials of the desired player a
 
 # Improve <-------------------------
 Would be ideal to add a basic UI at some point - Android, Win, Linux etc. Program lacks 'real-world' application and this would definitely help.
-
-IMP1: Possibly find a way of embedding this process into the data files themselves, would make the update process much more simple.
 
 IMP2: Add additional data that might be useful - e.g. international broadcast information.
 
