@@ -73,16 +73,6 @@ def update_run_file():
     if float(run_update_string) > float(run_file_version):
         run_update_query = input('\nThe run.py file is out of date.\nWould you like to update? Y / N\n').lower()
         if run_update_query == yes:
-            os.replace(base_path + version_path + 'read_version_run.py', base_path + old_path + 'read_version_run.old.py')
-            browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/version/run_version.py')
-            WebDriverWait(browser, 10)
-            latest_run_version_raw = browser.page_source
-            latest_run_version_parsed = html.unescape(latest_run_version_raw)
-            latest_run_version_soup = BeautifulSoup(latest_run_version_parsed, features='html.parser')
-            latest_run_version_final = latest_run_version_soup.pre.string
-            run_version_create_0 = open(base_path + version_path + 'run_version.py', 'w+')
-            run_version_create_0.write(latest_run_version_final)
-            run_version_create_0.close()
             os.replace(base_path + double_dash + 'run.py', base_path + old_path + 'run.old.py')
             browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/run.py')
             WebDriverWait(browser, 10)
