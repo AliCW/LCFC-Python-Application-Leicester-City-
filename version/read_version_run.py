@@ -3,7 +3,7 @@ from pathlib import Path
 
 raw_path = str(Path().absolute()) #<--takes the raw path
 
-read_file = open(raw_path.strip('version') + 'run.py') #<--takes /version/ out of the path so it can find run.py
+read_file = open(raw_path.strip('version') + '\\run.py') #<--takes /version/ out of the path so it can find run.py
 for v, line in enumerate(read_file):
     if v == 0: #<-finds the first line (this should always contain the version number
         version_string = line
