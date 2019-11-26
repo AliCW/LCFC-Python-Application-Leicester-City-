@@ -69,7 +69,7 @@ try:
     current_run_update_version = subprocess.check_output(['python', base_path + version_path + 'read_version_run_update.py'])
 #<---------------------------------------------------------------------Cant find run update version file (VERSION)
 except IOError:
-    print('No version file found, obtaining one')
+    print('No read for run.py file found, obtaining one')
     options = Options()
     options.headless = True
     browser = webdriver.Firefox(options=options)
@@ -108,7 +108,7 @@ try: #<-------------------------------------------------------------------------
     open_player_stats_version.close() #if it finds it, the program checks the version output
     player_stats_current_version = subprocess.check_output(['python', base_path + version_path + 'read_version_player_stats.py'])
 except IOError: #<--Run this update process if no file is found - functions the same as the update mechanism (VERSION)
-    print('No version file found for player statistics, creating a new one.')
+    print('No read file found for player statistics, creating a new one.')
     options = Options()
     options.headless = True
     browser = webdriver.Firefox(options=options)
@@ -146,7 +146,7 @@ try: #<-------------------------------------------------------------------------
     open_fixture_list_version.close()
     fixture_list_current_version = subprocess.check_output(['python', base_path + version_path + 'read_version_fixture.py'])
 except IOError:
-    print('No version file found for fixture listings, creating a new one.')
+    print('No read file found for fixture listings, creating a new one.')
     options = Options()
     options.headless = True
     browser = webdriver.Firefox(options=options)
@@ -184,7 +184,7 @@ try: #<-------------------------------------------------------------------------
     open_results_version.close()
     results_list_current_version = subprocess.check_output(['python', base_path + version_path + 'read_version_results.py'])
 except IOError:
-    print('No version file found for latest results, creating a new one.')
+    print('No read file found for latest results, creating a new one.')
     options = Options()
     options.headless = True
     browser = webdriver.Firefox(options=options)
