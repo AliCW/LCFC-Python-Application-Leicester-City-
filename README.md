@@ -8,7 +8,7 @@ Below is a brief outline of what each script attempts to accomplish:
 # run.py
 The main script used to start the application. This script acts as a central point for initial user queries concerning what data they would like to view. The file performs initial checks on its directory to confirm the presence of both data and version files, if these are not there, it will download and save the latest files hosted in github.
 
-Users can run an update tool which captures the output from version files held within it's extracted directory. It then compares this reference to the version listed online on the update_table.txt (current link: https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/update_table.txt )(IS1) and those within the programs internal version files, e.g. current_fixture_version.py
+Users can run an update tool which captures the output from version files held within it's extracted directory. It then compares this reference to the version listed online on the update_table.txt (current link: https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/update_table.txt ) and those within the programs internal version files, e.g. current_fixture_version.py
 
 If the version number from update_table.txt is higher, the program will query the user to update or continue using old files. 
 
