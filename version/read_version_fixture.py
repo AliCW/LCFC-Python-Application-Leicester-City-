@@ -2,7 +2,7 @@
 from pathlib import Path
 
 raw_path = str(Path().absolute()) #<--takes the raw path
-data_path = str('data\\')
+data_path = str('\\data\\')
 #print(raw_path.strip('version') + data_path)
 
 read_file = open(raw_path.strip('version') + data_path + 'current_fixture_list.py') #<--takes /version/ out of the path so it can find run.py
