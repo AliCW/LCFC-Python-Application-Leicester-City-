@@ -29,7 +29,7 @@ Not working as intended, see issues (#18)
 # /update/update_table.txt
 A useless file from the user's end, only used as a reference for the update mechanism (current link: https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/update_table.txt ) (IS2).
 
-# read_version_xyz.py
+# /version/read_version_xyz.py
 All version files have an almost identical syntax with all outputting the current version number of its associated file. This is performed via reading the top line of the corresponding data file & converting the output to float for comparison.
 
 However, files are still compared to the version number hosted online at update_table.txt (#15).
