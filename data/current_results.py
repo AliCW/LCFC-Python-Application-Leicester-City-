@@ -1,10 +1,9 @@
-#v0.06
+#v0.07
 import sys
 import datetime
 from itertools import zip_longest
 from tabulate import tabulate
 current_time = str(datetime.datetime.now())
-print(current_time)
 okay = str('f')
 previous_result = str('n')
 all = str('all')
@@ -201,9 +200,13 @@ class result_info:
     def fx_CheVsLei():
         if remain_result_yes == 0:
             print(away_vs_che + prem)
-            next_res_09 = input('\nPress N for the next game or any other key to exit\n').lower()
+            next_res_09 = input('\nPress N for the next game or ALL to see the remaining scores\n'
+                               'Press any other key to exit.\n').lower()
             if next_res_09 == previous_result:
                 result_info.fx_LeiVsWol()
+            if next_res_09 == all:
+                remain_result_yes_on()
+                result_info.fx_CheVsLei()
             else: sys.exit()
         if remain_result_yes == 1:
             global reverse_list
@@ -213,9 +216,13 @@ class result_info:
     def fx_ShuVsLei():
         if remain_result_yes == 0:
             print(away_vs_shu + prem)
-            next_res_08 = input('\nPress N for the next game or any other key to exit\n').lower()
+            next_res_08 = input('\nPress N for the next game or ALL to see the remaining scores\n'
+                               'Press any other key to exit.\n').lower()
             if next_res_08 == previous_result:
                 result_info.fx_CheVsLei()
+            if next_res_08 == all:
+                remain_result_yes_on()
+                result_info.fx_ShuVsLei()
             else: sys.exit()
         if remain_result_yes == 1:
             global reverse_list
@@ -225,9 +232,13 @@ class result_info:
     def fx_NewVsLei_carab():
         if remain_result_yes == 0:
             print(away_vs_new_carab + carab)
-            next_res_07 = input('\nPress N for the next game or any other key to exit\n').lower()
+            next_res_07 = input('\nPress N for the next game or ALL to see the remaining scores\n'
+                               'Press any other key to exit.\n').lower()
             if next_res_07 == previous_result:
                 result_info.fx_ShuVsLei()
+            if next_res_07 == all:
+                remain_result_yes_on()
+                result_info.fx_NewVsLei_carab()
             else: sys.exit()
         if remain_result_yes == 1:
             global reverse_list
@@ -237,9 +248,13 @@ class result_info:
     def fx_LeiVsBou():
         if remain_result_yes == 0:
             print(home_vs_bou + prem)
-            next_res_06 = input('\nPress N for the next game or any other key to exit\n').lower()
+            next_res_06 = input('\nPress N for the next game or ALL to see the remaining scores\n'
+                               'Press any other key to exit.\n').lower()
             if next_res_06 == previous_result:
                 result_info.fx_NewVsLei_carab()
+            if next_res_06 == all:
+                remain_result_yes_on()
+                result_info.fx_LeiVsBou()
             else: sys.exit()
         if remain_result_yes == 1:
             global reverse_list
@@ -249,9 +264,13 @@ class result_info:
     def fx_MnuVsLei():
         if remain_result_yes == 0:
             print(away_vs_mnu + prem)
-            next_res_05 = input('\nPress N for the next game or any other key to exit\n').lower()
+            next_res_05 = input('\nPress N for the next game or ALL to see the remaining scores\n'
+                               'Press any other key to exit.\n').lower()
             if next_res_05 == previous_result:
                 result_info.fx_LeiVsBou()
+            if next_res_05 == all:
+                remain_result_yes_on()
+                result_info.fx_MnuVsLei()
             else: sys.exit()
         if remain_result_yes == 1:
             global reverse_list
@@ -261,9 +280,13 @@ class result_info:
     def fx_LeiVsTot():
         if remain_result_yes == 0:
             print(home_vs_tot + prem)
-            next_res_04 = input('\nPress N for the next game or any other key to exit\n').lower()
+            next_res_04 = input('\nPress N for the next game or ALL to see the remaining scores\n'
+                               'Press any other key to exit.\n').lower()
             if next_res_04 == previous_result:
                 result_info.fx_MnuVsLei()
+            if next_res_04 == all:
+                remain_result_yes_on()
+                result_info.fx_LeiVsTot()
             else: sys.exit()
         if remain_result_yes == 1:
             global reverse_list
@@ -273,9 +296,13 @@ class result_info:
     def fx_LutVsLei():
         if remain_result_yes == 0:
             print(away_vs_lut_carab + carab)
-            next_res03 = input('\nPress N for the next game or any other key to exit\n').lower()
+            next_res03 = input('\nPress N for the next game or ALL to see the remaining scores\n'
+                               'Press any other key to exit.\n').lower()
             if next_res03 == previous_result:
                 result_info.fx_LeiVsTot()
+            if next_res03 == all:
+                remain_result_yes_on()
+                result_info.fx_LutVsLei()
             else: sys.exit()
         if remain_result_yes == 1:
             global reverse_list
@@ -285,9 +312,13 @@ class result_info:
     def fx_LeiVsNew():
         if remain_result_yes == 0:
             print(home_vs_new + prem)
-            next_res02 = input('\nPress N for the next game or any other key to exit\n').lower()
+            next_res02 = input('\nPress N for the next game or ALL to see the remaining scores\n'
+                               'Press any other key to exit.\n').lower()
             if next_res02 == previous_result:
                 result_info.fx_LutVsLei()
+            if next_res02 == all:
+                remain_result_yes_on()
+                result_info.fx_LeiVsNew()
             else: sys.exit()
         if remain_result_yes == 1:
             global reverse_list
@@ -297,9 +328,13 @@ class result_info:
     def fx_LivVsLei():
         if remain_result_yes == 0:
             print(away_vs_liv + prem)
-            next_res01 = input('\nPress N for the next game or any other key to exit\n').lower()
+            next_res01 = input('\nPress N for the next game or ALL to see the remaining scores\n'
+                               'Press any other key to exit.\n').lower()
             if next_res01 == previous_result:
                 result_info.fx_LeiVsNew()
+            if next_res01 == all:
+                remain_result_yes_on()
+                result_info.fx_LivVsLei()
             else: sys.exit()
         if remain_result_yes == 1:
             global reverse_list
@@ -309,9 +344,13 @@ class result_info:
     def fx_LeiVsBur():
         if remain_result_yes == 0:
             print(home_vs_bur + prem)
-            next_res00 = input('\nPress N for the next game or any other key to exit\n').lower()
+            next_res00 = input('\nPress N for the next game or ALL to see the remaining scores\n'
+                               'Press any other key to exit.\n').lower()
             if next_res00 == previous_result:
                 result_info.fx_LivVsLei()
+            if next_res00 == all:
+                remain_result_yes_on()
+                result_info.fx_LeiVsBur()
             else: sys.exit()
         if remain_result_yes == 1:
             global reverse_list
@@ -321,9 +360,13 @@ class result_info:
     def fx_SouVsLei():
         if remain_result_yes == 0:
             print(away_vs_sou + prem)
-            next_res10 = input('\nPress N for the next game or any other key to exit\n').lower()
+            next_res10 = input('\nPress N for the next game or ALL to see the remaining scores\n'
+                               'Press any other key to exit.\n').lower()
             if next_res10 == previous_result:
                 result_info.fx_LeiVsBur()
+            if next_res10 == all:
+                remain_result_yes_on()
+                result_info.fx_SouVsLei()
             else: sys.exit()
         if remain_result_yes == 1:
             global reverse_list
@@ -333,9 +376,13 @@ class result_info:
     def fx_BtnVsLei():
         if remain_result_yes == 0:
             print(away_vs_btn + carab)
-            next_res11 = input('\nPress N for the next game or any other key to exit\n').lower()
+            next_res11 = input('\nPress N for the next game or ALL to see the remaining scores\n'
+                               'Press any other key to exit.\n').lower()
             if next_res11 == previous_result:
                 result_info.fx_SouVsLei()
+            if next_res11 == all:
+                remain_result_yes_on()
+                result_info.fx_BtnVsLei()
             else: sys.exit()
         if remain_result_yes == 1:
             global reverse_list
@@ -345,9 +392,13 @@ class result_info:
     def fx_CryVsLei():
         if remain_result_yes == 0:
             print(away_vs_cry + prem)
-            next_res12 = input('\nPress N for the next game or any other key to exit\n').lower()
+            next_res12 = input('\nPress N for the next game or ALL to see the remaining scores\n'
+                               'Press any other key to exit.\n').lower()
             if next_res12 == previous_result:
                 result_info.fx_BtnVsLei()
+            if next_res12 == all:
+                remain_result_yes_on()
+                result_info.fx_CryVsLei()
             else: sys.exit()
         if remain_result_yes == 1:
             global reverse_list
@@ -357,9 +408,13 @@ class result_info:
     def fx_LeiVsArs():
         if remain_result_yes == 0:
             print(home_vs_ars + prem)
-            next_res13 = input('\nPress N for the next game or any other key to exit\n').lower()
+            next_res13 = input('\nPress N for the next game or ALL to see the remaining scores\n'
+                               'Press any other key to exit.\n').lower()
             if next_res13 == previous_result:
                 result_info.fx_CryVsLei()
+            if next_res13 == all:
+                remain_result_yes_on()
+                result_info.fx_LeiVsArs()
             else: sys.exit()
         if remain_result_yes == 1:
             global reverse_list
@@ -369,9 +424,13 @@ class result_info:
     def fx_BhaVsLei():
         if remain_result_yes == 0:
             print(away_vs_bha + prem)
-            next_res14 = input('\nPress N for the next game or any other key to exit\n').lower()
+            next_res14 = input('\nPress N for the next game or ALL to see the remaining scores\n'
+                               'Press any other key to exit.\n').lower()
             if next_res14 == previous_result:
                 result_info.fx_LeiVsArs()
+            if next_res14 == all:
+                remain_result_yes_on()
+                result_info.fx_BhaVsLei()
             else: sys.exit()
         if remain_result_yes == 1:
             global reverse_list
@@ -381,9 +440,13 @@ class result_info:
     def fx_LeiVsEve():
         if remain_result_yes == 0:
             print(home_vs_eve + prem)
-            next_res15 = input('\nPress N for the next game or any other key to exit\n').lower()
+            next_res15 = input('\nPress N for the next game or ALL to see the remaining scores\n'
+                               'Press any other key to exit.\n').lower()
             if next_res15 == previous_result:
                 result_info.fx_BhaVsLei()
+            if next_res15 == all:
+                remain_result_yes_on()
+                result_info.fx_LeiVsEve()
             else: sys.exit()
         if remain_result_yes == 1:
             global reverse_list
@@ -393,9 +456,13 @@ class result_info:
     def fx_LeiVsWat():
         if remain_result_yes == 0:
             print(home_vs_wat + prem)
-            next_res16 = input('\nPress N for the next game or any other key to exit\n').lower()
+            next_res16 = input('\nPress N for the next game or ALL to see the remaining scores\n'
+                               'Press any other key to exit.\n').lower()
             if next_res16 == previous_result:
                 result_info.fx_LeiVsEve()
+            if next_res16 == all:
+                remain_result_yes_on()
+                result_info.fx_LeiVsWat()
             else: sys.exit()
         if remain_result_yes == 1:
             global reverse_list
@@ -405,9 +472,13 @@ class result_info:
     def fx_AstVsLei():
         if remain_result_yes == 0:
             print(home_vs_ast + prem)
-            next_res17 = input('\nPress N for the next game or any other key to exit\n').lower()
+            next_res17 = input('\nPress N for the next game or ALL to see the remaining scores\n'
+                               'Press any other key to exit.\n').lower()
             if next_res17 == previous_result:
                 result_info.fx_LeiVsWat()
+            if next_res17 == all:
+                remain_result_yes_on()
+                result_info.fx_AstVsLei()
             else: sys.exit()
         if remain_result_yes == 1:
             global reverse_list
@@ -417,9 +488,13 @@ class result_info:
     def fx_LeiVsNor():
         if remain_result_yes == 0:
             print(home_vs_nor + prem)
-            next_res18 = input('\nPress N for the next game or any other key to exit\n').lower()
+            next_res18 = input('\nPress N for the next game or ALL to see the remaining scores\n'
+                               'Press any other key to exit.\n').lower()
             if next_res18 == previous_result:
                 result_info.fx_AstVsLei()
+            if next_res18 == all:
+                remain_result_yes_on()
+                result_info.fx_LeiVsNor()
             else: sys.exit()
         if remain_result_yes == 1:
             global reverse_list
@@ -429,9 +504,13 @@ class result_info:
     def fx_EveVsLei_Carab():
         if remain_result_yes == 0:
             print(away_vs_eve_carab + carab)
-            next_res001 = input('\nPress N for the next game or any other key to exit\n').lower()
+            next_res001 = input('\nPress N for the next game or ALL to see the remaining scores\n'
+                               'Press any other key to exit.\n').lower()
             if next_res001 == previous_result:
                 result_info.fx_LeiVsNor()
+            if next_res001 == all:
+                remain_result_yes_on()
+                result_info.fx_EveVsLei_Carab()
             else: sys.exit()
         if remain_result_yes == 1:
             global reverse_list
@@ -441,9 +520,13 @@ class result_info:
     def fx_MncVsLei():
         if remain_result_yes == 0:
             print(away_vs_mnc + prem)
-            next_res19 = input('\nPress N for the next game or any other key to exit\n').lower()
+            next_res19 = input('\nPress N for the next game or ALL to see the remaining scores\n'
+                               'Press any other key to exit.\n').lower()
             if next_res19 == previous_result:
                 result_info.fx_EveVsLei_Carab()
+            if next_res19 == all:
+                remain_result_yes_on()
+                result_info.fx_MncVsLei()
             else: sys.exit()
         if remain_result_yes == 1:
             global reverse_list
@@ -453,9 +536,13 @@ class result_info:
     def fx_LeiVsLiv():
         if remain_result_yes == 0:
             print(home_vs_liv + prem)
-            next_res20 = input('\nPress N for the next game or any other key to exit\n').lower()
+            next_res20 = input('\nPress N for the next game or ALL to see the remaining scores\n'
+                               'Press any other key to exit.\n').lower()
             if next_res20 == previous_result:
                 result_info.fx_MncVsLei()
+            if next_res20 == all:
+                remain_result_yes_on()
+                result_info.fx_LeiVsLiv()
             else: sys.exit()
         if remain_result_yes == 1:
             global reverse_list
@@ -465,9 +552,13 @@ class result_info:
     def fx_WhuVsLei():
         if remain_result_yes == 0:
             print(away_vs_whu + prem)
-            next_res21 = input('\nPress N for the next game or any other key to exit\n').lower()
+            next_res21 = input('\nPress N for the next game or ALL to see the remaining scores\n'
+                               'Press any other key to exit.\n').lower()
             if next_res21 == previous_result:
                 result_info.fx_LeiVsLiv()
+            if next_res21 == all:
+                remain_result_yes_on()
+                result_info.fx_WhuVsLei()
             else: sys.exit()
         if remain_result_yes == 1:
             global reverse_list
@@ -477,9 +568,13 @@ class result_info:
     def fx_NewVsLei():
         if remain_result_yes == 0:
             print(away_vs_new + prem)
-            next_res22 = input('\nPress N for the next game or any other key to exit\n').lower()
+            next_res22 = input('\nPress N for the next game or ALL to see the remaining scores\n'
+                               'Press any other key to exit.\n').lower()
             if next_res22 == previous_result:
                 result_info.fx_WhuVsLei()
+            if next_res22 == all:
+                remain_result_yes_on()
+                result_info.fx_NewVsLei()
             else: sys.exit()
         if remain_result_yes == 1:
             global reverse_list
@@ -489,9 +584,13 @@ class result_info:
     def fx_LeiVsSou():
         if remain_result_yes == 0:
             print(home_vs_sou + prem)
-            next_res23 = input('\nPress N for the next game or any other key to exit\n').lower()
+            next_res23 = input('\nPress N for the next game or ALL to see the remaining scores\n'
+                               'Press any other key to exit.\n').lower()
             if next_res23 == previous_result:
                 result_info.fx_NewVsLei()
+            if next_res23 == all:
+                remain_result_yes_on()
+                result_info.fx_LeiVsSou()
             else: sys.exit()
         if remain_result_yes == 1:
             global reverse_list
@@ -501,9 +600,13 @@ class result_info:
     def fx_BurVsLei():
         if remain_result_yes == 0:
             print(away_vs_bur + prem)
-            next_res24 = input('\nPress N for the next game or any other key to exit\n').lower()
+            next_res24 = input('\nPress N for the next game or ALL to see the remaining scores\n'
+                               'Press any other key to exit.\n').lower()
             if next_res24 == previous_result:
                 result_info.fx_LeiVsSou()
+            if next_res24 == all:
+                remain_result_yes_on()
+                result_info.fx_BurVsLei()
             else: sys.exit()
         if remain_result_yes == 1:
             global reverse_list
@@ -513,9 +616,13 @@ class result_info:
     def fx_LeiVsWhu():
         if remain_result_yes == 0:
             print(home_vs_whu + prem)
-            next_res25 = input('\nPress N for the next game or any other key to exit\n').lower()
+            next_res25 = input('\nPress N for the next game or ALL to see the remaining scores\n'
+                               'Press any other key to exit.\n').lower()
             if next_res25 == previous_result:
                 result_info.fx_BurVsLei()
+            if next_res25 == all:
+                remain_result_yes_on()
+                result_info.fx_LeiVsWhu()
             else: sys.exit()
         if remain_result_yes == 1:
             global reverse_list
@@ -525,9 +632,13 @@ class result_info:
     def fx_LeiVsChe():
         if remain_result_yes == 0:
             print(home_vs_che + prem)
-            next_res26 = input('\nPress N for the next game or any other key to exit\n').lower()
+            next_res26 = input('\nPress N for the next game or ALL to see the remaining scores\n'
+                               'Press any other key to exit.\n').lower()
             if next_res26 == previous_result:
                 result_info.fx_LeiVsWhu()
+            if next_res26 == all:
+                remain_result_yes_on()
+                result_info.fx_LeiVsChe()
             else: sys.exit()
         if remain_result_yes == 1:
             global reverse_list
@@ -537,9 +648,13 @@ class result_info:
     def fx_WolVsLei():
         if remain_result_yes == 0:
             print(away_vs_wol + prem)
-            next_res27 = input('\nPress N for the next game or any other key to exit\n').lower()
+            next_res27 = input('\nPress N for the next game or ALL to see the remaining scores\n'
+                               'Press any other key to exit.\n').lower()
             if next_res27 == previous_result:
                 result_info.fx_LeiVsChe()
+            if next_res27 == all:
+                remain_result_yes_on()
+                result_info.fx_WolVsLei()
             else: sys.exit()
         if remain_result_yes == 1:
             global reverse_list
@@ -549,9 +664,13 @@ class result_info:
     def fx_LeiVsMnc():
         if remain_result_yes == 0:
             print(home_vs_mnc + prem)
-            next_res28 = input('\nPress N for the next game or any other key to exit\n').lower()
+            next_res28 = input('\nPress N for the next game or ALL to see the remaining scores\n'
+                               'Press any other key to exit.\n').lower()
             if next_res28 == previous_result:
                 result_info.fx_WolVsLei()
+            if next_res28 == all:
+                remain_result_yes_on()
+                result_info.fx_LeiVsMnc()
             else: sys.exit()
         if remain_result_yes == 1:
             global reverse_list
@@ -561,9 +680,13 @@ class result_info:
     def fx_NorVsLei():
         if remain_result_yes == 0:
             print(away_vs_nor + prem)
-            next_res29 = input('\nPress N for the next game or any other key to exit\n').lower()
+            next_res29 = input('\nPress N for the next game or ALL to see the remaining scores\n'
+                               'Press any other key to exit.\n').lower()
             if next_res29 == previous_result:
                 result_info.fx_LeiVsMnc()
+            if next_res29 == all:
+                remain_result_yes_on()
+                result_info.fx_NorVsLei()
             else: sys.exit()
         if remain_result_yes == 1:
             global reverse_list
@@ -573,9 +696,13 @@ class result_info:
     def fx_LeiVsAst():
         if remain_result_yes == 0:
             print(home_vs_ast + prem)
-            next_res30 = input('\nPress N for the next game or any other key to exit\n').lower()
+            next_res30 = input('\nPress N for the next game or ALL to see the remaining scores\n'
+                               'Press any other key to exit.\n').lower()
             if next_res30 == previous_result:
                 result_info.fx_NorVsLei()
+            if next_res30 == all:
+                remain_result_yes_on()
+                result_info.fx_LeiVsAst()
             else: sys.exit()
         if remain_result_yes == 1:
             global reverse_list
@@ -585,9 +712,13 @@ class result_info:
     def fx_WatVsLei():
         if remain_result_yes == 0:
             print(away_vs_wat + prem)
-            next_res31 = input('\nPress N for the next game or any other key to exit\n').lower()
+            next_res31 = input('\nPress N for the next game or ALL to see the remaining scores\n'
+                               'Press any other key to exit.\n').lower()
             if next_res31 == previous_result:
                 result_info.fx_LeiVsAst()
+            if next_res31 == all:
+                remain_result_yes_on()
+                result_info.fx_WatVsLei()
             else: sys.exit()
         if remain_result_yes == 1:
             global reverse_list
@@ -597,9 +728,13 @@ class result_info:
     def fx_LeiVsBha():
         if remain_result_yes == 0:
             print(home_vs_bha + prem)
-            next_res32 = input('\nPress N for the next game or any other key to exit\n').lower()
+            next_res32 = input('\nPress N for the next game or ALL to see the remaining scores\n'
+                               'Press any other key to exit.\n').lower()
             if next_res32 == previous_result:
                 result_info.fx_WatVsLei()
+            if next_res32 == all:
+                remain_result_yes_on()
+                result_info.fx_LeiVsBha()
             else: sys.exit()
         if remain_result_yes == 1:
             global reverse_list
@@ -609,9 +744,13 @@ class result_info:
     def fx_EveVsLei():
         if remain_result_yes == 0:
             print(away_vs_eve + prem)
-            next_res33 = input('\nPress N for the next game or any other key to exit\n').lower()
+            next_res33 = input('\nPress N for the next game or ALL to see the remaining scores\n'
+                               'Press any other key to exit.\n').lower()
             if next_res33 == previous_result:
                 result_info.fx_LeiVsBha()
+            if next_res33 == all:
+                remain_result_yes_on()
+                result_info.fx_EveVsLei()
             else: sys.exit()
         if remain_result_yes == 1:
             global reverse_list
@@ -621,9 +760,13 @@ class result_info:
     def fx_LeiVsCry():
         if remain_result_yes == 0:
             print(home_vs_cry + prem)
-            next_res34 = input('\nPress N for the next game or any other key to exit\n').lower()
+            next_res34 = input('\nPress N for the next game or ALL to see the remaining scores\n'
+                               'Press any other key to exit.\n').lower()
             if next_res34 == previous_result:
                 result_info.fx_EveVsLei()
+            if next_res34 == all:
+                remain_result_yes_on()
+                result_info.fx_LeiVsCry()
             else: sys.exit()
         if remain_result_yes == 1:
             global reverse_list
@@ -633,9 +776,13 @@ class result_info:
     def fx_ArsVsLei():
         if remain_result_yes == 0:
             print(away_vs_ars + prem)
-            next_res35 = input('\nPress N for the next game or any other key to exit\n').lower()
+            next_res35 = input('\nPress N for the next game or ALL to see the remaining scores\n'
+                               'Press any other key to exit.\n').lower()
             if next_res35 == previous_result:
                 result_info.fx_LeiVsCry()
+            if next_res35 == all:
+                remain_result_yes_on()
+                result_info.fx_ArsVsLei()
             else: sys.exit()
         if remain_result_yes == 1:
             global reverse_list
@@ -645,9 +792,13 @@ class result_info:
     def fx_LeiVsShu():
         if remain_result_yes == 0:
             print(home_vs_shu + prem)
-            next_res36 = input('\nPress N for the next game or any other key to exit\n').lower()
+            next_res36 = input('\nPress N for the next game or ALL to see the remaining scores\n'
+                               'Press any other key to exit.\n').lower()
             if next_res36 == previous_result:
                 result_info.fx_ArsVsLei()
+            if next_res36 == all:
+                remain_result_yes_on()
+                result_info.fx_LeiVsShu()
             else: sys.exit()
         if remain_result_yes == 1:
             global reverse_list
@@ -657,9 +808,13 @@ class result_info:
     def fx_TotVsLei():
         if remain_result_yes == 0:
             print(away_vs_tot + prem)
-            next_res37 = input('\nPress N for the next game or any other key to exit\n').lower()
+            next_res37 = input('\nPress N for the next game or ALL to see the remaining scores\n'
+                               'Press any other key to exit.\n').lower()
             if next_res37 == previous_result:
                 result_info.fx_LeiVsShu()
+            if next_res37 == all:
+                remain_result_yes_on()
+                result_info.fx_TotVsLei()
             else: sys.exit()
         if remain_result_yes == 1:
             global reverse_list
@@ -669,9 +824,13 @@ class result_info:
     def fx_LeiVsMnu():
         if remain_result_yes == 0:
             print(home_vs_mnu + prem)
-            next_res38 = input('\nPress N for the next game or any other key to exit\n').lower()
+            next_res38 = input('\nPress N for the next game or ALL to see the remaining scores\n'
+                               'Press any other key to exit.\n').lower()
             if next_res38 == previous_result:
                 result_info.fx_TotVsLei()
+            if next_res38 == all:
+                remain_result_yes_on()
+                result_info.fx_LeiVsMnu()
             else: sys.exit()
         if remain_result_yes == 1:
             global reverse_list
