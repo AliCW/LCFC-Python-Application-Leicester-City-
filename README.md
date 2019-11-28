@@ -8,11 +8,9 @@ Below is a brief outline of what each script attempts to accomplish:
 # run.py
 The main script used to start the application. This script acts as a central point for initial user queries concerning what data they would like to view. The file performs initial checks on its directory to confirm the presence of both data and version files, if these are not there, it will download and save the latest files hosted in github.
 
-Users can run an update tool which captures the output from version files held within it's extracted directory. It then compares this reference to the version listed online on the update_table.txt (current link: https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/update_table.txt ) and those within the programs internal version files, e.g. current_fixture_version.py
+Users can run an update tool which reads the version number from each data file for both internal scripts & externally hosted files. If the internal version number is lower, the program will query the user to update or continue using old files. 
 
-If the version number from update_table.txt is higher, the program will query the user to update or continue using old files. 
-
-The update mechanism renames it's current related scripts (.old) then uses headless Firefox & geckodriver to go to the embedded update link, copy the page source & parsing with BeautifulSoup then copying this into a new file. The process also performs the same function with version file scripts.
+The update mechanism renames it's current related scripts (.old) then uses headless Firefox & geckodriver to go to the embedded update link, copy the page source & parsing with BeautifulSoup then copying this into a new file.
 
 User is presented with the main query listing functions & required input. Data is held on external script files (current_fixture_list.py, current_player_stats.py, current_results.py)
 
@@ -29,7 +27,7 @@ Not working as intended, see issues (#18)
 # /version/read_version_xyz.py
 All version files have an almost identical syntax with all outputting the current version number of its associated file. This is performed via reading the top line of the corresponding data file & converting the output to float for comparison.
 
-However, files are still compared to the version number hosted online at update_table.txt (#15).
+These files should remain static, unless the version number syntax has to change.
 
 # /data/current_fixture_list.py
 User is presented with a query asking to see the next fixture, or a list of all. More details are available if viewed one by one. If all associated data is all listed together, it becomes unreadable, therefore, the list of all fixtures only contains limited related information.
