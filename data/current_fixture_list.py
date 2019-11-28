@@ -1,4 +1,4 @@
-#v0.09
+#v0.10
 import sys
 import datetime
 from itertools import zip_longest
@@ -235,8 +235,12 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
             print('Home')
             print('Kick-off: Sunday 01/12/2019 at 16:30')
             print('UK Broadcaster: Sky Sports')
-            next_game_07 = input('\n\nPress N for the next game or any other key to exit\n').lower()
+            next_game_07 = input('\n\nPress N for the next game or ALL to see every fixture\n'
+                                 'Press any other key to exit\n').lower()
             if next_game_07 == next_fix:
+                fixture_info.iLeiVsWat()
+            if next_game_07 == all:
+                remain_yes_on()
                 fixture_info.iLeiVsWat()
             else: sys.exit()
         if remain_yes == 1:
@@ -251,8 +255,12 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
             print('Home')
             print('Kick-off: Tuesday 03/12/2019 at 19:45')
             print('UK Broadcaster: Amazon Prime Video')
-            next_game_08 = input('\n\nPress N for the next game or any other key to exit\n').lower()
+            next_game_08 = input('\n\nPress N for the next game or ALL to see every fixture\n'
+                                 'Press any other key to exit\n').lower()
             if next_game_08 == next_fix:
+                fixture_info.iAstVsLei()
+            if next_game_08 == all:
+                remain_yes_on()
                 fixture_info.iAstVsLei()
             else: sys.exit()
         if remain_yes == 1:
@@ -267,8 +275,12 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
             print('Away')
             print('Kick-off: Saturday 07/12/2019 at 15:00')
             print('UK Broadcaster: Sky Sports')
-            next_game_09 = input('\n\nPress N for the next game or any other key to exit\n').lower()
+            next_game_09 = input('\n\nPress N for the next game or ALL to see every fixture\n'
+                                 'Press any other key to exit\n').lower()
             if next_game_09 == next_fix:
+                fixture_info.iLeiVsNor()
+            if next_game_09 == all:
+                remain_yes_on()
                 fixture_info.iLeiVsNor()
             else: sys.exit()
         if remain_yes == 1:
@@ -283,8 +295,12 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
             print('Home')
             print('Kick-off: Saturday 14/12/2019 at 15:00')
             print('UK Broadcaster: None - N/A')
-            next_game_10 = input('\n\nPress N for the next game or any other key to exit\n').lower()
+            next_game_10 = input('\n\nPress N for the next game or ALL to see every fixture\n'
+                                 'Press any other key to exit\n').lower()
             if next_game_10 == next_fix:
+                fixture_info.iEveVsLei_Carab()
+            if next_game_10 == all:
+                remain_yes_on()
                 fixture_info.iEveVsLei_Carab()
             else: sys.exit()
         if remain_yes == 1:
@@ -300,8 +316,12 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
             print('Kick-off: Wednesday 18/12/2019 at 19:45')
             print('UK Broadcaster: None - N/A')
             print('International Broadcaster(s): ESPN+')
-            next_game_001 = input('\n\nPress N for the next game or any other key to exit\n').lower()
+            next_game_001 = input('\n\nPress N for the next game or ALL to see every fixture\n'
+                                 'Press any other key to exit\n').lower()
             if next_game_001 == next_fix:
+                fixture_info.iMncVsLei()
+            if next_game_001 == all:
+                remain_yes_on()
                 fixture_info.iMncVsLei()
             else: sys.exit()
         if remain_yes == 1:
@@ -316,8 +336,12 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
             print('Away')
             print('Kick-off: Saturday 21/12/2019 at 15:00')
             print('UK Broadcaster: Sky Sports')
-            next_game_11 = input('\n\nPress N for the next game or any other key to exit\n').lower()
+            next_game_11 = input('\n\nPress N for the next game or ALL to see every fixture\n'
+                                 'Press any other key to exit\n').lower()
             if next_game_11 == next_fix:
+                fixture_info.iLeiVsLiv()
+            if next_game_11 == all:
+                remain_yes_on()
                 fixture_info.iLeiVsLiv()
             else: sys.exit()
         if remain_yes == 1:
@@ -332,8 +356,12 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
             print('Home')
             print('Kick-off: Thursday 26/12/2019 at 20:00')
             print('UK Broadcaster: Amazon Prime Video')
-            next_game_12 = input('\n\nPress N for the next game or any other key to exit\n').lower()
+            next_game_12 = input('\n\nPress N for the next game or ALL to see every fixture\n'
+                                 'Press any other key to exit\n').lower()
             if next_game_12 == next_fix:
+                fixture_info.iWhuVsLei()
+            if next_game_12 == all:
+                remain_yes_on()
                 fixture_info.iWhuVsLei()
             else: sys.exit()
         if remain_yes == 1:
@@ -348,8 +376,12 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
             print('Away')
             print('Kick-off: Saturday 28/12/2019 at 15:00')
             print('UK Broadcaster: None - N/A')
-            next_game_13 = input('\n\nPress N for the next game or any other key to exit\n').lower()
+            next_game_13 = input('\n\nPress N for the next game or ALL to see every fixture\n'
+                                 'Press any other key to exit\n').lower()
             if next_game_13 == next_fix:
+                fixture_info.iNewVsLei()
+            if next_game_13 == all:
+                remain_yes_on()
                 fixture_info.iNewVsLei()
             else: sys.exit()
         if remain_yes == 1:
@@ -364,8 +396,12 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
             print('Away')
             print('Kick-off: Saturday 01/01/2020 at 15:00')
             print('UK Broadcaster: BT Sports')
-            next_game_14 = input('\n\nPress N for the next game or any other key to exit\n').lower()
+            next_game_14 = input('\n\nPress N for the next game or ALL to see every fixture\n'
+                                 'Press any other key to exit\n').lower()
             if next_game_14 == next_fix:
+                fixture_info.iLeiVsSou()
+            if next_game_14 == all:
+                remain_yes_on()
                 fixture_info.iLeiVsSou()
             else: sys.exit()
         if remain_yes == 1:
@@ -380,8 +416,12 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
             print('Home')
             print('Kick-off: Saturday 11/01/2020 at 15:00')
             print('UK Broadcaster: None - N/A')
-            next_game_15 = input('\n\nPress N for the next game or any other key to exit\n').lower()
+            next_game_15 = input('\n\nPress N for the next game or ALL to see every fixture\n'
+                                 'Press any other key to exit\n').lower()
             if next_game_15 == next_fix:
+                fixture_info.iBurVsLei()
+            if next_game_15 == all:
+                remain_yes_on()
                 fixture_info.iBurVsLei()
             else: sys.exit()
         if remain_yes == 1:
@@ -396,8 +436,12 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
             print('Away')
             print('Kick-off: Saturday 18/01/2019 at 15:00')
             print('UK Broadcaster: Sky Sports')
-            next_game_16 = input('\n\nPress N for the next game or any other key to exit\n').lower()
+            next_game_16 = input('\n\nPress N for the next game or ALL to see every fixture\n'
+                                 'Press any other key to exit\n').lower()
             if next_game_16 == next_fix:
+                fixture_info.iLeiVsWhu()
+            if next_game_16 == all:
+                remain_yes_on()
                 fixture_info.iLeiVsWhu()
             else: sys.exit()
         if remain_yes == 1:
@@ -412,8 +456,12 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
             print('Home')
             print('Kick-off: Tuesday 21/01/2020 at 19:45')
             print('UK Broadcaster: BT Sports')
-            next_game_17 = input('\n\nPress N for the next game or any other key to exit\n').lower()
+            next_game_17 = input('\n\nPress N for the next game or ALL to see every fixture\n'
+                                 'Press any other key to exit\n').lower()
             if next_game_17 == next_fix:
+                fixture_info.iLeiVsChe()
+            if next_game_17 == all:
+                remain_yes_on()
                 fixture_info.iLeiVsChe()
             else: sys.exit()
         if remain_yes == 1:
@@ -428,8 +476,12 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
             print('Home')
             print('Kick-off: Saturday 01/02/2020 at 15:00')
             print('UK Broadcaster: None - N/A')
-            next_game_18 = input('\n\nPress N for the next game or any other key to exit\n').lower()
+            next_game_18 = input('\n\nPress N for the next game or ALL to see every fixture\n'
+                                 'Press any other key to exit\n').lower()
             if next_game_18 == next_fix:
+                fixture_info.iWolVsLei()
+            if next_game_18 == all:
+                remain_yes_on()
                 fixture_info.iWolVsLei()
             else: sys.exit()
         if remain_yes == 1:
@@ -444,8 +496,12 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
             print('Away')
             print('Kick-off: Saturday 08/02/2020 at 15:00')
             print('UK Broadcaster: None - N/A')
-            next_game_19 = input('\n\nPress N for the next game or any other key to exit\n').lower()
+            next_game_19 = input('\n\nPress N for the next game or ALL to see every fixture\n'
+                                 'Press any other key to exit\n').lower()
             if next_game_19 == next_fix:
+                fixture_info.iLeiVsMnc()
+            if next_game_19 == all:
+                remain_yes_on()
                 fixture_info.iLeiVsMnc()
             else: sys.exit()
         if remain_yes == 1:
@@ -460,8 +516,12 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
             print('Home')
             print('Kick-off: Saturday 22/02/2020 at 15:00')
             print('UK Broadcaster: None - N/A')
-            next_game_20 = input('\n\nPress N for the next game or any other key to exit\n').lower()
+            next_game_20 = input('\n\nPress N for the next game or ALL to see every fixture\n'
+                                 'Press any other key to exit\n').lower()
             if next_game_20 == next_fix:
+                fixture_info.iNorVsLei()
+            if next_game_20 == all:
+                remain_yes_on()
                 fixture_info.iNorVsLei()
             else: sys.exit()
         if remain_yes == 1:
@@ -476,8 +536,12 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
             print('Away')
             print('Kick-off: Saturday 29/02/2020 at 15:00')
             print('UK Broadcaster: None - N/A')
-            next_game_21 = input('\n\nPress N for the next game or any other key to exit\n').lower()
+            next_game_21 = input('\n\nPress N for the next game or ALL to see every fixture\n'
+                                 'Press any other key to exit\n').lower()
             if next_game_21 == next_fix:
+                fixture_info.iLeiVsAst()
+            if next_game_21 == all:
+                remain_yes_on()
                 fixture_info.iLeiVsAst()
             else: sys.exit()
         if remain_yes == 1:
@@ -492,8 +556,12 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
             print('Home')
             print('Kick-off: Saturday 07/03/2020 at 15:00')
             print('UK Broadcaster: None - N/A')
-            next_game_22 = input('\n\nPress N for the next game or any other key to exit\n').lower()
+            next_game_22 = input('\n\nPress N for the next game or ALL to see every fixture\n'
+                                 'Press any other key to exit\n').lower()
             if next_game_22 == next_fix:
+                fixture_info.iWatVsLei()
+            if next_game_22 == all:
+                remain_yes_on()
                 fixture_info.iWatVsLei()
             else: sys.exit()
         if remain_yes == 1:
@@ -508,8 +576,12 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
             print('Away')
             print('Kick-off: Saturday 14/03/2020 at 15:00')
             print('UK Broadcaster: None - N/A')
-            next_game_23 = input('\n\nPress N for the next game or any other key to exit\n').lower()
+            next_game_23 = input('\n\nPress N for the next game or ALL to see every fixture\n'
+                                 'Press any other key to exit\n').lower()
             if next_game_23 == next_fix:
+                fixture_info.iLeiVsBha()
+            if next_game_23 == all:
+                remain_yes_on()
                 fixture_info.iLeiVsBha()
             else: sys.exit()
         if remain_yes == 1:
@@ -524,8 +596,12 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
             print('Home')
             print('Kick-off: Saturday 21/03/2020 at 15:00')
             print('UK Broadcaster: None - N/A')
-            next_game_24 = input('\n\nPress N for the next game or any other key to exit\n').lower()
+            next_game_24 = input('\n\nPress N for the next game or ALL to see every fixture\n'
+                                 'Press any other key to exit\n').lower()
             if next_game_24 == next_fix:
+                fixture_info.iEveVsLei()
+            if next_game_24 == all:
+                remain_yes_on()
                 fixture_info.iEveVsLei()
             else: sys.exit()
         if remain_yes == 1:
@@ -540,8 +616,12 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
             print('Away')
             print('Kick-off: Saturday 04/04/2020 at 15:00')
             print('UK Broadcaster: None - N/A')
-            next_game_25 = input('\n\nPress N for the next game or any other key to exit\n').lower()
+            next_game_25 = input('\n\nPress N for the next game or ALL to see every fixture\n'
+                                 'Press any other key to exit\n').lower()
             if next_game_25 == next_fix:
+                fixture_info.iLeiVsCry()
+            if next_game_25 == all:
+                remain_yes_on()
                 fixture_info.iLeiVsCry()
             else: sys.exit()
         if remain_yes == 1:
@@ -556,8 +636,12 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
             print('Home')
             print('Kick-off: Saturday 11/04/2020 at 15:00')
             print('UK Broadcaster: None - N/A')
-            next_game_26 = input('\n\nPress N for the next game or any other key to exit\n').lower()
+            next_game_26 = input('\n\nPress N for the next game or ALL to see every fixture\n'
+                                 'Press any other key to exit\n').lower()
             if next_game_26 == next_fix:
+                fixture_info.iArsVsLei()
+            if next_game_26 == all:
+                remain_yes_on()
                 fixture_info.iArsVsLei()
             else: sys.exit()
         if remain_yes == 1:
@@ -572,8 +656,12 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
             print('Away')
             print('Kick-off: Saturday 18/04/2020 at 15:00')
             print('UK Broadcaster: None - N/A')
-            next_game_27 = input('\n\nPress N for the next game or any other key to exit\n').lower()
+            next_game_27 = input('\n\nPress N for the next game or ALL to see every fixture\n'
+                                 'Press any other key to exit\n').lower()
             if next_game_27 == next_fix:
+                fixture_info.iBouVsLei()
+            if next_game_27 == all:
+                remain_yes_on()
                 fixture_info.iBouVsLei()
             else: sys.exit()
         if remain_yes == 1:
@@ -588,8 +676,12 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
             print('Away')
             print('Kick-off: Saturday 25/04/2020 at 15:00')
             print('UK Broadcaster: None - N/A')
-            next_game_28 = input('\n\nPress N for the next game or any other key to exit\n').lower()
+            next_game_28 = input('\n\nPress N for the next game or ALL to see every fixture\n'
+                                 'Press any other key to exit\n').lower()
             if next_game_28 == next_fix:
+                fixture_info.iLeiVsShu()
+            if next_game_28 == all:
+                remain_yes_on()
                 fixture_info.iLeiVsShu()
             else: sys.exit()
         if remain_yes == 1:
@@ -604,8 +696,12 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
             print('Home')
             print('Kick-off: Saturday 02/05/2020 at 15:00')
             print('UK Broadcaster: None - N/A')
-            next_game_29 = input('\n\nPress N for the next game or any other key to exit\n').lower()
+            next_game_29 = input('\n\nPress N for the next game or ALL to see every fixture\n'
+                                 'Press any other key to exit\n').lower()
             if next_game_29 == next_fix:
+                fixture_info.iTotVsLei()
+            if next_game_29 == all:
+                remain_yes_on()
                 fixture_info.iTotVsLei()
             else: sys.exit()
         if remain_yes == 1:
@@ -620,8 +716,12 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
             print('Away')
             print('Kick-off: Saturday 09/05/2020 at 15:00')
             print('UK Broadcaster: None - N/A')
-            next_game_30 = input('\n\nPress N for the next game or any other key to exit\n').lower()
+            next_game_30 = input('\n\nPress N for the next game or ALL to see every fixture\n'
+                                 'Press any other key to exit\n').lower()
             if next_game_30 == next_fix:
+                fixture_info.iLeiVsMnu()
+            if next_game_31 == all:
+                remain_yes_on()
                 fixture_info.iLeiVsMnu()
             else: sys.exit()
         if remain_yes == 1:
