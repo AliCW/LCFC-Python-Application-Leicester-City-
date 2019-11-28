@@ -1,4 +1,4 @@
-#v0.07
+#v0.08
 import subprocess
 import html
 import os
@@ -43,15 +43,15 @@ def check_gecko():
     string_gecko_path = obtain_gecko_path.decode('utf-8') #decode bytes into string
     obtain_gecko_pid = subprocess.check_output(['python', 'get_gecko_pid.py']) #outputs into bytes
     string_gecko_pid = obtain_gecko_pid.decode('utf-8') #decode bytes into string
-    int_gecko_pid = int(string_gecko_pid) #convert string to integer - couldnt figure out a way to decode into an integer yet!
-    if not int_gecko_pid: #if this string is empty, print statement &  move on
+    if not string_gecko_pid: #if this string is empty, print statement &  move on
         print('No PID found for geckodriver')
     if not string_gecko_path:  #if this string is empty, print statement &  move on
         print('No path found for geckodriver') #because of the placement of this definition, these statements should never arise
     if string_gecko_path == base_path:
+        int_gecko_pid = int(string_gecko_pid)  # convert string to integer - couldnt figure out a way to decode into an integer yet!
         os.kill(int_gecko_pid, SIGTERM)
         print('Update process is over.')
-    else: print('Error in check_gecko, geckodriver.exe may still be running.')
+    else: print('Update process has finished')
 
 #<------------------------------------------------------------------------------------run version file (VERSION)
 try:
@@ -229,21 +229,38 @@ def update_tool():
     options = Options() #define browser options
     options.headless = True #set options to headless
     browser = webdriver.Firefox(options=options) #opens a headless firefox named "browser"
-    browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/update/update_table.txt') #browser is sent to overall table - this file must always contain the latest version number
-    print('Internet loaded')
+    browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/data/current_player_stats.py') #browser is sent to the file itself
+    print('Player stats loaded')
     WebDriverWait(browser, 10)#.until(waitCondition.presence_of_element_located((By.id, '"player_update_version"')))
-    update_list = browser.page_source
-    escape_list = html.unescape(update_list)
-    player_soup = BeautifulSoup(escape_list, features='html.parser')
-    fixture_soup = BeautifulSoup(escape_list, features='html.parser')
-    results_soup = BeautifulSoup(escape_list, features='html.parser')
-    player_update_string = player_soup.main.string #takes the text out of the "main" section - IDed internally within the HTML page - PLAYER UPDATE SECTION
-    fixture_update_string = fixture_soup.p.string #takes the version number from the "p" section
-    results_update_string = results_soup.h1.string
-    print('Latest Player Version: ' + player_update_string)
-    print('Latest Fixture Version: ' + fixture_update_string)
-    print('Latest Results Version: ' + results_update_string)
-    if float(results_update_string) > float(results_list_current_version):
+    raw_player_version = browser.page_source
+    parsed_player_version = html.unescape(raw_player_version)
+    soup_player_version = BeautifulSoup(parsed_player_version, features='html.parser')
+    final_player_version = soup_player_version.pre.string
+    player_version_float = final_player_version[2:6]
+    #print(float(player_version_float))
+    browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/data/current_fixture_list.py')
+    print('Fixture list loaded')
+    WebDriverWait(browser, 10)#remove or improve this part!!
+    raw_fixture_version = browser.page_source
+    parsed_fixture_version = html.unescape(raw_fixture_version)
+    soup_fixture_version = BeautifulSoup(parsed_fixture_version, features='html.parser')
+    final_fixture_version = soup_fixture_version.pre.string
+    fixture_version_float = final_fixture_version[2:6]
+    browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/data/current_results.py')
+    print('Results list loaded')
+    WebDriverWait(browser, 10)
+    raw_results_version = browser.page_source
+    parsed_results_version = html.unescape(raw_results_version)
+    soup_results_version = BeautifulSoup(parsed_results_version, features='html.parser')
+    final_results_version = soup_results_version.pre.string
+    results_version_float = final_results_version[2:6]
+    #player_update_string = player_soup.main.string #takes the text out of the "main" section - IDed internally within the HTML page - PLAYER UPDATE SECTION
+    #fixture_update_string = fixture_soup.p.string #takes the version number from the "p" section
+    #results_update_string = results_soup.h1.string
+    print('Latest Player Version: ' + player_version_float)
+    print('Latest Fixture Version: ' + fixture_version_float)
+    print('Latest Results Version: ' + results_version_float)
+    if float(results_version_float) > float(results_list_current_version):
         print('\nResults list is out of date')
         results_list_update_query = input('\nWould you like to update LCFC results? Y / N\n')
         if results_list_update_query == yes:
@@ -259,9 +276,9 @@ def update_tool():
             result_create.close()
         if results_list_update_query == no:
             print('Very Well...')
-    if float(results_update_string) <= float(results_list_current_version):
+    if float(results_version_float) <= float(results_list_current_version):
         print('Results list is up to date!')
-    if float(player_update_string) > float(player_stats_current_version): #compares internal file version with github file version
+    if float(player_version_float) > float(player_stats_current_version): #compares internal file version with github file version
         print('Player statistics are out of date\n')
         player_stats_update_query = input('Would you like to update LCFC player statistics? Y / N\n')
         if player_stats_update_query == yes:
@@ -277,9 +294,9 @@ def update_tool():
             player_stats_create.close()
         if player_stats_update_query == no:
             print('Very well...')
-    if float(player_update_string) <= float(player_stats_current_version):
+    if float(player_version_float) <= float(player_stats_current_version):
         print('Player statistic files are up to date!')
-    if float(fixture_update_string) > float(fixture_list_current_version):
+    if float(fixture_version_float) > float(fixture_list_current_version):
         print('Fixture list if out of date\n')
         fixture_update_query = input('Would you like to update LCFC fixtures? Y / N\n').lower()
         if fixture_update_query == yes:
@@ -299,12 +316,11 @@ def update_tool():
             print('Very well...')
             browser.close()
             check_gecko()
-    if float(fixture_update_string) <= float(fixture_list_current_version):
+    if float(fixture_version_float) <= float(fixture_list_current_version):
         print('Fixture list files are up to date!')
         browser.close()
         check_gecko()
     else: player_passed_close_page()
-
 
 def player_passed_close_page():
     print('Failed to complete update tool')
@@ -412,6 +428,7 @@ def list_of_commands():
         list_of_commands()
     if (command_list == update_run_file):
         subprocess.call(['python', base_path + double_dash + 'run_update.py'])
+        check_gecko()
         list_of_commands()
     if (command_list == fixtures):
         subprocess.call(['python', base_path + data_path + 'current_fixture_list.py']) #downloads the new fixture list
