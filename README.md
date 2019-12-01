@@ -3,6 +3,11 @@ Attempting to write a basic program that will quickly tell users statistics, fix
 
 I am also working on a Linux version, soon to come.
 
+# installation ( /module/ )
+The script utilizes PIP to install additional packages, some are not bundled with the default python installation so I have included an auto install function in /module/modules_install.bat. Providing you have pip provided with your python runtime, this batch will install BeautifulSoup and selenium.
+
+PIP itself is usually included with default python software packages, which should additionally add this to Windows PATH, however, the batch file /module/pip_install.bat should add this if python itself is already installed & added to PATH
+
 Below is a brief outline of what each script attempts to accomplish:
 
 # run.py
