@@ -1,5 +1,5 @@
-# LCFC python application for Windows (Leicester City Football Club)
-Attempting to write a basic program that will quickly tell users statistics, fixtures, scores & other information on Leicester City without having to manually search the internet. This is the second program i've ever created so there may be various inefficiencies and i am always welcome to advice if anyone ever finds this or wants to contribute.
+# LCFC python3 application for Windows (Leicester City Football Club)
+Attempting to write a basic python3 program that will quickly tell users statistics, fixtures, scores & other information on Leicester City without having to manually search the internet. This is the second program i've ever created so there may be various inefficiencies and i am always welcome to advice if anyone ever finds this or wants to contribute.
 
 I am also working on a Linux version, soon to come.
 
