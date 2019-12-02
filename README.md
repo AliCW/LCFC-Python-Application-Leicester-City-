@@ -11,18 +11,18 @@ PIP itself is usually included with default python software packages, which shou
 Below is a brief outline of what each script attempts to accomplish:
 
 # run.py
-The main script used to start the application. This script acts as a central point for initial user queries concerning what data they would like to view. The file performs initial checks on its directory to confirm the presence of both data and version files, if these are not there, it will download and save the latest files hosted in github.
+The main script used to start the application. This script acts as a central point for initial user queries concerning what data they would like to view. The file performs initial checks on its directory to confirm the presence of data files, if these are not there, it will download and save the latest files hosted in github.
 
 Users can run an update tool which reads the version number from each data file for both internal scripts & externally hosted files. If the internal version number is lower, the program will query the user to update or continue using old files. 
 
-The update mechanism renames it's current related scripts (.old) then uses headless Firefox & geckodriver to go to the embedded update link, copy the page source & parsing with BeautifulSoup then copying this into a new file.
+The update mechanism renames it's current related scripts (.old) then uses headless Firefox & geckodriver to go to the embedded update link, copy the page source, parse with BeautifulSoup and finnaly copying this into a new file.
 
-User is presented with the main query listing functions & required input. Data is held on external script files (current_fixture_list.py, current_player_stats.py, current_results.py)
+The user is presented with the main query listing functions & required input. Data is held on external script files (current_fixture_list.py, current_player_stats.py, current_results.py)
 
 There is also a command function added to help with testing the program.
 
 # run_update.py
-The script automatically checks for the existance of a version file for run.py, obtaining one if it cannot be found and copying the verion number to compare with that on the update_table. The update for run.py itself is then performed if a higher version number is found online, the process is performed using a similar syntax as the update function on run.py.
+The script automatically reads the version number for run.py or obtaining a read_file if one cannot be found, the version number is then compared to the latest script hosted on github. The update for run.py itself is then performed if a higher version number is found online, the process is performed using a similar syntax as the update function on run.py.
 
 # run_restart.py
 Called upon by run.py and calling run.py itself, this file acts as a restart function accessible via the "commands" section. This is sometimes needed to access updated files, might need to make the program perform this automatically after the update has been performed, I need to test more on this.
