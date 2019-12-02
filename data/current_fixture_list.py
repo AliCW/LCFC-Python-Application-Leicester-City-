@@ -1,4 +1,4 @@
-#v0.10
+#v0.11
 import sys
 import datetime
 from itertools import zip_longest
@@ -79,8 +79,12 @@ class fixture_date_id: #list of premier league fixtures only!!!
         else: fixture_info.iWhuVsLei()
     def newVsLei():
         if current_time > '2020-01-01 17:30:00.000000':
-            fixture_date_id.leiVsSou()
+            fixture_date_id.leiVsWig()
         else: fixture_info.iNewVsLei()
+    def leiVsWig():
+        if current_time > '2020-01-04 17:31:00.000000':
+            fixture_date_id.leiVsSou()
+        else: fixture_info.iLeiVsWig()
     def leiVsSou():
         if current_time > '2020-01-11 17:30:00.000000':
             fixture_date_id.burVsLei()
@@ -311,7 +315,7 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
             
     def iEveVsLei_Carab():
         if remain_yes == 0:
-            print('\nEverton FC Vs Leicester City')
+            print('\nEverton FC Vs Leicester City (League Cup: Quarter-Final)')
             print('Away')
             print('Kick-off: Wednesday 18/12/2019 at 19:45')
             print('UK Broadcaster: None - N/A')
@@ -326,7 +330,7 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
             else: sys.exit()
         if remain_yes == 1:
             global fix_reverse_list
-            fix_reverse_list += ['Everton FC Vs Leicester City']
+            fix_reverse_list += ['Everton FC Vs Leicester City (League Cup: Quarter-Final)']
             #print('Everton FC Vs Leicester City')
             fixture_info.iMncVsLei()
             
@@ -399,15 +403,34 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
             next_game_14 = input('\n\nPress N for the next game or ALL to see every fixture\n'
                                  'Press any other key to exit\n').lower()
             if next_game_14 == next_fix:
-                fixture_info.iLeiVsSou()
+                fixture_info.iLeiVsWig()
             if next_game_14 == all:
                 remain_yes_on()
-                fixture_info.iLeiVsSou()
+                fixture_info.iLeiVsWig()
             else: sys.exit()
         if remain_yes == 1:
             global fix_reverse_list
             fix_reverse_list += ['Newcastle United Vs Leicester City']
             #print('Newcastle United Vs Leicester City')
+            fixture_info.iLeiVsWig()
+
+    def iLeiVsWig():
+        if remain_yes == 0:
+            print('\nLeicester City Vs Wigan Athletic (F.A. Cup: 3rd Round)')
+            print('Home')
+            print('Kick-off: Saturday 04/01/2020 at 15:01')
+            print('UK Broadcaster: None - N/A')
+            next_game_002 = input('\n\nPress N for the next game or ALL to see every fixture\n'
+                                  'Press any other key to exit\n').lower()
+            if next_game_002 == next_fix:
+                fixture_info.iLeiVsSou()
+            if next_game_002 == all:
+                remain_yes_on()
+                fixture_info.iLeiVsSou()
+            else: sys.exit()
+        if remain_yes == 1:
+            global fix_reverse_list
+            fix_reverse_list += ['Leicester City Vs Wigan Athletic (F.A. Cup: 3rd Round)']
             fixture_info.iLeiVsSou()
 
     def iLeiVsSou():
