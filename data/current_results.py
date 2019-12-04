@@ -86,7 +86,7 @@ class latest_result_ident:
             latest_result_ident.leiVsWat()
         else: result_info.fx_BhaVsLei()
     def leiVsWat():
-        if current_time > '2019-12-03 22:15:00.000000':
+        if current_time > '2019-12-04 22:15:00.000000':
             latest_result_ident.astVsLei()
         else: result_info.fx_LeiVsEve()
     def astVsLei():
