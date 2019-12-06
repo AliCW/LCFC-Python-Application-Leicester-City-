@@ -15,7 +15,7 @@ The main script used to start the application. This script acts as a central poi
 
 Users can run an update tool which reads the version number from each data file for both internal scripts & externally hosted files. If the internal version number is lower, the program will query the user to update or continue using old files. 
 
-The update mechanism renames it's current related scripts (.old) then uses headless Firefox & geckodriver to go to the embedded update link, copy the page source, parse with BeautifulSoup and finnaly copying this into a new file.
+The update mechanism renames it's current related scripts (.old) then uses headless Firefox & geckodriver to go to the embedded update link, copy the page source, parse with BeautifulSoup and finally copying this into a new file.
 
 The user is presented with the main query listing functions & required input. Data is held on external script files (current_fixture_list.py, current_player_stats.py, current_results.py)
 
