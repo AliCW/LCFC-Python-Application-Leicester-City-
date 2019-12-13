@@ -1,4 +1,4 @@
-#v0.10
+#v0.11
 import sys
 import datetime
 from itertools import zip_longest
@@ -482,7 +482,7 @@ class result_info:
             else: sys.exit()
         if remain_result_yes == 1:
             global reverse_list
-            reverse_list += [home_vs_ast]
+            reverse_list += [away_vs_ast]
             #print(home_vs_ast + prem)
             result_info.fx_LeiVsWat()
     def fx_LeiVsNor():
