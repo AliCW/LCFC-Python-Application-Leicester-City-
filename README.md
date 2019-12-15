@@ -1,7 +1,7 @@
 # LCFC python3 application for Windows (Leicester City Football Club)
 Attempting to write a basic python3 program that will quickly tell users statistics, fixtures, scores & other information on Leicester City without having to manually search the internet. This is the second program i've ever created so there may be various inefficiencies and i am always welcome to advice if anyone ever finds this or wants to contribute.
 
-I am also working on a Linux version, soon to come.
+I am also working on a Linux version which can be found here: https://github.com/AliCW/LCFC_Python3_Application_UNIX
 
 # Installation ( /module/ )
 The script utilizes PIP to install additional packages, some are not bundled with the default python installation so I have included an auto install function in /module/modules_install.bat. Providing you have pip provided with your python runtime, this batch will install BeautifulSoup and selenium.
