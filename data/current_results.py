@@ -1,4 +1,4 @@
-#v0.12
+#v0.13
 import sys
 import datetime
 from itertools import zip_longest
@@ -100,11 +100,11 @@ class latest_result_ident:
     def eveVsLei_Carab():
         if current_time > '2019-12-18 22:15:00.000000':
             latest_result_ident.mncVsLei()
-        else: result_info.fx_EveVsLei_Carab()
+        else: result_info.fx_LeiVsNor()
     def mncVsLei():
         if current_time > '2019-12-21 17:30:00.000000':
             latest_result_ident.leiVsLiv()
-        else: result_info.fx_LeiVsNor()
+        else: result_info.fx_EveVsLei_Carab()
     def leiVsLiv():
         if current_time > '2019-12-26 22:30:00.000000':
             latest_result_ident.whuVsLei()
