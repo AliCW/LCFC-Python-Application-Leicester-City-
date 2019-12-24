@@ -1,4 +1,4 @@
-#v0.11
+#v0.12
 import sys
 import datetime
 from itertools import zip_longest
@@ -82,21 +82,29 @@ class fixture_date_id: #list of premier league fixtures only!!!
             fixture_date_id.leiVsWig()
         else: fixture_info.iNewVsLei()
     def leiVsWig():
-        if current_time > '2020-01-04 17:31:00.000000':
-            fixture_date_id.leiVsSou()
+        if current_time > '2020-01-04 20:31:00.000000':
+            fixture_date_id.leiVsAst_Carab()
         else: fixture_info.iLeiVsWig()
+    def leiVsAst_Carab():
+        if current_time > '2020-01-08 22:30:00.000000':
+            fixture_date_id.leiVsSou()
+        else: fixture_info.iLeiVsAst_Carab()
     def leiVsSou():
         if current_time > '2020-01-11 17:30:00.000000':
             fixture_date_id.burVsLei()
         else: fixture_info.iLeiVsSou()
     def burVsLei():
-        if current_time > '2020-01-18 17:30:00.000000':
+        if current_time > '2020-01-18 16:30:00.000000':
             fixture_date_id.leiVsWhu()
         else: fixture_info.iBurVsLei()
     def leiVsWhu():
-        if current_time > '2020-01-21 22:15:00.000000':
-            fixture_date_id.leiVsChe()
+        if current_time > '2020-01-21 22:00:00.000000':
+            fixture_date_id.astVsLei_Carab()
         else: fixture_info.iLeiVsWhu()
+    def astVsLei_Carab():
+        if current_time > '2020-01-28 22:15:00.000000':
+            fixture_date_id.leiVsChe()
+        else: fixture_info.iAstVsLei_Carab()
     def leiVsChe():
         if current_time > '2020-02-01 17:30:00.000000':
             fixture_date_id.wolVsLei()
@@ -418,19 +426,38 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
         if remain_yes == 0:
             print('\nLeicester City Vs Wigan Athletic (F.A. Cup: 3rd Round)')
             print('Home')
-            print('Kick-off: Saturday 04/01/2020 at 15:01')
+            print('Kick-off: Saturday 04/01/2020 at 17:31')
             print('UK Broadcaster: None - N/A')
             next_game_002 = input('\n\nPress N for the next game or ALL to see every fixture\n'
                                   'Press any other key to exit\n').lower()
             if next_game_002 == next_fix:
-                fixture_info.iLeiVsSou()
+                fixture_info.iLeiVsAst_Carab()
             if next_game_002 == all:
+                remain_yes_on()
+                fixture_info.iLeiVsAst_Carab()
+            else: sys.exit()
+        if remain_yes == 1:
+            global fix_reverse_list
+            fix_reverse_list += ['Leicester City Vs Wigan Athletic (F.A. Cup: 3rd Round)']
+            fixture_info.iLeiVsAst_Carab()
+
+    def iLeiVsAst_Carab():
+        if remain_yes == 0:
+            print('\nLeicester City Vs Aston Villa (Carabao Cup: Semi Final 1st leg)')
+            print('Home')
+            print('Kick-off: Wednesday 08/01/2020 at 20:00')
+            print('UK Broadcaster: N/A')
+            next_game_003 = input('\n\nPress N for the next game or ALL to see every fixture\n'
+                                  'Press any other key to exit\n').lower()
+            if next_game_003 == next_fix:
+                fixture_info.iLeiVsSou()
+            if next_game_003 == all:
                 remain_yes_on()
                 fixture_info.iLeiVsSou()
             else: sys.exit()
         if remain_yes == 1:
             global fix_reverse_list
-            fix_reverse_list += ['Leicester City Vs Wigan Athletic (F.A. Cup: 3rd Round)']
+            fix_reverse_list += ['Leicester City Vs Aston Villa (Carabao Cup: Semi Final 1st leg)']
             fixture_info.iLeiVsSou()
 
     def iLeiVsSou():
@@ -457,7 +484,7 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
         if remain_yes == 0:
             print('\nBurnley FC Vs Leicester City')
             print('Away')
-            print('Kick-off: Saturday 18/01/2019 at 15:00')
+            print('Kick-off: Saturday 18/01/2019 at 14:00')
             print('UK Broadcaster: Sky Sports')
             next_game_16 = input('\n\nPress N for the next game or ALL to see every fixture\n'
                                  'Press any other key to exit\n').lower()
@@ -477,20 +504,39 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
         if remain_yes == 0:
             print('\nLeicester City Vs West Ham United')
             print('Home')
-            print('Kick-off: Tuesday 21/01/2020 at 19:45')
+            print('Kick-off: Tuesday 21/01/2020 at 19:30')
             print('UK Broadcaster: BT Sports')
             next_game_17 = input('\n\nPress N for the next game or ALL to see every fixture\n'
                                  'Press any other key to exit\n').lower()
             if next_game_17 == next_fix:
-                fixture_info.iLeiVsChe()
+                fixture_info.iAstVsLei_Carab()
             if next_game_17 == all:
                 remain_yes_on()
-                fixture_info.iLeiVsChe()
+                fixture_info.iAstVsLei_Carab()
             else: sys.exit()
         if remain_yes == 1:
             global fix_reverse_list
             fix_reverse_list += ['Leicester City Vs West Ham United']
             #print('Leicester City Vs West Ham United')
+            fixture_info.iAstVsLei_Carab()
+
+    def iAstVsLei_Carab():
+        if remain_yes == 0:
+            print('\nAston Villa Vs Leicester City (Carabao Cup: Semi final 2nd leg)')
+            print('Away')
+            print('Kick-off: Tuesday 28/01/2020 at 20:00')
+            print('UK Broadcaster: N/A')
+            next_game_004 = input('\n\nPress N for the next game or ALL to see every fixture\n'
+                                  'Press any other key to exit\n').lower()
+            if next_game_004 == next_fix:
+                fixture_info.iLeiVsChe()
+            if next_game_004 == all:
+                remain_yes_on()
+                fixture_info.iLeiVsChe()
+            else: sys.exit()
+        if remain_yes == 1:
+            global fix_reverse_list
+            fix_reverse_list += ['Aston Villa Vs Leicester City (Carabao Cup: Semi final 2nd leg)']
             fixture_info.iLeiVsChe()
 
     def iLeiVsChe():
