@@ -1,4 +1,4 @@
-#v0.13
+#v0.14
 import sys
 import datetime
 from itertools import zip_longest
@@ -13,8 +13,10 @@ fa = str('- F.A. Cup')
 remain_result_yes = 0
 reverse_list = []
 
+
 away_vs_ars = str('Arsenal FC 0:0 Leicester City')#<-----------YET TO BE PLAYED
 away_vs_ast = str('Aston Villa 1:4 Leicester City')
+away_vs_ast_carab = str('Aston Villa 0:0 Leicester City')#<-----------YET TO BE PLAYED
 away_vs_bha = str('Brighton Hove Albion 0:2 Leicester City')
 away_vs_bou = str('AFC Bournemouth 0:0 Leicester City')#<-----------YET TO BE PLAYED
 away_vs_btn = str('Burton Albion 1:3 Leicester City') #carabao cup
@@ -22,10 +24,10 @@ away_vs_bur = str('Burnley FC 0:0 Leicester City')#<-----------YET TO BE PLAYED
 away_vs_che = str('Chelsea FC 1:1 Leicester City')
 away_vs_cry = str('Crystal Palace 0:2 Leicester City')
 away_vs_eve = str('Everton FC 0:0 Leicester City')#<-----------YET TO BE PLAYED
-away_vs_eve_carab = str('Everton FC 0:0 Leicester City')#<-----------YET TO BE PLAYED (carabao cup)
+away_vs_eve_carab = str('Everton FC (2pen)2:2(4pen) Leicester City')
 away_vs_liv = str('Liverpool FC 2:1 Leicester City')
 away_vs_lut_carab = str('Luton Town 0:4 Leicester City') #carabao cup
-away_vs_mnc = str('Manchester City 0:0 Leicester City')#<-----------YET TO BE PLAYED
+away_vs_mnc = str('Manchester City 3:1 Leicester City')
 away_vs_mnu = str('Manchester United 1:0 Leicester City')
 away_vs_new = str('Newcastle United 0:0 Leicester City')#<-----------YET TO BE PLAYED
 away_vs_new_carab = str('Newcastle United (2pen)1:1(4pen) Leicester City') #carabao cup
@@ -34,17 +36,18 @@ away_vs_sou = str('Southampton FC 0:9 Leicester City')
 away_vs_shu = str('Sheffield United 1:2 Leicester City')
 away_vs_tot = str('Tottenham Hotspur 0:0 Leicester City')#<-----------YET TO BE PLAYED
 away_vs_wat = str('Watford FC 0:0 Leicester City')#<-----------YET TO BE PLAYED
-away_vs_whu = str('West Ham United 0:0 Leicester City')#<-----------YET TO BE PLAYED
+away_vs_whu = str('West Ham United 1:2 Leicester City')
 away_vs_wol = str('Wolverhampton Wanderers 0:0 Leicester City')#<-----------YET TO BE PLAYED
 home_vs_ars = str('Leicester City 2:0 Arsenal FC')
 home_vs_ast = str('Leicester City 0:0 Aston Villa')#<-----------YET TO BE PLAYED
+home_vs_ast_carab = str('Leicester City 0:0 Aston Villa')#<-----------YET TO BE PLAYED
 home_vs_bha = str('Leicester City 0:0 Brighton Hove Albion')#<-----------YET TO BE PLAYED
 home_vs_bou = str('Leicester City 3:1 AFC Bournemouth')
 home_vs_bur = str('Leicester City 2:1 Burnley FC')
 home_vs_che = str('Leicester City 0:0 Chelsea FC')#<-----------YET TO BE PLAYED
 home_vs_cry = str('Leicester City 0:0 Crystal Palace')#<-----------YET TO BE PLAYED
 home_vs_eve = str('Leicester City 2:1 Everton FC')
-home_vs_liv = str('Leicester City 0:0 Liverpool FC')#<-----------YET TO BE PLAYED
+home_vs_liv = str('Leicester City 0:4 Liverpool FC')
 home_vs_mnc = str('Leicester City 0:0 Manchester City')#<-----------YET TO BE PLAYED
 home_vs_mnu = str('Leicester City 0:0 Manchester United')#<-----------YET TO BE PLAYED
 home_vs_new = str('Leicester City 5:0 Newcastle United')
@@ -54,6 +57,7 @@ home_vs_sou = str('Leicester City 0:0 Southampton FC')#<-----------YET TO BE PLA
 home_vs_tot = str('Leicester City 2:1 Tottenham Hotspur')
 home_vs_wat = str('Leicester City 2:0 Watford FC')
 home_vs_whu = str('Leicester City 0:0 West Ham United')#<-----------YET TO BE PLAYED
+home_vs_wig_fa = str('Leicester City 0:0 Wigan Athletic')#<-----------YET TO BE PLAYED
 home_vs_wol = str('Leicester City 0:0 Wolverhampton Wanderers')
 
 class latest_result_ident:
@@ -115,24 +119,36 @@ class latest_result_ident:
         else: result_info.fx_LeiVsLiv()
     def newVsLei():
         if current_time > '2020-01-01 17:30:00.000000':
-            latest_result_ident.leiVsSou()
+            latest_result_ident.leiVsWig_fa()
         else: result_info.fx_WhuVsLei()
+    def leiVsWig_fa():
+        if current_time > '2020-01-04 20:01:00.000000':
+            latest_result_ident.leiVsAst_Carab()
+        else: result_info.fx_NewVsLei()
+    def leiVsAst_Carab():
+        if current_time > '2020-01-08 22:30:00.000000':
+            latest_result_ident.leiVsSou()
+        else: result_info.fx_LeiVsWig_FA()
     def leiVsSou():
         if current_time > '2020-01-11 17:30:00.000000':
             latest_result_ident.burVsLei()
-        else: result_info.fx_NewVsLei()
+        else: result_info.fx_LeiVsAst_Carab()
     def burVsLei():
         if current_time > '2020-01-18 17:30:00.000000':
             latest_result_ident.leiVsWhu()
         else: result_info.fx_LeiVsSou()
     def leiVsWhu():
         if current_time > '2020-01-21 22:15:00.000000':
-            latest_result_ident.leiVsChe()
+            latest_result_ident.astVsLei_Carab()
         else: result_info.fx_BurVsLei()
+    def astVsLei_Carab():
+        if current_time > '2020-01-28 22:15:00.000000':
+            latest_result_ident.leiVsChe()
+        else: result_info.fx_LeiVsWhu()
     def leiVsChe():
         if current_time > '2020-02-01 17:30:00.000000':
             latest_result_ident.wolVsLei()
-        else: result_info.fx_LeiVsWhu()
+        else: result_info.fx_AstVsLei_Carab()
     def wolVsLei():
         if current_time > '2020-02-08 17:30:00.000000':
             latest_result_ident.leiVsMnc()
@@ -514,7 +530,7 @@ class result_info:
             else: sys.exit()
         if remain_result_yes == 1:
             global reverse_list
-            reverse_list += [away_vs_eve]
+            reverse_list += [away_vs_eve_carab]
             #print(away_vs_eve_carab + carab)
             result_info.fx_LeiVsNor()
     def fx_MncVsLei():
@@ -581,13 +597,43 @@ class result_info:
             reverse_list += [away_vs_new]
             #print(away_vs_new + prem)
             result_info.fx_WhuVsLei()
+    def fx_LeiVsWig_FA():
+        if remain_result_yes == 0:
+            print(home_vs_wig_fa + fa)
+            next_res00241219 = input('\nPress N for the next game or ALL to see the remaining scores\n'
+                               'Press any other key to exit.\n').lower()
+            if next_res00241219 == previous_result:
+                result_info.fx_NewVsLei()
+            if next_res00241219 == all:
+                remain_result_yes_on()
+                result_info.fx_LeiVsWig_FA()
+            else: sys.exit()
+        if remain_result_yes == 1:
+            global reverse_list
+            reverse_list += [home_vs_wig_fa]
+            result_info.fx_NewVsLei()
+    def fx_LeiVsAst_Carab():
+        if remain_result_yes == 0:
+            print(home_vs_ast_carab + carab)
+            next_res01241219 = input('\nPress N for the next game or ALL to see the remaining scores\n'
+                               'Press any other key to exit.\n').lower()
+            if next_res01241219 == previous_result:
+                result_info.fx_LeiVsWig_FA()
+            if next_res01241219 == all:
+                remain_result_yes_on()
+                result_info.fx_LeiVsAst_Carab()
+            else: sys.exit()
+        if remain_result_yes == 1:
+            global reverse_list
+            reverse_list += [home_vs_ast_carab]
+            result_info.fx_LeiVsWig_FA()
     def fx_LeiVsSou():
         if remain_result_yes == 0:
             print(home_vs_sou + prem)
             next_res23 = input('\nPress N for the next game or ALL to see the remaining scores\n'
                                'Press any other key to exit.\n').lower()
             if next_res23 == previous_result:
-                result_info.fx_NewVsLei()
+                result_info.fx_LeiVsAst_Carab()
             if next_res23 == all:
                 remain_result_yes_on()
                 result_info.fx_LeiVsSou()
@@ -596,7 +642,7 @@ class result_info:
             global reverse_list
             reverse_list += [home_vs_sou]
             #print(home_vs_sou + prem)
-            result_info.fx_NewVsLei()
+            result_info.fx_LeiVsAst_Carab()
     def fx_BurVsLei():
         if remain_result_yes == 0:
             print(away_vs_bur + prem)
@@ -629,13 +675,28 @@ class result_info:
             reverse_list += [home_vs_whu]
             #print(home_vs_whu + prem)
             result_info.fx_BurVsLei()
+    def fx_AstVsLei_Carab():
+        if remain_result_yes == 0:
+            print(away_vs_ast_carab + carab)
+            next_res03241219 = input('\nPress N for the next game or ALL to see the remaining scores\n'
+                               'Press any other key to exit.\n').lower()
+            if next_res03241219 == previous_result:
+                result_info.fx_LeiVsWhu()
+            if next_res03241219 == all:
+                remain_result_yes_on()
+                result_info.fx_AstVsLei_Carab()
+            else: sys.exit()
+        if remain_result_yes == 1:
+            global reverse_list
+            reverse_list += [away_vs_ast_carab]
+            result_info.fx_LeiVsWhu()
     def fx_LeiVsChe():
         if remain_result_yes == 0:
             print(home_vs_che + prem)
             next_res26 = input('\nPress N for the next game or ALL to see the remaining scores\n'
                                'Press any other key to exit.\n').lower()
             if next_res26 == previous_result:
-                result_info.fx_LeiVsWhu()
+                result_info.fx_AstVsLei_Carab()
             if next_res26 == all:
                 remain_result_yes_on()
                 result_info.fx_LeiVsChe()
@@ -644,7 +705,7 @@ class result_info:
             global reverse_list
             reverse_list += [home_vs_che]
             #print(home_vs_che + prem)
-            result_info.fx_LeiVsWhu()
+            result_info.fx_AstVsLei_Carab()
     def fx_WolVsLei():
         if remain_result_yes == 0:
             print(away_vs_wol + prem)
