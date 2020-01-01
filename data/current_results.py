@@ -1,4 +1,4 @@
-#v0.14
+#v0.15
 import sys
 import datetime
 from itertools import zip_longest
@@ -29,7 +29,7 @@ away_vs_liv = str('Liverpool FC 2:1 Leicester City')
 away_vs_lut_carab = str('Luton Town 0:4 Leicester City') #carabao cup
 away_vs_mnc = str('Manchester City 3:1 Leicester City')
 away_vs_mnu = str('Manchester United 1:0 Leicester City')
-away_vs_new = str('Newcastle United 0:0 Leicester City')#<-----------YET TO BE PLAYED
+away_vs_new = str('Newcastle United 0:3 Leicester City')
 away_vs_new_carab = str('Newcastle United (2pen)1:1(4pen) Leicester City') #carabao cup
 away_vs_nor = str('Norwich City 0:0 Leicester City')#<-----------YET TO BE PLAYED
 away_vs_sou = str('Southampton FC 0:9 Leicester City')
@@ -197,9 +197,6 @@ class latest_result_ident:
         if current_time > '2020-05-17 17:30:00.000000':
             print('You have reached the end of time.')
         else: result_info.fx_LeiVsMnu()
-
-
-
 
 class result_info:
     def fx_LeiVsWol():
