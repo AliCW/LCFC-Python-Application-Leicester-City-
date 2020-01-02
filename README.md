@@ -4,7 +4,7 @@ Attempting to write a basic python3 program that will quickly tell users statist
 I am also working on a Linux version which can be found here: https://github.com/AliCW/LCFC_Python3_Application_UNIX
 
 # Installation ( /module/ )
-The script utilizes PIP to install additional packages, some are not bundled with the default python installation so I have included an auto install function in /module/modules_install.bat. Providing you have pip provided with your python runtime, this batch will install BeautifulSoup and selenium.
+The script utilizes PIP to install additional packages, some are not bundled with the default python installation so I have included an auto install function in /module/modules_install.bat Providing you have pip provided with your python runtime, this batch will install the required modules.
 
 PIP itself is usually included with default python software packages, which should additionally add this to Windows PATH, however, the batch file /module/pip_install.bat should add this if python itself is already installed & added to PATH
 
