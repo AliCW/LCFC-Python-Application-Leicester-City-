@@ -1,4 +1,4 @@
-#v0.15
+#v0.16
 import sys
 import datetime
 from itertools import zip_longest
@@ -57,7 +57,7 @@ home_vs_sou = str('Leicester City 0:0 Southampton FC')#<-----------YET TO BE PLA
 home_vs_tot = str('Leicester City 2:1 Tottenham Hotspur')
 home_vs_wat = str('Leicester City 2:0 Watford FC')
 home_vs_whu = str('Leicester City 0:0 West Ham United')#<-----------YET TO BE PLAYED
-home_vs_wig_fa = str('Leicester City 0:0 Wigan Athletic')#<-----------YET TO BE PLAYED
+home_vs_wig_fa = str('Leicester City 2:0 Wigan Athletic')
 home_vs_wol = str('Leicester City 0:0 Wolverhampton Wanderers')
 
 class latest_result_ident:
