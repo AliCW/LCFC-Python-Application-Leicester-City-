@@ -1,4 +1,4 @@
-#v0.12
+#v0.13
 import sys
 import datetime
 from itertools import zip_longest
@@ -99,8 +99,12 @@ class fixture_date_id: #list of premier league fixtures only!!!
         else: fixture_info.iBurVsLei()
     def leiVsWhu():
         if current_time > '2020-01-21 22:00:00.000000':
-            fixture_date_id.astVsLei_Carab()
+            fixture_date_id.breVsLei_FA()
         else: fixture_info.iLeiVsWhu()
+    def breVsLei_FA():
+        if current_time > '2020-01-25 17:30:00.000000':
+            fixture_date_id.astVsLei_Carab()
+        else: fixture_info.iBreVsLei_FA()
     def astVsLei_Carab():
         if current_time > '2020-01-28 22:15:00.000000':
             fixture_date_id.leiVsChe()
@@ -509,15 +513,33 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
             next_game_17 = input('\n\nPress N for the next game or ALL to see every fixture\n'
                                  'Press any other key to exit\n').lower()
             if next_game_17 == next_fix:
-                fixture_info.iAstVsLei_Carab()
+                fixture_info.iBreVsLei_FA()
             if next_game_17 == all:
                 remain_yes_on()
-                fixture_info.iAstVsLei_Carab()
+                fixture_info.iBreVsLei_FA()
             else: sys.exit()
         if remain_yes == 1:
             global fix_reverse_list
             fix_reverse_list += ['Leicester City Vs West Ham United']
             #print('Leicester City Vs West Ham United')
+            fixture_info.iBreVsLei_FA()
+
+    def iBreVsLei_FA():
+        if remain_yes == 0:
+            print('\nBrentford FC Vs Leicester City (F.A. Cup 4th Round)')
+            print('Away')
+            print('Kick-off: Saturday 25/01/2020 at 15:00')
+            print('UK Broadcaster: N/A')
+            next_game_005 = input('\n\nPress N for the next game or ALL to see every fixture\n'
+                                  'Press any other key to exit\n').lower()
+            if next_game_005 == next_fix:
+                fixture_info.iAstVsLei_Carab()
+            if next_game_005 == all:
+                remain_yes_on()
+                fixture_info.iAstVsLei_Carab()
+        if remain_yes == 1:
+            global fix_reverse_list
+            fix_reverse_list += ['Brentford FC Vs Leicester City (F.A. Cup 4th Round)']
             fixture_info.iAstVsLei_Carab()
 
     def iAstVsLei_Carab():

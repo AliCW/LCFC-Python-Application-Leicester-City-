@@ -1,4 +1,4 @@
-#v0.16
+#v0.17
 import sys
 import datetime
 from itertools import zip_longest
@@ -13,12 +13,12 @@ fa = str('- F.A. Cup')
 remain_result_yes = 0
 reverse_list = []
 
-
 away_vs_ars = str('Arsenal FC 0:0 Leicester City')#<-----------YET TO BE PLAYED
 away_vs_ast = str('Aston Villa 1:4 Leicester City')
 away_vs_ast_carab = str('Aston Villa 0:0 Leicester City')#<-----------YET TO BE PLAYED
 away_vs_bha = str('Brighton Hove Albion 0:2 Leicester City')
 away_vs_bou = str('AFC Bournemouth 0:0 Leicester City')#<-----------YET TO BE PLAYED
+away_vs_bre_fa = str('Brentford FC 0:0 Leicester City')#<-----------YET TO BE PLAYED
 away_vs_btn = str('Burton Albion 1:3 Leicester City') #carabao cup
 away_vs_bur = str('Burnley FC 0:0 Leicester City')#<-----------YET TO BE PLAYED
 away_vs_che = str('Chelsea FC 1:1 Leicester City')
@@ -139,12 +139,16 @@ class latest_result_ident:
         else: result_info.fx_LeiVsSou()
     def leiVsWhu():
         if current_time > '2020-01-21 22:15:00.000000':
-            latest_result_ident.astVsLei_Carab()
+            latest_result_ident.breVsLei_FA()
         else: result_info.fx_BurVsLei()
+    def breVsLei_FA():
+        if current_time > '2020-01-25 17:30:00.000000':
+            latest_result_ident.astVsLei_Carab()
+        else: result_info.fx_LeiVsWhu()
     def astVsLei_Carab():
         if current_time > '2020-01-28 22:15:00.000000':
             latest_result_ident.leiVsChe()
-        else: result_info.fx_LeiVsWhu()
+        else: result_info.fx_BreVsLei_FA()
     def leiVsChe():
         if current_time > '2020-02-01 17:30:00.000000':
             latest_result_ident.wolVsLei()
@@ -672,6 +676,21 @@ class result_info:
             reverse_list += [home_vs_whu]
             #print(home_vs_whu + prem)
             result_info.fx_BurVsLei()
+    def fx_BreVsLei_FA():
+        if remain_result_yes == 0:
+            print(away_vs_bre_fa + fa)
+            next_res0007012020 = input('\nPress N for the next game or ALL to see the remaining scores\n'
+                               'Press any other key to exit.\n').lower()
+            if next_res0007012020 == previous_result:
+                result_info.fx_LeiVsWhu()
+            if next_res0007012020 == all:
+                remain_result_yes_on()
+                result_info.fx_BreVsLei_FA()
+            else: sys.exit()
+        if remain_result_yes == 1:
+            global reverse_list
+            reverse_list += [away_vs_bre_fa]
+            result_info.fx_LeiVsWhu()
     def fx_AstVsLei_Carab():
         if remain_result_yes == 0:
             print(away_vs_ast_carab + carab)
