@@ -1,4 +1,4 @@
-#v0.13
+#v0.14
 import sys
 
 lcfc_squad = ('squad')
@@ -724,7 +724,7 @@ def jus_key_stats():
     print('Interceptions:       ' + jus_intercept)
     print('Clean Sheets:        ' + jus_clean_sheets)
 def jus_discipline_stats():
-    print('Offsides:            ' + jus_yellow_cards)
+    print('Offsides:            ' + jus_offside)
     print('Fouls:               ' + jus_fouls)
     print('Yellow cards:        ' + jus_yellow_cards)
     print('Red Cards:           ' + jus_red_cards)
@@ -739,7 +739,7 @@ def chi_key_stats():
     print('Interceptions:       ' + chi_intercept)
     print('Clean Sheets:        ' + chi_clean_sheets)
 def chi_discipline_stats():
-    print('Offsides:            ' + chi_yellow_cards)
+    print('Offsides:            ' + chi_offside)
     print('Fouls:               ' + chi_fouls)
     print('Yellow cards:        ' + chi_yellow_cards)
     print('Red Cards:           ' + chi_red_cards)
@@ -754,7 +754,7 @@ def soy_key_stats():
     print('Interceptions:       ' + soy_intercept)
     print('Clean Sheets:        ' + soy_clean_sheets)
 def soy_discipline_stats():
-    print('Offsides:            ' + soy_yellow_cards)
+    print('Offsides:            ' + soy_offside)
     print('Fouls:               ' + soy_fouls)
     print('Yellow cards:        ' + soy_yellow_cards)
     print('Red Cards:           ' + soy_red_cards)
@@ -769,7 +769,7 @@ def mor_key_stats():
     print('Interceptions:       ' + mor_intercept)
     print('Clean Sheets:        ' + mor_clean_sheets)
 def mor_discipline_stats():
-    print('Offsides:            ' + mor_yellow_cards)
+    print('Offsides:            ' + mor_offside)
     print('Fouls:               ' + mor_fouls)
     print('Yellow cards:        ' + mor_yellow_cards)
     print('Red Cards:           ' + mor_red_cards)
@@ -784,7 +784,7 @@ def eva_key_stats():
     print('Interceptions:       ' + eva_intercept)
     print('Clean Sheets:        ' + eva_clean_sheets)
 def eva_discipline_stats():
-    print('Offsides:            ' + eva_yellow_cards)
+    print('Offsides:            ' + eva_offside)
     print('Fouls:               ' + eva_fouls)
     print('Yellow cards:        ' + eva_yellow_cards)
     print('Red Cards:           ' + eva_red_cards)
@@ -799,7 +799,7 @@ def ben_key_stats():
     print('Interceptions:       ' + ben_intercept)
     print('Clean Sheets:        ' + ben_clean_sheets)
 def ben_discipline_stats():
-    print('Offsides:            ' + ben_yellow_cards)
+    print('Offsides:            ' + ben_offside)
     print('Fouls:               ' + ben_fouls)
     print('Yellow cards:        ' + ben_yellow_cards)
     print('Red Cards:           ' + ben_red_cards)
@@ -814,7 +814,7 @@ def ama_key_stats():
     print('Interceptions:       ' + ama_intercept)
     print('Clean Sheets:        ' + ama_clean_sheets)
 def ama_discipline_stats():
-    print('Offsides:            ' + ama_yellow_cards)
+    print('Offsides:            ' + ama_offside)
     print('Fouls:               ' + ama_fouls)
     print('Yellow cards:        ' + ama_yellow_cards)
     print('Red Cards:           ' + ama_red_cards)
@@ -829,7 +829,7 @@ def rper_key_stats():
     print('Interceptions:       ' + rper_intercept)
     print('Clean Sheets:        ' + rper_clean_sheets)
 def rper_discipline_stats():
-    print('Offsides:            ' + rper_yellow_cards)
+    print('Offsides:            ' + rper_offside)
     print('Fouls:               ' + rper_fouls)
     print('Yellow cards:        ' + rper_yellow_cards)
     print('Red Cards:           ' + rper_red_cards)
@@ -844,7 +844,7 @@ def fuc_key_stats():
     print('Interceptions:       ' + fuc_intercept)
     print('Clean Sheets:        ' + fuc_clean_sheets)
 def fuc_discipline_stats():
-    print('Offsides:            ' + fuc_yellow_cards)
+    print('Offsides:            ' + fuc_offside)
     print('Fouls:               ' + fuc_fouls)
     print('Yellow cards:        ' + fuc_yellow_cards)
     print('Red Cards:           ' + fuc_red_cards)
@@ -862,7 +862,7 @@ def gra_key_stats():
     print('Shots on target:     ' + gra_shots_tar)
     print('Assists:             ' + gra_assists)
 def gra_discipline_stats():
-    print('Offsides:            ' + gra_yellow_cards)
+    print('Offsides:            ' + gra_offside)
     print('Fouls:               ' + gra_fouls)
     print('Yellow cards:        ' + gra_yellow_cards)
     print('Red Cards:           ' + gra_red_cards)
@@ -879,7 +879,7 @@ def tie_key_stats():
     print('Shots on target:     ' + tie_shots_tar)
     print('Assists:             ' + tie_assists)
 def tie_discipline_stats():
-    print('Offsides:            ' + tie_yellow_cards)
+    print('Offsides:            ' + tie_offside)
     print('Fouls:               ' + tie_fouls)
     print('Yellow cards:        ' + tie_yellow_cards)
     print('Red Cards:           ' + tie_red_cards)
@@ -896,7 +896,7 @@ def mad_key_stats():
     print('Shots on target:     ' + mad_shots_tar)
     print('Assists:             ' + mad_assists)
 def mad_discipline_stats():
-    print('Offsides:            ' + mad_yellow_cards)
+    print('Offsides:            ' + mad_offside)
     print('Fouls:               ' + mad_fouls)
     print('Yellow cards:        ' + mad_yellow_cards)
     print('Red Cards:           ' + mad_red_cards)
@@ -913,7 +913,7 @@ def alb_key_stats():
     print('Shots on target:     ' + alb_shots_tar)
     print('Assists:             ' + alb_assists)
 def alb_discipline_stats():
-    print('Offsides:            ' + alb_yellow_cards)
+    print('Offsides:            ' + alb_offside)
     print('Fouls:               ' + alb_fouls)
     print('Yellow cards:        ' + alb_yellow_cards)
     print('Red Cards:           ' + alb_red_cards)
@@ -930,7 +930,7 @@ def bar_key_stats():
     print('Shots on target:     ' + bar_shots_tar)
     print('Assists:             ' + bar_assists)
 def bar_discipline_stats():
-    print('Offsides:            ' + bar_yellow_cards)
+    print('Offsides:            ' + bar_offside)
     print('Fouls:               ' + bar_fouls)
     print('Yellow cards:        ' + bar_yellow_cards)
     print('Red Cards:           ' + bar_red_cards)
@@ -947,7 +947,7 @@ def cho_key_stats():
     print('Shots on target:     ' + cho_shots_tar)
     print('Assists:             ' + cho_assists)
 def cho_discipline_stats():
-    print('Offsides:            ' + cho_yellow_cards)
+    print('Offsides:            ' + cho_offside)
     print('Fouls:               ' + cho_fouls)
     print('Yellow cards:        ' + cho_yellow_cards)
     print('Red Cards:           ' + cho_red_cards)
@@ -964,7 +964,7 @@ def jam_key_stats():
     print('Shots on target:     ' + jam_shots_tar)
     print('Assists:             ' + jam_assists)
 def jam_discipline_stats():
-    print('Offsides:            ' + jam_yellow_cards)
+    print('Offsides:            ' + jam_offside)
     print('Fouls:               ' + jam_fouls)
     print('Yellow cards:        ' + jam_yellow_cards)
     print('Red Cards:           ' + jam_red_cards)
@@ -981,7 +981,7 @@ def men_key_stats():
     print('Shots on target:     ' + men_shots_tar)
     print('Assists:             ' + men_assists)
 def men_discipline_stats():
-    print('Offsides:            ' + men_yellow_cards)
+    print('Offsides:            ' + men_offside)
     print('Fouls:               ' + men_fouls)
     print('Yellow cards:        ' + men_yellow_cards)
     print('Red Cards:           ' + men_red_cards)
@@ -998,7 +998,7 @@ def ndi_key_stats():
     print('Shots on target:     ' + ndi_shots_tar)
     print('Assists:             ' + ndi_assists)
 def ndi_discipline_stats():
-    print('Offsides:            ' + ndi_yellow_cards)
+    print('Offsides:            ' + ndi_offside)
     print('Fouls:               ' + ndi_fouls)
     print('Yellow cards:        ' + ndi_yellow_cards)
     print('Red Cards:           ' + ndi_red_cards)
@@ -1015,7 +1015,7 @@ def pra_key_stats():
     print('Shots on target:     ' + pra_shots_tar)
     print('Assists:             ' + pra_assists)
 def pra_discipline_stats():
-    print('Offsides:            ' + pra_yellow_cards)
+    print('Offsides:            ' + pra_offside)
     print('Fouls:               ' + pra_fouls)
     print('Yellow cards:        ' + pra_yellow_cards)
     print('Red Cards:           ' + pra_red_cards)
@@ -1036,7 +1036,7 @@ def var_key_stats():
     print('Shots on target:     ' + var_shots_tar)
     print('Assists:             ' + var_assists)
 def var_discipline_stats():
-    print('Offsides:            ' + var_yellow_cards)
+    print('Offsides:            ' + var_offside)
     print('Fouls:               ' + var_fouls)
     print('Yellow cards:        ' + var_yellow_cards)
     print('Red Cards:           ' + var_red_cards)
@@ -1056,7 +1056,7 @@ def ihe_key_stats():
     print('Shots on target:     ' + ihe_shots_tar)
     print('Assists:             ' + ihe_assists)
 def ihe_discipline_stats():
-    print('Offsides:            ' + ihe_yellow_cards)
+    print('Offsides:            ' + ihe_offside)
     print('Fouls:               ' + ihe_fouls)
     print('Yellow cards:        ' + ihe_yellow_cards)
     print('Red Cards:           ' + ihe_red_cards)
@@ -1076,7 +1076,7 @@ def per_key_stats():
     print('Shots on target:     ' + per_shots_tar)
     print('Assists:             ' + per_assists)
 def per_discipline_stats():
-    print('Offsides:            ' + per_yellow_cards)
+    print('Offsides:            ' + per_offside)
     print('Fouls:               ' + per_fouls)
     print('Yellow cards:        ' + per_yellow_cards)
     print('Red Cards:           ' + per_red_cards)
