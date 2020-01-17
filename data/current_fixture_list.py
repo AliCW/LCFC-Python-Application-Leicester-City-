@@ -1,4 +1,4 @@
-#v0.13
+#v0.14
 import sys
 import datetime
 from itertools import zip_longest
@@ -94,7 +94,7 @@ class fixture_date_id: #list of premier league fixtures only!!!
             fixture_date_id.burVsLei()
         else: fixture_info.iLeiVsSou()
     def burVsLei():
-        if current_time > '2020-01-18 16:30:00.000000':
+        if current_time > '2020-01-19 16:30:00.000000':
             fixture_date_id.leiVsWhu()
         else: fixture_info.iBurVsLei()
     def leiVsWhu():
@@ -488,7 +488,7 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
         if remain_yes == 0:
             print('\nBurnley FC Vs Leicester City')
             print('Away')
-            print('Kick-off: Saturday 18/01/2019 at 14:00')
+            print('Kick-off: Sunday 19/01/2019 at 14:00')
             print('UK Broadcaster: Sky Sports')
             next_game_16 = input('\n\nPress N for the next game or ALL to see every fixture\n'
                                  'Press any other key to exit\n').lower()
