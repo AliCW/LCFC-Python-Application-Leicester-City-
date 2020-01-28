@@ -1,4 +1,4 @@
-#v0.01
+#v0.02
 import sys
 
 lcfc_squad = ('squad')
@@ -80,32 +80,35 @@ per_name = str('ayoze perez')
 per_initials = str('ap')
 
 # GOALKEEPER<-------------------------------------------------------------------------------------------------------
-# Stats on the Leicester City website are incomplete, having to look elsewhere - https://www.transfermarkt.com/leicester-city/leistungsdaten/verein/1003/reldata/CGB%262019/plus/1
+# Stats on the Leicester City website are incomplete, having to look elsewhere - https://www.transfermarkt.com/leicester-city/leistungsdaten/verein/1003/plus/1?reldata=FAC%262019
 # Kasper Schmeichel<-------------
 
 sch_nation = str('Danish')
 sch_appearances = str(0)  # performance_stats
 sch_yellow_cards = str(0)  # discipline_stats
 sch_red_cards = str(0)
+sch_clean_sheets = str(0)
 
 # Danny Ward<---------------
 war_nation = str('Welsh')
-war_appearances = str(1)  # performance_stats
+war_appearances = str(2)  # performance_stats
 war_yellow_cards = str(0)  # discipline_stats
 war_red_cards = str(0)
+war_clean_sheets = str(2)
 
 # Eldin Jakupovic<--------------
 jak_nation = str('Swiss')
 jak_appearances = str(0)  # performance_stats
 jak_yellow_cards = str(0)  # discipline_stats
 jak_red_cards = str(0)
+jak_clean_sheets = str(0)
 
 # DEFENCE<---------------------------------------------------------------------------------------------------------------
 # James Justin stats<------
 jus_nation = str('English')
-jus_appearances = str(1)  # appearances
+jus_appearances = str(2)  # appearances
 jus_goals = str(0)  # goals
-jus_assists = str(0)
+jus_assists = str(1)
 jus_yellow_cards = str(0)
 jus_red_cards = str(0)
 jus_fouls = str(0)
@@ -120,7 +123,7 @@ chi_red_cards = str(0)
 
 # Caglar Soyuncu stats<---------
 soy_nation = str('Turkish')
-soy_appearances = str(1)  # appearances
+soy_appearances = str(2)  # appearances
 soy_goals = str(0)  # goals
 soy_assists = str(0)
 soy_yellow_cards = str(0)
@@ -128,7 +131,7 @@ soy_red_cards = str(0)
 
 # Wes Morgan stats<----------
 mor_nation = str('Jamaican')
-mor_appearances = str(1)  # appearances
+mor_appearances = str(2)  # appearances
 mor_goals = str(0)  # goals
 mor_assists = str(0)
 mor_yellow_cards = str(0)
@@ -168,7 +171,7 @@ rper_red_cards = str(0)
 
 # Christian Fuchs<------------
 fuc_nation = str('Austria')
-fuc_appearances = str(1)  # appearances
+fuc_appearances = str(2)  # appearances
 fuc_goals = str(0)  # goals
 fuc_assists = str(0)
 fuc_yellow_cards = str(0)
@@ -177,7 +180,7 @@ fuc_red_cards = str(0)
 # MIDFIELD<--------------------------------------------------------------------------------
 # Demarai Gray
 gra_nation = str('English')
-gra_appearances = str(1)  # appearances
+gra_appearances = str(2)  # appearances
 gra_goals = str(0)  # goals
 gra_assists = str(0)  #
 gra_yellow_cards = str(0)
@@ -193,7 +196,7 @@ tie_red_cards = str(0)
 
 # James Maddison
 mad_nation = str('English')
-mad_appearances = str(0)  # appearances
+mad_appearances = str(1)  # appearances
 mad_goals = str(0)  # goals
 mad_assists = str(0)  #
 mad_yellow_cards = str(0)
@@ -201,7 +204,7 @@ mad_red_cards = str(0)
 
 # Marc Albighton
 alb_nation = str('English')
-alb_appearances = str(1)  # appearances
+alb_appearances = str(2)  # appearances
 alb_goals = str(0)  # goals
 alb_assists = str(0)  #
 alb_yellow_cards = str(0)
@@ -217,7 +220,7 @@ bar_red_cards = str(0)
 
 # Hamza Choudhury
 cho_nation = str('English')
-cho_appearances = str(1)  # appearances
+cho_appearances = str(2)  # appearances
 cho_goals = str(0)  # goals
 cho_assists = str(0)  #
 cho_yellow_cards = str(0)
@@ -249,7 +252,7 @@ ndi_red_cards = str(0)
 
 # Dennis Praet
 pra_nation = str('Belgian')
-pra_appearances = str(1)  # appearances
+pra_appearances = str(2)  # appearances
 pra_goals = str(0)  # goals
 pra_assists = str(0)  #
 pra_yellow_cards = str(0)
@@ -267,15 +270,15 @@ var_red_cards = str(0)
 
 # key stats
 ihe_nation = str('Nigerian')
-ihe_appearances = str(0)  # appearances
-ihe_goals = str(0)  # goals
+ihe_appearances = str(1)  # appearances
+ihe_goals = str(1)  # goals
 ihe_assists = str(0)  #
 ihe_yellow_cards = str(0)
 ihe_red_cards = str(0)
 
 # key stats
 per_nation = str('Spanish')
-per_appearances = str(0)  # appearances
+per_appearances = str(1)  # appearances
 per_goals = str(0)  # goals
 per_assists = str(0)  #
 per_yellow_cards = str(0)
