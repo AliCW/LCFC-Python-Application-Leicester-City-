@@ -430,6 +430,7 @@ def sch_basic_stats():
     print('Kasper Schmeichel')
     print('Nationality:     ' + sch_nation)
     print('Appearances:     ' + sch_appearances)
+    print('Clean Sheets:    ' + sch_clean_sheets)
 
 def sch_discipline_stats():
     print('Yellow Cards:    ' + sch_yellow_cards)
@@ -440,6 +441,7 @@ def war_basic_stats():
     print('Danny Ward')
     print('Nationality:     ' + war_nation)
     print('Appearances:     ' + war_appearances)
+    print('Clean Sheets:    ' + war_clean_sheets)
 
 def war_discipline_stats():
     print('Yellow Cards:    ' + war_yellow_cards)
@@ -451,6 +453,7 @@ def jak_basic_stats():
     print('Eldin Jakupovic')
     print('Nationality:     ' + jak_nation)
     print('Appearances:     ' + jak_appearances)
+    print('Clean Sheets:    ' + jak_clean_sheets)
 
 def jak_discipline_stats():
     print('Yellow Cards:    ' + jak_yellow_cards)
