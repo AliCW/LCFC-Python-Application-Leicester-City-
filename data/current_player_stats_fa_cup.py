@@ -1,4 +1,4 @@
-#v0.02
+#v0.04
 import sys
 
 lcfc_squad = ('squad')
@@ -69,6 +69,9 @@ ndi_initials = str('wn')
 
 pra_name = str('dennis praet')
 pra_initials = str('dp')
+
+dew_name = str('kiernan dewsbury-hall')
+dew_initials = str('kdh')
 
 var_name = str('jamie vardy')
 var_initials = str('jv')
@@ -258,6 +261,13 @@ pra_assists = str(0)  #
 pra_yellow_cards = str(0)
 pra_red_cards = str(0)
 
+# Kiernan Dewsbury-Hall
+dew_nation = str('English')
+dew_appearances = str(1)
+dew_goals = str(0)
+dew_assists = str(0)
+dew_yellow_cards = str(0)
+dew_red_cards = str(0)
 
 # FORWARD<-------------------------------------------------------------------------------------------
 # key stats
@@ -291,7 +301,7 @@ def start_player_stats_query():  # Code for the user query positioned on startup
     if (starter_user_query == lcfc_squad):
         list_squad()
         start_player_stats_query()
-    if (starter_user_query == shut_down):
+    if (starter_user_query == shut_down): # exit
         sys.exit()
     if (starter_user_query == sch_name) or (starter_user_query == sch_initials):  # Schmeichel
         sch_basic_stats()
@@ -380,6 +390,10 @@ def start_player_stats_query():  # Code for the user query positioned on startup
         pra_key_stats()
         pra_discipline_stats()
         start_player_stats_query()
+    if (starter_user_query == dew_name) or (starter_user_query == dew_initials):  # Dewsbury-Hall
+        dew_key_stats()
+        dew_discipline_stats()
+        start_player_stats_query()
     if (starter_user_query == var_name) or (starter_user_query == var_initials):  # Vardy
         var_key_stats()
         var_discipline_stats()
@@ -418,7 +432,8 @@ def list_squad():
         alb_name + ' - ' + alb_initials + ' | ' + bar_name + ' - ' + bar_initials + ' | ' + cho_name + ' - ' + cho_initials)
     print(
         jam_name + ' - ' + jam_initials + ' | ' + men_name + ' - ' + men_initials + ' | ' + ndi_name + ' - ' + ndi_initials)
-    print(pra_name + ' - ' + pra_initials)
+    print(
+        pra_name + ' - ' + pra_initials + ' | ' + dew_name + ' - ' + dew_initials)
     print('\nForwards')
     print(
         var_name + ' - ' + var_initials + ' | ' + ihe_name + ' - ' + ihe_initials + ' | ' + per_name + ' - ' + per_initials)
@@ -430,6 +445,7 @@ def sch_basic_stats():
     print('Kasper Schmeichel')
     print('Nationality:     ' + sch_nation)
     print('Appearances:     ' + sch_appearances)
+    print('Clean Sheets:    ' + sch_clean_sheets)
 
 def sch_discipline_stats():
     print('Yellow Cards:    ' + sch_yellow_cards)
@@ -440,6 +456,7 @@ def war_basic_stats():
     print('Danny Ward')
     print('Nationality:     ' + war_nation)
     print('Appearances:     ' + war_appearances)
+    print('Clean Sheets:    ' + war_clean_sheets)
 
 def war_discipline_stats():
     print('Yellow Cards:    ' + war_yellow_cards)
@@ -451,6 +468,7 @@ def jak_basic_stats():
     print('Eldin Jakupovic')
     print('Nationality:     ' + jak_nation)
     print('Appearances:     ' + jak_appearances)
+    print('Clean Sheets:    ' + jak_clean_sheets)
 
 def jak_discipline_stats():
     print('Yellow Cards:    ' + jak_yellow_cards)
@@ -466,7 +484,7 @@ def jus_key_stats():
     print('Assists:             ' + jus_assists)
 
 def jus_discipline_stats():
-    print('Yellow cards:        ' + jus_yellow_cards)
+    print('Yellow Cards:        ' + jus_yellow_cards)
     print('Red Cards:           ' + jus_red_cards)
 
 
@@ -479,7 +497,7 @@ def chi_key_stats():
     print('Assists:             ' + chi_assists)
 
 def chi_discipline_stats():
-    print('Yellow cards:        ' + chi_yellow_cards)
+    print('Yellow Cards:        ' + chi_yellow_cards)
     print('Red Cards:           ' + chi_red_cards)
 
 
@@ -492,7 +510,7 @@ def soy_key_stats():
     print('Assists:             ' + soy_assists)
 
 def soy_discipline_stats():
-    print('Yellow cards:        ' + soy_yellow_cards)
+    print('Yellow Cards:        ' + soy_yellow_cards)
     print('Red Cards:           ' + soy_red_cards)
 
 
@@ -505,7 +523,7 @@ def mor_key_stats():
     print('Assists:             ' + mor_assists)
 
 def mor_discipline_stats():
-    print('Yellow cards:        ' + mor_yellow_cards)
+    print('Yellow Cards:        ' + mor_yellow_cards)
     print('Red Cards:           ' + mor_red_cards)
 
 
@@ -518,7 +536,7 @@ def eva_key_stats():
     print('Assists:             ' + eva_assists)
 
 def eva_discipline_stats():
-    print('Yellow cards:        ' + eva_yellow_cards)
+    print('Yellow Cards:        ' + eva_yellow_cards)
     print('Red Cards:           ' + eva_red_cards)
 
 
@@ -531,7 +549,7 @@ def ben_key_stats():
     print('Assists:             ' + ben_assists)
 
 def ben_discipline_stats():
-    print('Yellow cards:        ' + ben_yellow_cards)
+    print('Yellow Cards:        ' + ben_yellow_cards)
     print('Red Cards:           ' + ben_red_cards)
 
 
@@ -544,7 +562,7 @@ def ama_key_stats():
     print('Assists:             ' + ama_assists)
 
 def ama_discipline_stats():
-    print('Yellow cards:        ' + ama_yellow_cards)
+    print('Yellow Cards:        ' + ama_yellow_cards)
     print('Red Cards:           ' + ama_red_cards)
 
 
@@ -557,7 +575,7 @@ def rper_key_stats():
     print('Assists:             ' + rper_assists)
 
 def rper_discipline_stats():
-    print('Offsides:            ' + rper_yellow_cards)
+    print('Yellow Cards:        ' + rper_yellow_cards)
     print('Red Cards:           ' + rper_red_cards)
 
 
@@ -570,7 +588,7 @@ def fuc_key_stats():
     print('Assists:             ' + fuc_assists)
 
 def fuc_discipline_stats():
-    print('Yellow cards:        ' + fuc_yellow_cards)
+    print('Yellow Cards:        ' + fuc_yellow_cards)
     print('Red Cards:           ' + fuc_red_cards)
 
 
@@ -584,7 +602,7 @@ def gra_key_stats():
     print('Assists:             ' + gra_assists)
 
 def gra_discipline_stats():
-    print('Yellow cards:        ' + gra_yellow_cards)
+    print('Yellow Cards:        ' + gra_yellow_cards)
     print('Red Cards:           ' + gra_red_cards)
 
 
@@ -597,7 +615,7 @@ def tie_key_stats():
     print('Assists:             ' + tie_assists)
 
 def tie_discipline_stats():
-    print('Yellow cards:        ' + tie_yellow_cards)
+    print('Yellow Cards:        ' + tie_yellow_cards)
     print('Red Cards:           ' + tie_red_cards)
 
 
@@ -610,7 +628,7 @@ def mad_key_stats():
     print('Assists:             ' + mad_assists)
 
 def mad_discipline_stats():
-    print('Yellow cards:        ' + mad_yellow_cards)
+    print('Yellow Cards:        ' + mad_yellow_cards)
     print('Red Cards:           ' + mad_red_cards)
 
 
@@ -623,7 +641,7 @@ def alb_key_stats():
     print('Assists:             ' + alb_assists)
 
 def alb_discipline_stats():
-    print('Yellow cards:        ' + alb_yellow_cards)
+    print('Yellow Cards:        ' + alb_yellow_cards)
     print('Red Cards:           ' + alb_red_cards)
 
 
@@ -636,7 +654,7 @@ def bar_key_stats():
     print('Assists:             ' + bar_assists)
 
 def bar_discipline_stats():
-    print('Yellow cards:        ' + bar_yellow_cards)
+    print('Yellow Cards:        ' + bar_yellow_cards)
     print('Red Cards:           ' + bar_red_cards)
 
 
@@ -649,7 +667,7 @@ def cho_key_stats():
     print('Assists:             ' + cho_assists)
 
 def cho_discipline_stats():
-    print('Yellow cards:        ' + cho_yellow_cards)
+    print('Yellow Cards:        ' + cho_yellow_cards)
     print('Red Cards:           ' + cho_red_cards)
 
 
@@ -662,7 +680,7 @@ def jam_key_stats():
     print('Assists:             ' + jam_assists)
 
 def jam_discipline_stats():
-    print('Yellow cards:        ' + jam_yellow_cards)
+    print('Yellow Cards:        ' + jam_yellow_cards)
     print('Red Cards:           ' + jam_red_cards)
 
 
@@ -675,7 +693,7 @@ def men_key_stats():
     print('Assists:             ' + men_assists)
 
 def men_discipline_stats():
-    print('Yellow cards:        ' + men_yellow_cards)
+    print('Yellow Cards:        ' + men_yellow_cards)
     print('Red Cards:           ' + men_red_cards)
 
 
@@ -688,7 +706,7 @@ def ndi_key_stats():
     print('Assists:             ' + ndi_assists)
 
 def ndi_discipline_stats():
-    print('Yellow cards:        ' + ndi_yellow_cards)
+    print('Yellow Cards:        ' + ndi_yellow_cards)
     print('Red Cards:           ' + ndi_red_cards)
 
 
@@ -701,9 +719,20 @@ def pra_key_stats():
     print('Assists:             ' + pra_assists)
 
 def pra_discipline_stats():
-    print('Yellow cards:        ' + pra_yellow_cards)
+    print('Yellow Cards:        ' + pra_yellow_cards)
     print('Red Cards:           ' + pra_red_cards)
 
+# Kiernan Dewsbury-Hall print defintions<---------------------------------------------------
+def dew_key_stats():
+    print('Kiernan Dewsbury-Hall')
+    print('Nationality:         ' + dew_nation)
+    print('Appearances:         ' + dew_appearances)
+    print('Goals:               ' + dew_goals)
+    print('Assists:             ' + dew_assists)
+
+def dew_discipline_stats():
+    print('Yellow Cards:        ' + dew_yellow_cards)
+    print('Red Cards:           ' + dew_red_cards)
 
 # Forwards print defintions<-----------------------------------------------------------------
 # Jamie Vardy print defintions<-------------------------------------------------------------
@@ -715,7 +744,7 @@ def var_key_stats():
     print('Assists:             ' + var_assists)
 
 def var_discipline_stats():
-    print('Yellow cards:        ' + var_yellow_cards)
+    print('Yellow Cards:        ' + var_yellow_cards)
     print('Red Cards:           ' + var_red_cards)
 
 
@@ -728,7 +757,7 @@ def ihe_key_stats():
     print('Assists:             ' + ihe_assists)
 
 def ihe_discipline_stats():
-    print('Yellow cards:        ' + ihe_yellow_cards)
+    print('Yellow Cards:        ' + ihe_yellow_cards)
     print('Red Cards:           ' + ihe_red_cards)
 
 
@@ -741,7 +770,7 @@ def per_key_stats():
     print('Assists:             ' + per_assists)
 
 def per_discipline_stats():
-    print('Yellow cards:        ' + per_yellow_cards)
+    print('Yellow Cards:        ' + per_yellow_cards)
     print('Red Cards:           ' + per_red_cards)
 
 
