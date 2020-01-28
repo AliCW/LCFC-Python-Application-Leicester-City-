@@ -1,4 +1,4 @@
-#v0.02
+#v0.03
 import sys
 
 lcfc_squad = ('squad')
