@@ -1,4 +1,4 @@
-#v0.20
+#v0.21
 import sys
 import datetime
 from itertools import zip_longest
@@ -18,7 +18,7 @@ away_vs_ast = str('Aston Villa 1:4 Leicester City')
 away_vs_ast_carab = str('Aston Villa 0:0 Leicester City')#<-----------YET TO BE PLAYED
 away_vs_bha = str('Brighton Hove Albion 0:2 Leicester City')
 away_vs_bou = str('AFC Bournemouth 0:0 Leicester City')#<-----------YET TO BE PLAYED
-away_vs_bre_fa = str('Brentford FC 0:0 Leicester City')#<-----------YET TO BE PLAYED
+away_vs_bre_fa = str('Brentford FC 0:1 Leicester City')
 away_vs_btn = str('Burton Albion 1:3 Leicester City') #carabao cup
 away_vs_bur = str('Burnley FC 2:1 Leicester City')
 away_vs_che = str('Chelsea FC 1:1 Leicester City')
