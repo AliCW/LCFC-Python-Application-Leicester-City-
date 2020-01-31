@@ -1,4 +1,4 @@
-#v0.21
+#v0.22
 import sys
 import datetime
 from itertools import zip_longest
@@ -15,7 +15,7 @@ reverse_list = []
 
 away_vs_ars = str('Arsenal FC 0:0 Leicester City')#<-----------YET TO BE PLAYED
 away_vs_ast = str('Aston Villa 1:4 Leicester City')
-away_vs_ast_carab = str('Aston Villa 0:0 Leicester City')#<-----------YET TO BE PLAYED
+away_vs_ast_carab = str('Aston Villa 2:1 Leicester City')
 away_vs_bha = str('Brighton Hove Albion 0:2 Leicester City')
 away_vs_bou = str('AFC Bournemouth 0:0 Leicester City')#<-----------YET TO BE PLAYED
 away_vs_bre_fa = str('Brentford FC 0:1 Leicester City')
