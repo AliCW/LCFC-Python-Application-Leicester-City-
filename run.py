@@ -1,4 +1,4 @@
-#v0.08
+#v0.09
 import subprocess
 import html
 import os
@@ -25,11 +25,20 @@ restart = str('restart')
 fx_version = str('fixture version') #version for fixture
 pl_version = str('player version') #version for player stats
 rs_version = str('results version') #version for results
+lc_version = str('league cup version') #version for league cup stats
+fa_version = str('fa cup version')#version for f.a. cup stats
 run_version = str('run version') #version for run.py
 run_update_version = str('run_update version')
 yes = str('y')
 no = str('n')
 shut_down = str('exit')
+premiership1 = ('premier league')
+premiership2 = ('pl')
+fa1 = ('fa cup')
+fa2 = ('f.a. cup')
+fa3 = ('fa')
+carab1 = ('carabao cup')
+carab2 = ('cc')
 
 base_path = str(Path(__file__).resolve().parent)
 data_path = str('\\data\\')
@@ -84,10 +93,12 @@ except IOError:
     run_version_create.close()
     browser.close()
     check_gecko()
-try: #<------------------------------------------------------------------------------------run_update file (UPDATE)
+#<------------------------------------------------------------------------------------run_update file (UPDATE)
+try:
     open_run_update = open(base_path + double_dash + 'run_update.py')
     open_run_update.close()
-except IOError: #<---------------------------------------------------------------------Cant find run update file (UPDATE)
+#<---------------------------------------------------------------------Cant find run update file (UPDATE)
+except IOError:
     print('No run_update.py file found, obtaining one.')
     options = Options()
     options.headless = True
@@ -103,10 +114,12 @@ except IOError: #<--------------------------------------------------------------
     run_update_create.close()
     browser.close()
     check_gecko()
-try: #<------------------------------------------------------------------------------------Player Statistic Version File (VERSION)
+#<------------------------------------------------------------------------------------Premier League Player Statistic Version File (VERSION)
+try:
     open_player_stats_version = open(base_path + version_path + 'read_version_player_stats.py') #<--Checks the presence of the file
     open_player_stats_version.close() #if it finds it, the program checks the version output
-    player_stats_current_version = subprocess.check_output(['python', base_path + version_path + 'read_version_player_stats.py'])
+    player_stats_current_version = subprocess.check_output(['python', base_path + version_path + 'read_version_player_stats.py']) #read files need to create this float for an update reference
+#<------------------------------------------------------------------------------------Cant find premier league player stats read file
 except IOError: #<--Run this update process if no file is found - functions the same as the update mechanism (VERSION)
     print('No read file found for player statistics, creating a new one.')
     options = Options()
@@ -123,9 +136,11 @@ except IOError: #<--Run this update process if no file is found - functions the 
     player_version_create.close()
     browser.close()
     player_stats_current_version = subprocess.check_output(['python', base_path + version_path + 'read_version_player_stats.py'])
-try: #<------------------------------------------------------------------------------------Player Statistic Data File
+#<------------------------------------------------------------------------------------Premier League Player Statistic Data File (Premier League)
+try:
     open_player_stat = open(base_path + data_path + 'current_player_stats.py')
     open_player_stat.close()
+#<------------------------------------------------------------------------------------Cant find premier league player stats data file
 except IOError:
     print('No player statistic file found, creating a new one.')
     options = Options()
@@ -140,6 +155,46 @@ except IOError:
     player_stats_create = open(base_path + data_path + 'current_player_stats.py', 'w+')
     player_stats_create.write(new_player_stats_final)
     player_stats_create.close()
+    browser.close()
+try: #<------------------------------------------------------------------------------------Carabao Cup Player Statistic Read File (VERSION)
+    open_carabao_stats_version = open(base_path + version_path + 'read_current_player_stats_league_cup.py')
+    open_carabao_stats_version.close()
+    carabao_stats_current_version = subprocess.check_output(['python', base_path + version_path + 'read_current_player_stats_league_cup.py'])
+#<------------------------------------------------------------------------------------Cant find Carabao Cup read file
+except IOError:
+    print('No read file found for league cup statistics, obtaining a new one.')
+    options = Options()
+    options.headless = True
+    browser = webdriver.Firefox(options=options)
+    browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/data/current_player_stats_league_cup.py')
+    WebDriverWait(browser, 10)
+    new_carab_read_raw = browser.page_source
+    new_carab_read_parsed = html.unescape(new_carab_read_raw)
+    new_carab_read_soup = BeautifulSoup(new_carab_read_parsed, features='html.parser')
+    new_carab_read_final = new_carab_read_soup.pre.string
+    carab_read_create = open(base_path + version_path + 'read_current_player_stats_league_cup.py', 'w+')
+    carab_read_create.write(new_carab_read_final)
+    carab_read_create.close()
+    browser.close()
+try: #<------------------------------------------------------------------------------------F.A. Cup Player Statistic Read File (VERSION)
+    open_fa_stats_version = open(base_path + version_path + 'read_current_player_stats_fa_cup.py')
+    open_fa_stats_version.close()
+    fa_stats_current_version = subprocess.check_output(['python', base_path + version_path + 'read_current_player_stats_fa_cup.py'])
+#<------------------------------------------------------------------------------------Cant find FA Cup read file
+except IOError:
+    print('No read file found for F.A. Cup statistics, obtaining a new one.')
+    options = Options()
+    options.headless = True
+    browser = webdriver.Firefox(options=options)
+    browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/version/read_current_player_stats_fa_cup.py')
+    WebDriverWait(browser, 10)
+    new_fa_read_raw = browser.page_source
+    new_fa_read_parsed = html.unescape(new_fa_read_raw)
+    new_fa_read_soup = BeautifulSoup(new_fa_read_parsed, features='html.parser')
+    new_fa_read_final = new_fa_read_soup.pre.string
+    fa_read_create = open(base_path + version_path + 'read_current_player_stats_fa_cup.py', 'w+')
+    fa_read_create.write(new_fa_read_final)
+    fa_read_create.close()
     browser.close()
 try: #<------------------------------------------------------------------------------------Fixture Version File (VERSION)
     open_fixture_list_version = open(base_path + version_path + 'read_version_fixture.py')
@@ -229,15 +284,34 @@ def update_tool():
     options = Options() #define browser options
     options.headless = True #set options to headless
     browser = webdriver.Firefox(options=options) #opens a headless firefox named "browser"
+    #PREMIER LEAGUE STATISTICS
     browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/data/current_player_stats.py') #browser is sent to the file itself
-    print('Player stats loaded')
+    print('Premier league stats loaded')
     WebDriverWait(browser, 10)#.until(waitCondition.presence_of_element_located((By.id, '"player_update_version"')))
     raw_player_version = browser.page_source
     parsed_player_version = html.unescape(raw_player_version)
     soup_player_version = BeautifulSoup(parsed_player_version, features='html.parser')
     final_player_version = soup_player_version.pre.string
     player_version_float = final_player_version[2:6]
-    #print(float(player_version_float))
+    #CARABAO CUP STATISTICS
+    browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/data/current_player_stats_league_cup.py')
+    print('Carabao Cup stats loaded')
+    WebDriverWait(browser, 10)
+    raw_carab_version = browser.page_source
+    parsed_carab_version = html.unescape(raw_carab_version)
+    soup_carab_version = BeautifulSoup(parsed_carab_version, features='html.parser')
+    final_carab_version = soup_carab_version.pre.string
+    carab_version_float = final_carab_version[2:6]
+    #F.A. CUP STATISTICS
+    browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/data/current_player_stats_fa_cup.py')
+    print('F.A. Cup stats loaded')
+    WebDriverWait(browser, 10)
+    raw_fa_version = browser.page_source
+    parsed_fa_version = html.unescape(raw_fa_version)
+    soup_fa_version = BeautifulSoup(parsed_fa_version, features='html.parser')
+    final_fa_version = soup_fa_version.pre.string
+    fa_version_float = final_fa_version[2:6]
+    #FIXTURE LISTINGS
     browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/data/current_fixture_list.py')
     print('Fixture list loaded')
     WebDriverWait(browser, 10)#remove or improve this part!!
@@ -246,6 +320,7 @@ def update_tool():
     soup_fixture_version = BeautifulSoup(parsed_fixture_version, features='html.parser')
     final_fixture_version = soup_fixture_version.pre.string
     fixture_version_float = final_fixture_version[2:6]
+    #RESULTS LISTING
     browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/data/current_results.py')
     print('Results list loaded')
     WebDriverWait(browser, 10)
@@ -257,7 +332,9 @@ def update_tool():
     #player_update_string = player_soup.main.string #takes the text out of the "main" section - IDed internally within the HTML page - PLAYER UPDATE SECTION
     #fixture_update_string = fixture_soup.p.string #takes the version number from the "p" section
     #results_update_string = results_soup.h1.string
-    print('Latest Player Version: ' + player_version_float)
+    print('Latest Premier League Stats Version: ' + player_version_float)
+    print('Latest Carabao Cup Stats Version: ' + carab_version_float)
+    print('Latest F.A. Cup Stats Version: ' + fa_version_float)
     print('Latest Fixture Version: ' + fixture_version_float)
     print('Latest Results Version: ' + results_version_float)
     if float(results_version_float) > float(results_list_current_version):
@@ -278,9 +355,9 @@ def update_tool():
             print('Very Well...')
     if float(results_version_float) <= float(results_list_current_version):
         print('Results list is up to date!')
-    if float(player_version_float) > float(player_stats_current_version): #compares internal file version with github file version
+    if float(player_version_float) > float(player_stats_current_version): #<-------------------------------------PREMIER LEAGUE
         print('Player statistics are out of date\n')
-        player_stats_update_query = input('Would you like to update LCFC player statistics? Y / N\n')
+        player_stats_update_query = input('Would you like to update Premier League statistics? Y / N\n')
         if player_stats_update_query == yes:
             print('Working...')
             os.replace(base_path + data_path + 'current_player_stats.py', base_path + old_path + 'current_player_stats.old.py') #Goalkeeper statistic code
@@ -294,9 +371,45 @@ def update_tool():
             player_stats_create.close()
         if player_stats_update_query == no:
             print('Very well...')
-    if float(player_version_float) <= float(player_stats_current_version):
-        print('Player statistic files are up to date!')
-    if float(fixture_version_float) > float(fixture_list_current_version):
+    if float(player_version_float) <= float(player_stats_current_version): #PREMIER LEAGUE
+        print('Player statistic files are up to date!\n')
+    if float(carab_version_float) > float(carabao_stats_current_version): #<------------------------------------------CARABAO CUP
+        print('Carabao Cup statistics are out of date\n')
+        carab_stats_update_query = input('Would you like to update Carabao Cup statistics? Y / N\n')
+        if carab_stats_update_query == yes:
+            print('Working...')
+            os.replace(base_path + data_path + 'current_player_stats_league_cup.py', base_path + old_path + 'current_player_stats_league_cup.old.py')
+            browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/data/current_player_stats_league_cup.py')
+            latest_carab_stats_raw = browser.page_source
+            latest_carab_stats_parsed = html.unescape(latest_carab_stats_raw)
+            latest_carab_stats_soup = BeautifulSoup(latest_carab_stats_parsed, features='html.parser')
+            latest_carab_stats_final = latest_carab_stats_soup.pre.string
+            carab_stats_create = open(base_path + data_path + 'current_player_stats_league_cup.py', 'w+')
+            carab_stats_create.write(latest_carab_stats_final)
+            carab_stats_create.close()
+        if carab_stats_update_query == no:
+            print('Very well...')
+    if float(carab_version_float) <= float(carabao_stats_current_version):
+        print('League Cup statistics are up to date!\n')
+    if float(fa_version_float) > float(fa_stats_current_version): #<--------------------------------------------F.A. Cup
+        print('F.A. Cup statistics are out of date\n')
+        fa_stats_update_query = input('Would you like to update F.A. Cup Statistics? Y / N\n')
+        if fa_stats_update_query == yes:
+            print('Working...')
+            os.replace(base_path + data_path + 'current_player_stats_fa_cup.py', base_path + old_path + 'current_player_stats_fa_cup.old.py')
+            browser.get('https://raw.githubusercontent.com/AliCW/LCFC-Python-Application-Leicester-City-/master/data/current_player_stats_fa_cup.py')
+            latest_fa_stats_raw = browser.page_source
+            latest_fa_stats_parsed = html.unescape(latest_fa_stats_raw)
+            latest_fa_stats_soup = BeautifulSoup(latest_fa_stats_parsed, features='html.parser')
+            latest_fa_stats_final = latest_fa_stats_soup.pre.string
+            fa_stats_create = open(base_path + data_path + 'current_player_stats_fa_cup.py', 'w+')
+            fa_stats_create.write(latest_fa_stats_final)
+            fa_stats_create.close()
+        if fa_stats_update_query == no:
+            print('Very well...')
+    if float(fa_version_float) <= float(fa_stats_current_version):
+        print('F.A. Cup statistics are up to date!')
+    if float(fixture_version_float) > float(fixture_list_current_version): #<----------------------FIXTURE LIST
         print('Fixture list if out of date\n')
         fixture_update_query = input('Would you like to update LCFC fixtures? Y / N\n').lower()
         if fixture_update_query == yes:
@@ -329,65 +442,51 @@ def clean_old_files():
     print('Checking for .old files...')
     from os import path
     if os.path.exists(base_path + old_path):
-        print('Existing .old folder found')
+        print('Existing .old folder found.')
     if not os.path.exists(base_path + old_path):
         print('Creating .old folder...')
         os.makedirs(base_path + old_path)
-    try:
-        run_version_file = os.path.join(base_path + old_path + 'run_version.old.py')
-        path.exists(run_version_file)
-        os.remove(run_version_file)
-        print('Run version file deleted')
-    except IOError:
-        print('No .old run version file found')
     try:
         run_file = os.path.join(base_path + old_path + 'run.old.py')
         path.exists(run_file)
         os.remove(run_file)
     except IOError:
-        print('No .old run file found')
-    try:
-        fixture_version_file = os.path.join(base_path + old_path + 'current_fixture_version.old.py')
-        path.exists(fixture_version_file)
-        os.remove(fixture_version_file)
-        print('Fixture version file deleted')
-    except IOError:
-        print('No .old fixture version files found') #<---Remove these statements??
+        print('No .old run file found.')
     try:
         fixture_data_file = os.path.join(base_path + old_path + 'current_fixture_list.old.py')
         path.exists(fixture_data_file)
         os.remove(fixture_data_file)
-        print('Fixture data file deleted')
+        print('Fixture data file deleted.')
     except IOError:
-        print('No .old fixture data file found')
-    try:
-        player_version_file = os.path.join(base_path + old_path + 'current_player_stats_version.old.py')
-        path.exists(player_version_file)
-        os.remove(player_version_file)
-        print('Player statistic version file deleted')
-    except IOError:
-        print('No .old player statistic version file found')
+        print('No .old fixture data file found.')
     try:
         player_data_file = os.path.join(base_path + old_path + 'current_player_stats.old.py')
         path.exists(player_data_file)
         os.remove(player_data_file)
-        print('Player statistics data file deleted')
+        print('Premier League player statistics data file deleted.')
     except IOError:
-        print('No .old player statistic data file found')
+        print('No .old Premier League player statistic data file found.')
     try:
-        results_version_file = os.path.join(base_path + old_path + 'current_results_version.old.py')
-        path.exists(results_version_file)
-        os.remove(results_version_file)
-        print('Results version file deleted')
+        carab_data_file = os.path.join(base_path + old_path + 'current_player_stats_league_cup.old.py')
+        path.exists(carab_data_file)
+        os.remove(carab_data_file)
+        print('League Cup player statistics data file deleted.')
     except IOError:
-        print('No .old results version file found')
+        print('No .old League Cup Statistics file found.')
+    try:
+        fa_data_file = os.path.join(base_path + old_path + 'current_player_stats_fa_cup.old.py')
+        path.exists(fa_data_file)
+        os.remove(fa_data_file)
+        print('F.A. Cup player statistics data file deleted.')
+    except IOError:
+        print('No .old F.A. Cup player statistics file found.')
     try:
         results_data_file = os.path.join(base_path + old_path + 'current_results.old.py')
         path.exists(results_data_file)
         os.remove(results_data_file)
-        print('Results data file deleted')
+        print('Results data file deleted.')
     except IOError:
-        print('No .old results data file found')
+        print('No .old results data file found.')
 
 def startupquery00fail():
     print('Incorrect syntax, please try once more\n')
@@ -404,7 +503,8 @@ def startupquery00():
         subprocess.call(['python', base_path + data_path + 'current_fixture_list.py'])
         startupquery00()
     if (startquery == statistics):
-        subprocess.call(['python', base_path + data_path + 'current_player_stats.py'])
+        select_comp_stats()
+        #subprocess.call(['python', base_path + data_path + 'select_stats_comp.py'])
         startupquery00()
     if (startquery == results):
         subprocess.call(['python', base_path + data_path + 'current_results.py'])
@@ -414,7 +514,7 @@ def startupquery00():
     else: startupquery00fail()
 
 def list_of_commands():
-    command_list = input('\nfixtures / stats / clean / restart\n'
+    command_list = input('\nfixtures / stats / clean\n'
                          'player/or/fixture/or/results/or/run/or/run_update version\n'
                          'update data/or/launcher\n'
                          '\nType "reset" to go back to the beginning\n').lower()
@@ -434,7 +534,8 @@ def list_of_commands():
         subprocess.call(['python', base_path + data_path + 'current_fixture_list.py']) #downloads the new fixture list
         list_of_commands()
     if (command_list == statistics):
-        subprocess.call(['python', base_path + data_path + 'current_player_stats.py'])
+        select_comp_stats()
+        #subprocess.call(['python', base_path + data_path + 'current_player_stats.py'])
         list_of_commands()
     if (command_list == results):
         subprocess.call(['python', base_path + data_path + 'current_results.py'])
@@ -450,6 +551,12 @@ def list_of_commands():
     if (command_list == rs_version):
         print(float(results_list_current_version))
         list_of_commands()
+    if (command_list == lc_version):
+        print(float(carabao_stats_current_version))
+        list_of_commands()
+    if (command_list == fa_version):
+        print(float(fa_stats_current_version))
+        list_of_commands()
     if (command_list == run_version):
         print(float(see_run_version))
         list_of_commands()
@@ -460,8 +567,27 @@ def list_of_commands():
         sys.exit()
     else: list_of_commands_failed_syntax()
 
+def select_comp_stats():
+    answer00 = input('\nEnter the desired competition or its initials for statistics\n'
+                     'Premier League (PL) / FA Cup (FA) / Carabao Cup (CC)\n').lower()
+    if (answer00 == premiership1) or (answer00 == premiership2):
+        subprocess.call(['python', base_path + data_path + 'current_player_stats.py'])
+        startupquery00()
+    if (answer00 == carab1) or (answer00 == carab2):
+        subprocess.call(['python', base_path + data_path + 'current_player_stats_league_cup.py'])
+        startupquery00()
+    if (answer00 == fa1) or (answer00 == fa2) or (answer00 == fa3):
+        subprocess.call(['python', base_path + data_path + 'current_player_stats_fa_cup.py'])
+        startupquery00()
+    else:
+        syntax_fail_loop()
+
 def list_of_commands_failed_syntax():
     print('\nUnknown command syntax\n')
     list_of_commands()
+
+def syntax_fail_loop():
+    print('Incorrect syntax for competition selection, try once more')
+    select_comp_stats()
 
 startupquery00()
