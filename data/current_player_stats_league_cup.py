@@ -1,4 +1,4 @@
-#v0.01
+#v0.02
 import sys
 
 lcfc_squad = ('squad')
@@ -84,7 +84,7 @@ per_initials = str('ap')
 # Kasper Schmeichel<-------------
 
 sch_nation = str('Danish')
-sch_appearances = str(3)  # performance_stats
+sch_appearances = str(4)  # performance_stats
 sch_yellow_cards = str(0)  # discipline_stats
 sch_red_cards = str(0)
 
@@ -108,11 +108,10 @@ jus_goals = str(1)  # goals
 jus_assists = str(0)
 jus_yellow_cards = str(0)
 jus_red_cards = str(0)
-jus_fouls = str(0)
 
 # Ben Chilwell stats<--------
 chi_nation = str('English')
-chi_appearances = str(2)  # appearances
+chi_appearances = str(3)  # appearances
 chi_goals = str(0)  # goals
 chi_assists = str(0)
 chi_yellow_cards = str(0)
@@ -120,10 +119,10 @@ chi_red_cards = str(0)
 
 # Caglar Soyuncu stats<---------
 soy_nation = str('Turkish')
-soy_appearances = str(3)  # appearances
+soy_appearances = str(4)  # appearances
 soy_goals = str(0)  # goals
 soy_assists = str(0)
-soy_yellow_cards = str(1)
+soy_yellow_cards = str(2)
 soy_red_cards = str(0)
 
 # Wes Morgan stats<----------
@@ -136,7 +135,7 @@ mor_red_cards = str(0)
 
 # Jonny Evans stats<---------
 eva_nation = str('Northern Irish')
-eva_appearances = str(5)  # appearances
+eva_appearances = str(6)  # appearances
 eva_goals = str(1)  # goals
 eva_assists = str(0)
 eva_yellow_cards = str(0)
@@ -160,7 +159,7 @@ ama_red_cards = str(0)
 
 # Ricardo Pereira<-----------
 rper_nation = str('Portuguese')
-rper_appearances = str(3)  # appearances
+rper_appearances = str(4)  # appearances
 rper_goals = str(0)  # goals
 rper_assists = str(1)
 rper_yellow_cards = str(0)
@@ -177,7 +176,7 @@ fuc_red_cards = str(0)
 # MIDFIELD<--------------------------------------------------------------------------------
 # Demarai Gray
 gra_nation = str('English')
-gra_appearances = str(3)  # appearances
+gra_appearances = str(4)  # appearances
 gra_goals = str(1)  # goals
 gra_assists = str(2)  #
 gra_yellow_cards = str(0)
@@ -185,7 +184,7 @@ gra_red_cards = str(0)
 
 # Youri Tielemans
 tie_nation = str('Belgian')
-tie_appearances = str(4)  # appearances
+tie_appearances = str(5)  # appearances
 tie_goals = str(2)  # goals
 tie_assists = str(2)  #
 tie_yellow_cards = str(0)
@@ -209,9 +208,9 @@ alb_red_cards = str(0)
 
 # Harvey Barnes
 bar_nation = str('English')
-bar_appearances = str(2)  # appearances
+bar_appearances = str(3)  # appearances
 bar_goals = str(0)  # goals
-bar_assists = str(0)  #
+bar_assists = str(1)  #
 bar_yellow_cards = str(0)
 bar_red_cards = str(0)
 
@@ -259,7 +258,7 @@ pra_red_cards = str(0)
 # FORWARD<-------------------------------------------------------------------------------------------
 # key stats
 var_nation = str('English')
-var_appearances = str(3)  # appearances
+var_appearances = str(4)  # appearances
 var_goals = str(0)  # goals
 var_assists = str(2)  #
 var_yellow_cards = str(1)
@@ -267,15 +266,15 @@ var_red_cards = str(0)
 
 # key stats
 ihe_nation = str('Nigerian')
-ihe_appearances = str(3)  # appearances
-ihe_goals = str(3)  # goals
+ihe_appearances = str(4)  # appearances
+ihe_goals = str(4)  # goals
 ihe_assists = str(0)  #
 ihe_yellow_cards = str(0)
 ihe_red_cards = str(0)
 
 # key stats
 per_nation = str('Spanish')
-per_appearances = str(4)  # appearances
+per_appearances = str(5)  # appearances
 per_goals = str(0)  # goals
 per_assists = str(1)  #
 per_yellow_cards = str(0)
