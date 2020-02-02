@@ -1,4 +1,4 @@
-#v0.16
+#v0.17
 import sys
 
 lcfc_squad = ('squad')
@@ -82,26 +82,26 @@ per_initials = str('ap')
 #GOALKEEPER<-------------------------------------------------------------------------------------------------------
 #Kasper Schmeichel<-------------https://www.lcfc.com/players/2508/Kasper-Schmeichel/profile?tabs=Statistics
 sch_nation = str('Danish')
-sch_saves = str(64)
+sch_saves = str(65)
 sch_punches = str(5)#basic_stats
 sch_high_claims = str(9)
 sch_catches = str(8)
 sch_sweeps = str(8)
-sch_throw_outs = str(105)
-sch_goal_kicks = str(164)
+sch_throw_outs = str(107)
+sch_goal_kicks = str(170)
 sch_clean_sheets = str(8)
-sch_goals_conceded = str(24)
+sch_goals_conceded = str(26)
 
 sch_assists = str(0)#team_play
-sch_passes_completed = str(487)
+sch_passes_completed = str(521)
 sch_passes_per_game = str(27)
 sch_pass_accuracy = str(76)
 
-sch_appearances = str(24)#performance_stats
-sch_total_saves = str(64)
-sch_saves_per_game = str(2.7)
+sch_appearances = str(25)#performance_stats
+sch_total_saves = str(65)
+sch_saves_per_game = str(2.6)
 sch_wins = str(15)
-sch_draws = str(3)
+sch_draws = str(4)
 sch_losses = str(6)
 
 sch_yellow_cards = str(1)#discipline_stats
@@ -179,28 +179,28 @@ jus_offside = str(0)
 
 # Ben Chilwell stats<--------https://www.lcfc.com/players/13491/Ben-Chilwell/profile?tabs=Statistics
 chi_nation = str('English')
-chi_appearances = str(19) #appearances
-chi_goals = str(1) #goals
-chi_tackles = str(27) #tackles made
-chi_intercept = str(21) #interceptions made
+chi_appearances = str(20) #appearances
+chi_goals = str(2) #goals
+chi_tackles = str(29) #tackles made
+chi_intercept = str(23) #interceptions made
 chi_clean_sheets = str(7)#clean sheets
 
 chi_yellow_cards = str(1)
 chi_red_cards = str(0)
-chi_fouls = str(19)
+chi_fouls = str(20)
 chi_offside = str(0)
 
 #Caglar Soyuncu stats<---------https://www.lcfc.com/players/26216/%C3%87aglar-S%C3%B6y%C3%BCnc%C3%BC/profile?tabs=Statistics
 soy_nation = str('Turkish')
-soy_appearances = str(23) #appearances
+soy_appearances = str(24) #appearances
 soy_goals = str(1) #goals
-soy_tackles = str(38) #tackles made
-soy_intercept = str(32) #interceptions made
+soy_tackles = str(41) #tackles made
+soy_intercept = str(34) #interceptions made
 soy_clean_sheets = str(8)#clean sheets
 
 soy_yellow_cards = str(4)
 soy_red_cards = str(0)
-soy_fouls = str(19)
+soy_fouls = str(20)
 soy_offside = str(1)
 
 #Wes Morgan stats<----------https://www.lcfc.com/players/8966/Wes-Morgan/profile?tabs=Statistics
@@ -218,15 +218,15 @@ mor_offside = str(0)
 
 #Jonny Evans stats<---------https://www.lcfc.com/players/3156/Jonny-Evans/profile?tabs=Statistics
 eva_nation = str('Northern Irish')
-eva_appearances = str(24) #appearances
+eva_appearances = str(25) #appearances
 eva_goals = str(1) #goals
-eva_tackles = str(28) #tackles made
+eva_tackles = str(31) #tackles made
 eva_intercept = str(34) #interceptions made
 eva_clean_sheets = str(6)#clean sheets
 
-eva_yellow_cards = str(3)
+eva_yellow_cards = str(4)
 eva_red_cards = str(0)
-eva_fouls = str(9)
+eva_fouls = str(10)
 eva_offside = str(1)
 
 #Filip Benkovic<---------https://www.lcfc.com/players/16671/Filip-Benkovic/profile?tabs=Statistics
@@ -257,15 +257,15 @@ ama_offside = str(0)
 
 #Ricardo Pereira<-----------https://www.lcfc.com/players/5343/Ricardo-Pereira/profile?tabs=Statistics
 rper_nation = str('Portuguese')
-rper_appearances = str(23) #appearances
+rper_appearances = str(24) #appearances
 rper_goals = str(3) #goals
-rper_tackles = str(103) #tackles made
-rper_intercept = str(41) #interceptions made
+rper_tackles = str(105) #tackles made
+rper_intercept = str(42) #interceptions made
 rper_clean_sheets = str(8)#clean sheets
 
 rper_yellow_cards = str(1)
 rper_red_cards = str(0)
-rper_fouls = str(32)
+rper_fouls = str(36)
 rper_offside = str(0)
 
 #Christian Fuchs<------------https://www.lcfc.com/players/5371/Christian-Fuchs/profile?tabs=Statistics
@@ -299,32 +299,32 @@ gra_offside = str(2)
 
 #Youri Tielemans  https://www.lcfc.com/players/5865/Youri-Tielemans/profile?tabs=Statistics
 tie_nation = str('Belgian')
-tie_appearances = str(23) #appearances
+tie_appearances = str(24) #appearances
 tie_goals = str(3) #goals
-tie_passes = str(1170)#passes
-tie_passes_tar = str(967) #passes on target
-tie_shots = str(39) #shots
-tie_shots_tar = str(8) #shots on target
-tie_assists = str(3) #
+tie_passes = str(1204)#passes
+tie_passes_tar = str(992) #passes on target
+tie_shots = str(41) #shots
+tie_shots_tar = str(9) #shots on target
+tie_assists = str(5) #
 
 tie_yellow_cards = str(1)
 tie_red_cards = str(0)
-tie_fouls = str(22)
+tie_fouls = str(24)
 tie_offside = str(1)
 
 #James Maddison   https://www.lcfc.com/players/8456/James-Maddison/profile?tabs=Statistics
 mad_nation = str('English')
-mad_appearances = str(23) #appearances
+mad_appearances = str(24) #appearances
 mad_goals = str(6) #goals
-mad_passes = str(1113)#passes
-mad_passes_tar = str(925) #passes on target
-mad_shots = str(56) #shots
+mad_passes = str(1157)#passes
+mad_passes_tar = str(959) #passes on target
+mad_shots = str(58) #shots
 mad_shots_tar = str(16) #shots on target
 mad_assists = str(3) #
 
-mad_yellow_cards = str(2)
+mad_yellow_cards = str(3)
 mad_red_cards = str(0)
-mad_fouls = str(28)
+mad_fouls = str(30)
 mad_offside = str(4)
 
 #Marc Albighton https://www.lcfc.com/players/3564/Marc-Albrighton/profile?tabs=Statistics
@@ -344,32 +344,32 @@ alb_offside = str(1)
 
 #Harvey Barnes https://www.lcfc.com/players/14716/Harvey-Barnes/profile?tabs=Statistics
 bar_nation = str('English')
-bar_appearances = str(22) #appearances
-bar_goals = str(3) #goals
-bar_passes = str(432)#passes
-bar_passes_tar = str(340) #passes on target
-bar_shots = str(38) #shots
-bar_shots_tar = str(17) #shots on target
+bar_appearances = str(23) #appearances
+bar_goals = str(4) #goals
+bar_passes = str(456)#passes
+bar_passes_tar = str(359) #passes on target
+bar_shots = str(42) #shots
+bar_shots_tar = str(18) #shots on target
 bar_assists = str(6) #
 
 bar_yellow_cards = str(0)
 bar_red_cards = str(0)
-bar_fouls = str(15)
+bar_fouls = str(17)
 bar_offside = str(4)
 
 #Hamza Choudhury https://www.lcfc.com/players/13248/Hamza-Choudhury/profile?tabs=Statistics
 cho_nation = str('English')
-cho_appearances = str(13) #appearances
+cho_appearances = str(14) #appearances
 cho_goals = str(1) #goals
-cho_passes = str(329)#passes
-cho_passes_tar = str(287) #passes on target
-cho_shots = str(5) #shots
+cho_passes = str(374)#passes
+cho_passes_tar = str(327) #passes on target
+cho_shots = str(6) #shots
 cho_shots_tar = str(2) #shots on target
 cho_assists = str(1) #
 
 cho_yellow_cards = str(2)
 cho_red_cards = str(0)
-cho_fouls = str(7)
+cho_fouls = str(8)
 cho_offside = str(0)
 
 #Matty James https://www.lcfc.com/players/3669/Matty-James/profile?tabs=Statistics
@@ -419,41 +419,41 @@ ndi_offside = str(1)
 
 #Dennis Praet https://www.lcfc.com/players/5860/Dennis-Praet/profile?tabs=Statistics
 pra_nation = str('Belgian')
-pra_appearances = str(16) #appearances
+pra_appearances = str(17) #appearances
 pra_goals = str(1) #goals
-pra_passes = str(338)#passes
-pra_passes_tar = str(282) #passes on target
+pra_passes = str(343)#passes
+pra_passes_tar = str(286) #passes on target
 pra_shots = str(9) #shots
 pra_shots_tar = str(2) #shots on target
 pra_assists = str(2) #
 
 pra_yellow_cards = str(0)
 pra_red_cards = str(0)
-pra_fouls = str(9)
+pra_fouls = str(10)
 pra_offside = str(1)
 
 #FORWARD<-------------------------------------------------------------------------------------------
 #key stats https://www.lcfc.com/players/8979/Jamie-Vardy/profile?tabs=Statistics
 var_nation = str('English')
-var_appearances = str(22) #appearances
+var_appearances = str(23) #appearances
 var_goals = str(17) #goals
 var_left = str(7)#goals with left foot
 var_right = str(7)#goals with right foot
 var_headers = str(3)#goals with header
 var_fkick = str(0)#goals from free kicks
 var_pen = str(3)#goals from penalties
-var_shots = str(52) #shots
-var_shots_tar = str(32) #shots on target
+var_shots = str(53) #shots
+var_shots_tar = str(33) #shots on target
 var_assists = str(4) #
 
 var_yellow_cards = str(2)
 var_red_cards = str(0)
-var_fouls = str(14)
+var_fouls = str(15)
 var_offside = str(18)
 
 #key stats https://www.lcfc.com/players/13554/Kelechi-Iheanacho/profile?tabs=Statistics
 ihe_nation = str('Nigerian')
-ihe_appearances = str(8) #appearances
+ihe_appearances = str(9) #appearances
 ihe_goals = str(3) #goals
 ihe_left = str(1)#goals with left foot
 ihe_right = str(1)#goals with right foot
@@ -467,11 +467,11 @@ ihe_assists = str(3) #
 ihe_yellow_cards = str(1)
 ihe_red_cards = str(0)
 ihe_fouls = str(7)
-ihe_offside = str(6)
+ihe_offside = str(7)
 
 #key stats https://www.lcfc.com/players/10487/Ayoze-P%C3%A9rez/profile?tabs=Statistics
 per_nation = str('Spanish')
-per_appearances = str(21) #appearances
+per_appearances = str(22) #appearances
 per_goals = str(7) #goals
 per_left = str(1)#goals with left foot
 per_right = str(6)#goals with right foot
