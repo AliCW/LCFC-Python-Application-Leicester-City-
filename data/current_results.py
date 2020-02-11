@@ -1,4 +1,4 @@
-#v0.23
+#v0.24
 import sys
 import datetime
 from itertools import zip_longest
@@ -42,6 +42,7 @@ home_vs_ars = str('Leicester City 2:0 Arsenal FC')
 home_vs_ast = str('Leicester City 0:0 Aston Villa')#<-----------YET TO BE PLAYED
 home_vs_ast_carab = str('Leicester City 1:1 Aston Villa')
 home_vs_bha = str('Leicester City 0:0 Brighton Hove Albion')#<-----------YET TO BE PLAYED
+home_vs_bhc_fa = str('Leicester City 0:0 Birmingham City')#<-------------YET TO BE PLAYED
 home_vs_bou = str('Leicester City 3:1 AFC Bournemouth')
 home_vs_bur = str('Leicester City 2:1 Burnley FC')
 home_vs_che = str('Leicester City 2:2 Chelsea FC')
@@ -163,12 +164,16 @@ class latest_result_ident:
         else: result_info.fx_WolVsLei()
     def norVsLei():
         if current_time > '2020-02-29 17:30:00.000000':
-            latest_result_ident.leiVsAst()
+            latest_result_ident.leiVsBhc_FA()
         else: result_info.fx_LeiVsMnc()
+    def leiVsBhc_FA():
+        if current_time > '2020-02-04 22:15:00.000000':
+            latest_result_ident.leiVsAst()
+        else: result_info.fx_NorVsLei()
     def leiVsAst():
         if current_time > '2020-03-07 17:30:00.000000':
             latest_result_ident.watVsLei()
-        else: result_info.fx_NorVsLei()
+        else: result_info.fx_LeiVsBhc_FA()
     def watVsLei():
         if current_time > '2020-03-14 17:30:00.000000':
             latest_result_ident.leiVsBha()
@@ -770,13 +775,28 @@ class result_info:
             reverse_list += [away_vs_nor]
             #print(away_vs_nor + prem)
             result_info.fx_LeiVsMnc()
+    def fx_LeiVsBhc_FA():
+        if remain_result_yes == 0:
+            print(home_vs_bhc_fa + fa)
+            next_res0011022020 = input('\nPress N for the next game or ALL to see the remaining scores\n'
+                               'Press any other key to exit.\n').lower()
+            if next_res0011022020 == previous_result:
+                result_info.fx_NorVsLei()
+            if next_res0011022020 == all:
+                remain_result_yes_on()
+                result_info.fx_LeiVsBhc_FA()
+            else: sys.exit()
+        if remain_result_yes == 1:
+            global reverse_list
+            reverse_list += [home_vs_bhc_fa]
+            result_info.fx_NorVsLei()
     def fx_LeiVsAst():
         if remain_result_yes == 0:
             print(home_vs_ast + prem)
             next_res30 = input('\nPress N for the next game or ALL to see the remaining scores\n'
                                'Press any other key to exit.\n').lower()
             if next_res30 == previous_result:
-                result_info.fx_NorVsLei()
+                result_info.fx_LeiVsBhc_FA()
             if next_res30 == all:
                 remain_result_yes_on()
                 result_info.fx_LeiVsAst()
@@ -785,7 +805,7 @@ class result_info:
             global reverse_list
             reverse_list += [home_vs_ast]
             #print(home_vs_ast + prem)
-            result_info.fx_NorVsLei()
+            result_info.fx_LeiVsBhc_FA()
     def fx_WatVsLei():
         if remain_result_yes == 0:
             print(away_vs_wat + prem)
