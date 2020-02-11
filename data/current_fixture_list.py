@@ -1,4 +1,4 @@
-#v0.14
+#v0.15
 import sys
 import datetime
 from itertools import zip_longest
@@ -123,8 +123,12 @@ class fixture_date_id: #list of premier league fixtures only!!!
         else: fixture_info.iLeiVsMnc()
     def norVsLei():
         if current_time > '2020-02-29 17:30:00.000000':
-            fixture_date_id.leiVsAst()
+            fixture_date_id.leiVsBhc_FA()
         else: fixture_info.iNorVsLei()
+    def leiVsBhc_FA():
+        if current_time > '2020-03-04 22:15:00.000000':
+            fixture_date_id.leiVsAst()
+        else: fixture_info.iLeiVsBhc_FA()
     def leiVsAst():
         if current_time > '2020-03-07 17:30:00.000000':
             fixture_date_id.watVsLei()
@@ -630,15 +634,34 @@ class fixture_info: #get international TV schedules from https://www.livesoccert
             next_game_21 = input('\n\nPress N for the next game or ALL to see every fixture\n'
                                  'Press any other key to exit\n').lower()
             if next_game_21 == next_fix:
-                fixture_info.iLeiVsAst()
+                fixture_info.iLeiVsBhc_FA()
             if next_game_21 == all:
                 remain_yes_on()
-                fixture_info.iLeiVsAst()
+                fixture_info.iLeiVsBhc_FA()
             else: sys.exit()
         if remain_yes == 1:
             global fix_reverse_list
             fix_reverse_list += ['Norwich City Vs Leicester City']
             #print('Norwich City Vs Leicester City')
+            fixture_info.iLeiVsBhc_FA()
+
+    def iLeiVsBhc_FA():
+        if remain_yes == 0:
+            print('\nLeicester City Vs Birmingham City (F.A. Cup 4th Round)')
+            print('Home')
+            print('Kick-off: Wednesday 04/03/2020 at 19:45')
+            print('UK Broadcaster: None - N/A')
+            next_game_0011032020 = input('\n\nPress N for the next game of ALL to see every fixture\n'
+                                         'Press any other key to exit\n').lower()
+            if next_game_0011032020 == next_fix:
+                fixture_info.iLeiVsAst()
+            if next_game_0011032020 == all:
+                remain_yes_on()
+                fixture_info.iLeiVsAst()
+            else: sys.exit()
+        if remain_yes == 1:
+            global fix_reverse_list
+            fix_reverse_list += ['Leicester City Vs Birmingham City']
             fixture_info.iLeiVsAst()
 
     def iLeiVsAst():
